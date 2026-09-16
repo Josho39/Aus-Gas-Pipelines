@@ -63,7 +63,7 @@ export default function App() {
             <div className="absolute left-3 top-3 z-10 bg-panel/90 border border-line rounded-md p-3">
               <Legend />
             </div>
-            <div className="w-full h-full">
+            <div className="absolute inset-0">
               {view === "schematic" ? (
                 <SchematicMap
                   nodes={nodes}
@@ -85,7 +85,7 @@ export default function App() {
             <DetailPanel selection={selection} nodes={nodes} pipelines={pipelines} onSelect={select} onClose={clearSelection} />
           </>
         ) : (
-          <div className="h-full overflow-y-auto">
+          <div className="absolute inset-0 overflow-y-auto">
             <ContractsView data={contracts as ContractsData} search={search} />
           </div>
         )}

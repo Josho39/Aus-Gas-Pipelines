@@ -22,7 +22,7 @@ export function DetailPanel({ selection, nodes, pipelines, onSelect, onClose }: 
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: 360, opacity: 0 }}
           transition={{ duration: 0.25 }}
-          className="fixed right-0 top-0 h-full w-[360px] bg-panel border-l border-line p-5 overflow-y-auto"
+          className="absolute right-0 top-0 h-full w-[360px] bg-panel border-l border-line p-5 overflow-y-auto z-20"
         >
           <button
             aria-label="Close panel"

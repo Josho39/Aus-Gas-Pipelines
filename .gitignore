@@ -13,6 +13,7 @@ dist-ssr/
 .vite/
 *.local
 .superpowers/
+.playwright-mcp/
 
 # Editor directories and files
 .vscode/*

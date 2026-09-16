@@ -25,7 +25,7 @@ export function SchematicMap({ nodes, pipelines, selection, onSelectNode, onSele
   return (
     <TransformWrapper minScale={0.3} maxScale={4} limitToBounds={false}>
       <TransformComponent wrapperStyle={{ width: "100%", height: "100%" }}>
-        <svg viewBox={`${minX} ${minY} ${width} ${height}`} role="img" aria-label="Schematic pipeline diagram">
+        <svg viewBox={`${minX} ${minY} ${width} ${height}`} width={width} height={height} role="img" aria-label="Schematic pipeline diagram">
           {pipelines.map((pipeline) => (
             <PipelineLine
               key={pipeline.id}
