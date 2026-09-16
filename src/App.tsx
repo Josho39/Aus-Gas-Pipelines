@@ -51,11 +51,13 @@ export default function App() {
         )}
       </header>
 
-      <div className="p-3 border-b border-line">
-        <div className="max-w-md">
-          <SearchBar value={search} onChange={setSearch} />
+      {tab === "contracts" && (
+        <div className="p-3 border-b border-line">
+          <div className="max-w-md">
+            <SearchBar value={search} onChange={setSearch} />
+          </div>
         </div>
-      </div>
+      )}
 
       <main className="flex-1 relative overflow-hidden">
         {tab === "map" ? (

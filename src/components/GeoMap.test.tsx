@@ -34,4 +34,26 @@ describe("GeoMap", () => {
     fireEvent.click(screen.getByTestId("pipeline-dbp"));
     expect(onSelectPipeline).toHaveBeenCalledWith("dbp");
   });
+
+  it("projects west nodes against their own region bounds, spreading them across most of the canvas width", () => {
+    render(
+      <GeoMap
+        nodes={nodes as PipelineNode[]}
+        pipelines={pipelines as Pipeline[]}
+        selection={null}
+        onSelectNode={() => {}}
+        onSelectPipeline={() => {}}
+      />
+    );
+    const xs = (nodes as PipelineNode[]).map((n) => {
+      const circle = screen.getByTestId(`node-${n.id}`);
+      return Number(circle.getAttribute("cx"));
+    });
+    const spread = Math.max(...xs) - Math.min(...xs);
+    // GeoMap's canvas is 900 wide. Projected against the whole-continent
+    // AUSTRALIA_BOUNDS, the west dataset spans only ~18% of that (x roughly
+    // 56-219). Projected against its own computed bounds it should span the
+    // large majority of the canvas instead.
+    expect(spread).toBeGreaterThan(900 * 0.6);
+  });
 });

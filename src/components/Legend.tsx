@@ -9,6 +9,13 @@ const NODE_TYPE_LABELS: Record<keyof typeof NODE_TYPE_COLORS, string> = {
   town: "Demand centre",
 };
 
+const PIPELINE_COLOR_LABELS: Record<keyof typeof PIPELINE_COLORS, string> = {
+  teal: "Major transmission trunk line",
+  amber: "Secondary trunk / cross-connect line",
+  purple: "LNG project or interstate interconnect lateral",
+  slate: "Minor / regional lateral",
+};
+
 export function Legend() {
   return (
     <div className="text-xs text-slate-300 space-y-3">
@@ -18,9 +25,16 @@ export function Legend() {
           {Object.entries(PIPELINE_COLORS).map(([key, color]) => (
             <div key={key} className="flex items-center gap-2">
               <span className="inline-block w-4 h-0.5" style={{ backgroundColor: color }} />
-              <span className="capitalize">{key}</span>
+              <span>{PIPELINE_COLOR_LABELS[key as keyof typeof PIPELINE_COLORS]}</span>
             </div>
           ))}
+          <div className="flex items-center gap-2">
+            <span
+              className="inline-block w-4 h-0.5"
+              style={{ backgroundImage: "repeating-linear-gradient(90deg, #94a3b8 0 4px, transparent 4px 7px)" }}
+            />
+            <span>Dashed = licence / lateral line</span>
+          </div>
         </div>
       </div>
       <div>

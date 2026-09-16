@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import nodes from "./nodes.json";
 import pipelines from "./pipelines.json";
+import { PIPELINE_COLORS, NODE_TYPE_COLORS } from "../../lib/colors";
 
 describe("east region data integrity", () => {
   const nodeIds = new Set(nodes.map((n: { id: string }) => n.id));
@@ -25,5 +26,17 @@ describe("east region data integrity", () => {
   it("has no duplicate pipeline ids", () => {
     const ids = new Set(pipelines.map((p: { id: string }) => p.id));
     expect(ids.size).toBe(pipelines.length);
+  });
+
+  it("every pipeline style.color is a known PIPELINE_COLORS key", () => {
+    for (const pipeline of pipelines as { id: string; style: { color: string } }[]) {
+      expect(Object.keys(PIPELINE_COLORS)).toContain(pipeline.style.color);
+    }
+  });
+
+  it("every node type is a known NODE_TYPE_COLORS key", () => {
+    for (const node of nodes as { id: string; type: string }[]) {
+      expect(Object.keys(NODE_TYPE_COLORS)).toContain(node.type);
+    }
   });
 });
