@@ -1254,11 +1254,20 @@ interface SchematicMapProps {
   onSelectPipeline: (id: string) => void;
 }
 
+const VIEWBOX_PADDING = 80;
+
 export function SchematicMap({ nodes, pipelines, selection, onSelectNode, onSelectPipeline }: SchematicMapProps) {
+  const xs = nodes.map((n) => n.schematicPos.x);
+  const ys = nodes.map((n) => n.schematicPos.y);
+  const minX = Math.min(...xs) - VIEWBOX_PADDING;
+  const minY = Math.min(...ys) - VIEWBOX_PADDING;
+  const width = Math.max(...xs) - minX + VIEWBOX_PADDING;
+  const height = Math.max(...ys) - minY + VIEWBOX_PADDING;
+
   return (
     <TransformWrapper minScale={0.3} maxScale={4} limitToBounds={false}>
       <TransformComponent wrapperStyle={{ width: "100%", height: "100%" }}>
-        <svg viewBox="0 0 1900 2100" width={1900} height={2100} role="img" aria-label="Schematic pipeline diagram">
+        <svg viewBox={`${minX} ${minY} ${width} ${height}`} role="img" aria-label="Schematic pipeline diagram">
           {pipelines.map((pipeline) => (
             <PipelineLine
               key={pipeline.id}
