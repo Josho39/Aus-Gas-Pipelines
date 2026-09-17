@@ -45,18 +45,6 @@ export function PipelineLine({ pipeline, points, onClick, isSelected, dimmed = f
         strokeLinejoin="round"
         style={!dashed && !dimmed ? { filter: `drop-shadow(0 0 3px ${color}99)` } : undefined}
       />
-      {!dashed && !dimmed && (
-        <polyline
-          points={pointsAttr}
-          fill="none"
-          style={{ stroke: "var(--color-fg)" }}
-          strokeWidth={baseWidth}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="pipeline-flow"
-          opacity={0.6}
-        />
-      )}
     </g>
   );
 }

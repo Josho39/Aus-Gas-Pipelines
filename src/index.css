@@ -29,13 +29,3 @@ body {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.pipeline-flow {
-  stroke-dasharray: 3 46;
-  animation: flow 2.4s linear infinite;
-}
-
-@keyframes flow {
-  to {
-    stroke-dashoffset: -49;
-  }
-}
