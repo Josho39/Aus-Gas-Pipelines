@@ -227,5 +227,49 @@
       "lng": 115.64
     },
     "description": "South-west WA port city, the southern terminus of the Dampier to Bunbury Pipeline (DBP)."
+  },
+  {
+    "id": "neerabup",
+    "name": "Neerabup",
+    "type": "town",
+    "region": "west",
+    "geoPos": {
+      "lat": -31.6718,
+      "lng": 115.8032
+    },
+    "description": "Industrial and power generation precinct north of Perth, served by a lateral off the Dampier to Bunbury Pipeline (DBP)."
+  },
+  {
+    "id": "mandurah",
+    "name": "Mandurah",
+    "type": "town",
+    "region": "west",
+    "geoPos": {
+      "lat": -32.4952,
+      "lng": 115.7449
+    },
+    "description": "Coastal demand centre south of Perth, served by a lateral off the Dampier to Bunbury Pipeline (DBP)."
+  },
+  {
+    "id": "east-perth",
+    "name": "East Perth",
+    "type": "town",
+    "region": "west",
+    "geoPos": {
+      "lat": -31.8844,
+      "lng": 115.9842
+    },
+    "description": "Perth's eastern industrial and power generation corridor, served by a lateral off the Dampier to Bunbury Pipeline (DBP)."
+  },
+  {
+    "id": "kemerton",
+    "name": "Kemerton",
+    "type": "town",
+    "region": "west",
+    "geoPos": {
+      "lat": -33.1641,
+      "lng": 115.783
+    },
+    "description": "Kemerton Strategic Industrial Area near Bunbury (lithium and chemical processing), served by a lateral off the Dampier to Bunbury Pipeline (DBP)."
   }
 ]
