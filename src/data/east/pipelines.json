@@ -68,6 +68,48 @@
     ]
   },
   {
+    "id": "ballera-moomba",
+    "code": "QSN Link",
+    "name": "Ballera to Moomba QSN Link",
+    "region": "east",
+    "path": [
+      "ballera",
+      "moomba-hub"
+    ],
+    "description": "Connects the Ballera/SWQP corridor in the Cooper Basin (QLD) to the Moomba hub (SA), the critical link that ties the Queensland network (SWQP, QGP, RBP) into the rest of the NEM (MSP, MAP, EGP).",
+    "operator": "APA Group",
+    "lengthKm": 183,
+    "style": {
+      "color": "teal"
+    },
+    "route": [
+      {
+        "lat": -27.385,
+        "lng": 141.804
+      },
+      {
+        "lat": -27.576,
+        "lng": 141.206
+      },
+      {
+        "lat": -27.67,
+        "lng": 141.095
+      },
+      {
+        "lat": -27.816,
+        "lng": 140.726
+      },
+      {
+        "lat": -27.986,
+        "lng": 140.501
+      },
+      {
+        "lat": -28.122,
+        "lng": 140.205
+      }
+    ]
+  },
+  {
     "id": "qgp",
     "code": "QGP",
     "name": "Queensland Gas Pipeline",
@@ -781,5 +823,170 @@
       "color": "teal"
     },
     "operator": "APA Group"
+  },
+  {
+    "id": "moomba-gathering",
+    "code": "Moomba Gathering",
+    "name": "Moomba Field Gathering Line",
+    "region": "east",
+    "path": [
+      "moomba-plant",
+      "moomba-hub"
+    ],
+    "description": "Gathers processed gas from the Moomba Gas Plant into the Moomba Compression Facility.",
+    "style": {
+      "color": "slate",
+      "dashed": true
+    }
+  },
+  {
+    "id": "yellowbank-lateral",
+    "code": "Yellowbank Lat.",
+    "name": "Yellowbank Lateral",
+    "region": "east",
+    "path": [
+      "yellowbank",
+      "rolleston"
+    ],
+    "description": "Feeds Yellowbank field gas into the Rolleston junction on the Queensland Gas Pipeline.",
+    "style": {
+      "color": "slate",
+      "dashed": true
+    }
+  },
+  {
+    "id": "fairview-lateral",
+    "code": "Fairview Lat.",
+    "name": "Fairview Lateral",
+    "region": "east",
+    "path": [
+      "fairview",
+      "rolleston"
+    ],
+    "description": "Feeds Fairview field gas into the Rolleston junction on the Queensland Gas Pipeline.",
+    "style": {
+      "color": "slate",
+      "dashed": true
+    }
+  },
+  {
+    "id": "rockhampton-lateral",
+    "code": "Rockhampton Lat.",
+    "name": "Rockhampton Lateral",
+    "region": "east",
+    "path": [
+      "rockhampton",
+      "banana"
+    ],
+    "description": "Regional demand lateral off the Banana junction on the Queensland Gas Pipeline.",
+    "style": {
+      "color": "slate",
+      "dashed": true
+    }
+  },
+  {
+    "id": "gladstone-lateral",
+    "code": "Gladstone Lat.",
+    "name": "Gladstone Lateral",
+    "region": "east",
+    "path": [
+      "gladstone",
+      "banana"
+    ],
+    "description": "Regional demand lateral off the Banana junction on the Queensland Gas Pipeline.",
+    "style": {
+      "color": "slate",
+      "dashed": true
+    }
+  },
+  {
+    "id": "widebay-lateral",
+    "code": "Wide Bay Lat.",
+    "name": "Wide Bay Lateral",
+    "region": "east",
+    "path": [
+      "widebay",
+      "banana"
+    ],
+    "description": "Regional demand lateral off the Banana junction on the Queensland Gas Pipeline.",
+    "style": {
+      "color": "slate",
+      "dashed": true
+    }
+  },
+  {
+    "id": "scotia-lateral",
+    "code": "Scotia Lat.",
+    "name": "Scotia Lateral",
+    "region": "east",
+    "path": [
+      "scotia",
+      "wallumbilla"
+    ],
+    "description": "Feeds Scotia field gas into the Wallumbilla hub area.",
+    "style": {
+      "color": "slate",
+      "dashed": true
+    }
+  },
+  {
+    "id": "berwyndale-lateral",
+    "code": "Berwyndale Lat.",
+    "name": "Berwyndale Lateral",
+    "region": "east",
+    "path": [
+      "berwyndale",
+      "wallumbilla"
+    ],
+    "description": "Feeds Berwyndale field gas into the Wallumbilla hub area.",
+    "style": {
+      "color": "slate",
+      "dashed": true
+    }
+  },
+  {
+    "id": "talinga-lateral",
+    "code": "Talinga Lat.",
+    "name": "Talinga Lateral",
+    "region": "east",
+    "path": [
+      "talinga",
+      "wallumbilla"
+    ],
+    "description": "Feeds Talinga field gas into the Wallumbilla hub area.",
+    "style": {
+      "color": "slate",
+      "dashed": true
+    }
+  },
+  {
+    "id": "braemar-lateral",
+    "code": "Braemar Lat.",
+    "name": "Braemar Lateral",
+    "region": "east",
+    "path": [
+      "braemar",
+      "windibri"
+    ],
+    "description": "Supplies the Braemar 1 and 2 power stations off the Windibri junction on the Roma Brisbane Pipeline.",
+    "style": {
+      "color": "slate",
+      "dashed": true
+    }
+  },
+  {
+    "id": "toowoomba-lateral",
+    "code": "Toowoomba Lat.",
+    "name": "Toowoomba Lateral",
+    "region": "east",
+    "path": [
+      "toowoomba",
+      "windibri"
+    ],
+    "description": "Regional demand lateral off the Roma Brisbane Pipeline network.",
+    "style": {
+      "color": "slate",
+      "dashed": true
+    }
   }
 ]

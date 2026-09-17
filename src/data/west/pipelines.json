@@ -775,5 +775,35 @@
       }
     ],
     "operator": "APA Group"
+  },
+  {
+    "id": "wheatstone-lateral",
+    "code": "Wheatstone Lat.",
+    "name": "Wheatstone Lateral",
+    "region": "west",
+    "path": [
+      "tubridgi-wheatstone",
+      "dampier"
+    ],
+    "description": "Connects the Wheatstone LNG/domestic gas plant into the Dampier hub area.",
+    "style": {
+      "color": "slate",
+      "dashed": true
+    }
+  },
+  {
+    "id": "gorgon-lateral",
+    "code": "Gorgon Lat.",
+    "name": "Gorgon Lateral",
+    "region": "west",
+    "path": [
+      "gorgon",
+      "dampier"
+    ],
+    "description": "Connects the Gorgon LNG/domestic gas plant into the Dampier hub area.",
+    "style": {
+      "color": "slate",
+      "dashed": true
+    }
   }
 ]
