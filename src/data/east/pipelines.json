@@ -281,7 +281,7 @@
     "operator": "APA Group",
     "lengthKm": 1300,
     "style": {
-      "color": "amber"
+      "color": "teal"
     }
   },
   {
@@ -297,7 +297,7 @@
     "operator": "Epic Energy",
     "lengthKm": 781,
     "style": {
-      "color": "amber"
+      "color": "teal"
     },
     "route": [
       {
@@ -378,10 +378,9 @@
       "cooma",
       "hoskinstown",
       "act",
-      "horsley-park",
-      "syd-sttm"
+      "horsley-park"
     ],
-    "description": "Connects Gippsland Basin gas from Longford, Victoria, to Sydney, providing a second supply route into NSW independent of the Cooper Basin.",
+    "description": "Connects Gippsland Basin gas from Longford, Victoria, to Sydney, providing a second supply route into NSW independent of the Cooper Basin. Terminates at Horsley Park, itself the delivery point for the Sydney STTM (confirmed via Jemena's own pipeline documentation) rather than continuing on to a separate downstream location.",
     "operator": "Jemena",
     "lengthKm": 690,
     "style": {
@@ -612,7 +611,7 @@
     ],
     "description": "Pipeline licence lateral connecting the QGC-operated Curtis Island LNG project into the Brisbane-area network.",
     "style": {
-      "color": "purple",
+      "color": "slate",
       "dashed": true
     },
     "operator": "QGC (Shell)",
@@ -629,7 +628,7 @@
     ],
     "description": "Pipeline licence lateral connecting the APLNG Curtis Island project into the Wallumbilla hub.",
     "style": {
-      "color": "purple",
+      "color": "slate",
       "dashed": true
     },
     "operator": "APLNG (Origin / ConocoPhillips)",
@@ -807,7 +806,7 @@
     ],
     "description": "Interconnects the Victorian and NSW/Sydney gas networks via a chain of compressor stations, allowing gas to flow either direction between the two markets.",
     "style": {
-      "color": "amber",
+      "color": "slate",
       "dashed": true
     },
     "operator": "APA Group"

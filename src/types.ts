@@ -29,7 +29,7 @@ export interface PipelineNode {
   labelPosition?: "right" | "left" | "top" | "bottom";
 }
 
-export type PipelineColor = "teal" | "amber" | "purple" | "slate";
+export type PipelineColor = "teal" | "purple" | "slate";
 
 export interface Pipeline {
   id: string;

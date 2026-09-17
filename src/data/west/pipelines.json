@@ -181,7 +181,7 @@
     "operator": "APA Group",
     "lengthKm": 413,
     "style": {
-      "color": "amber"
+      "color": "teal"
     }
   },
   {
@@ -454,7 +454,7 @@
     ],
     "description": "Connects Geraldton and the Windimurra vanadium mine into the Dampier to Bunbury Pipeline network.",
     "style": {
-      "color": "amber"
+      "color": "teal"
     },
     "operator": "APA Group"
   },
@@ -484,7 +484,7 @@
     ],
     "description": "Interconnect linking the Goldfields Gas Pipeline near Newman directly through to Kalgoorlie.",
     "style": {
-      "color": "purple",
+      "color": "slate",
       "dashed": true
     },
     "operator": "APA Group",
