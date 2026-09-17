@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import { PipelineLine } from "./PipelineLine";
 import { PipelineLabel } from "./PipelineLabel";
@@ -39,40 +39,64 @@ export function GeoMap({
   onSelectPipeline,
   operatorFilter = null,
 }: GeoMapProps) {
-  const [scale, setScale] = useState(1);
+  // Whether minor (dashed/non-anchor) labels are currently shown. This is
+  // deliberately a boolean, not the raw zoom scale: react-zoom-pan-pinch's
+  // pan/zoom itself is a CSS transform applied directly to the DOM (smooth
+  // regardless of React), but `onTransform` fires on every single frame of
+  // a gesture — storing the raw scale would re-render this whole tree (and
+  // every child below) dozens of times a second while the user zooms,
+  // which is what made zooming feel janky. Storing just the
+  // threshold-crossing boolean means React's setState bails out via
+  // Object.is on every frame that doesn't cross the threshold, so a smooth
+  // zoom triggers ~0 re-renders instead of ~60/second.
+  const [labelsExpanded, setLabelsExpanded] = useState(false);
 
   // Project against this region's own extent — including real pipeline
   // route waypoints, not just facility positions, since a route can bow out
   // further than its endpoint nodes — so a region that only spans part of
   // Australia's lat/lng range still fills the canvas.
-  const bounds = computeGeoBounds([
-    ...nodes.map((n) => n.geoPos),
-    ...pipelines.flatMap((p) => p.route ?? []),
-  ]);
-
-  const projected = new Map(
-    nodes.map((n) => [n.id, projectGeo(n.geoPos.lat, n.geoPos.lng, WIDTH, HEIGHT, bounds)])
+  //
+  // All of this is memoized on [nodes, pipelines] only (never on zoom
+  // state) — it was previously recomputed from scratch on every single
+  // zoom/pan frame, which was the other half of the "zoom feels janky"
+  // problem: real main-thread work competing with the browser's transform
+  // animation.
+  const bounds = useMemo(
+    () => computeGeoBounds([...nodes.map((n) => n.geoPos), ...pipelines.flatMap((p) => p.route ?? [])]),
+    [nodes, pipelines]
   );
 
-  const coastlinePath =
-    "M " +
-    AUSTRALIA_OUTLINE.map(({ lat, lng }) => {
-      const p = projectGeo(lat, lng, WIDTH, HEIGHT, bounds);
-      return `${p.x} ${p.y}`;
-    }).join(" L ") +
-    " Z";
+  const projected = useMemo(
+    () => new Map(nodes.map((n) => [n.id, projectGeo(n.geoPos.lat, n.geoPos.lng, WIDTH, HEIGHT, bounds)])),
+    [nodes, bounds]
+  );
+
+  const coastlinePath = useMemo(
+    () =>
+      "M " +
+      AUSTRALIA_OUTLINE.map(({ lat, lng }) => {
+        const p = projectGeo(lat, lng, WIDTH, HEIGHT, bounds);
+        return `${p.x} ${p.y}`;
+      }).join(" L ") +
+      " Z",
+    [bounds]
+  );
 
   // Real route geometry (from Geoscience Australia's pipeline dataset) when
   // we have it; otherwise fall back to straight segments through the
   // pipeline's named facility nodes. Computed once and shared by both the
   // line itself and its label, so the label always tracks its own line.
-  const pipelinePoints = new Map(
-    pipelines.map((pipeline) => [
-      pipeline.id,
-      pipeline.route
-        ? pipeline.route.map((p) => projectGeo(p.lat, p.lng, WIDTH, HEIGHT, bounds))
-        : getConnectedNodes(pipeline, nodes).map((n) => projected.get(n.id)!),
-    ])
+  const pipelinePoints = useMemo(
+    () =>
+      new Map(
+        pipelines.map((pipeline) => [
+          pipeline.id,
+          pipeline.route
+            ? pipeline.route.map((p) => projectGeo(p.lat, p.lng, WIDTH, HEIGHT, bounds))
+            : getConnectedNodes(pipeline, nodes).map((n) => projected.get(n.id)!),
+        ])
+      ),
+    [pipelines, nodes, bounds, projected]
   );
 
   return (
@@ -84,7 +108,7 @@ export function GeoMap({
       wheel={{ step: 0.15 }}
       doubleClick={{ step: 0.7, animationTime: 200 }}
       panning={{ velocityDisabled: false }}
-      onTransform={(_ref, state) => setScale(state.scale)}
+      onTransform={(_ref, state) => setLabelsExpanded(state.scale >= LABEL_ZOOM_THRESHOLD)}
     >
       <MapZoomControls />
       <TransformComponent wrapperStyle={{ width: "100%", height: "100%" }} contentStyle={{ width: "100%", height: "100%" }}>
@@ -95,7 +119,6 @@ export function GeoMap({
           role="img"
           aria-label="Geographic pipeline map"
         >
-          <rect x={0} y={0} width={WIDTH} height={HEIGHT} fill="#0e1830" stroke="#1c2a45" strokeDasharray="4 6" />
           <path d={coastlinePath} fill="#1c2a45" fillOpacity={0.35} stroke="#324566" strokeWidth={1.5} />
           {pipelines.map((pipeline) => (
             <PipelineLine
@@ -118,7 +141,7 @@ export function GeoMap({
                 y={pos.y}
                 onClick={onSelectNode}
                 isSelected={isSelected}
-                showLabel={ALWAYS_LABELLED.has(node.type) || scale >= LABEL_ZOOM_THRESHOLD}
+                showLabel={ALWAYS_LABELLED.has(node.type) || labelsExpanded}
               />
             );
           })}
@@ -126,7 +149,7 @@ export function GeoMap({
             // Trunk lines (solid) are always named; minor dashed laterals
             // only get a name label once the viewer zooms in, same rule as
             // minor facility labels — keeps the default view uncluttered.
-            const showLabel = !pipeline.style.dashed || scale >= LABEL_ZOOM_THRESHOLD;
+            const showLabel = !pipeline.style.dashed || labelsExpanded;
             if (!showLabel) return null;
             return (
               <PipelineLabel

@@ -97,7 +97,7 @@ export default function App() {
                 <OperatorFilter operators={operators} active={operatorFilter} onChange={setOperatorFilter} />
               </div>
             )}
-            <div className="absolute inset-0">
+            <div className="absolute inset-0" style={{ backgroundColor: "#0a0f1c" }}>
               <GeoMap
                 nodes={nodes}
                 pipelines={pipelines}
