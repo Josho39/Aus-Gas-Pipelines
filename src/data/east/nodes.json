@@ -778,5 +778,38 @@
       "lng": 150.9291
     },
     "description": "New England NSW regional centre at the northern end of the Central Ranges Pipeline."
+  },
+  {
+    "id": "mount-isa",
+    "name": "Mount Isa",
+    "type": "town",
+    "region": "east",
+    "geoPos": {
+      "lat": -20.7806,
+      "lng": 139.4842
+    },
+    "description": "North-west Queensland mining town, northern terminus of the Carpentaria Gas Pipeline."
+  },
+  {
+    "id": "cannington",
+    "name": "Cannington Mine",
+    "type": "plant",
+    "region": "east",
+    "geoPos": {
+      "lat": -21.8641,
+      "lng": 140.9099
+    },
+    "description": "South32 silver-lead-zinc mine served by the Cannington Lateral off the Carpentaria Gas Pipeline."
+  },
+  {
+    "id": "cannington-junction",
+    "name": "Cannington Junction (CGP)",
+    "type": "compressor",
+    "region": "east",
+    "geoPos": {
+      "lat": -22.2594,
+      "lng": 140.1055
+    },
+    "description": "Where the Cannington Lateral taps off the Carpentaria Gas Pipeline (CGP) mainline."
   }
 ]

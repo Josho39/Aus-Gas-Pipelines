@@ -167,7 +167,7 @@
   },
   {
     "id": "msf",
-    "name": "MSF",
+    "name": "Mondarra Gas Storage Facility",
     "type": "hub",
     "region": "west",
     "schematicPos": {
@@ -175,10 +175,10 @@
       "y": 530
     },
     "geoPos": {
-      "lat": -28,
-      "lng": 116
+      "lat": -29.406,
+      "lng": 115.1393
     },
-    "description": "Metering/supply facility on the Dampier to Bunbury Pipeline (DBP) where the Mid West Pipeline and Parmelia Gas Pipeline (PGP) connect into the main trunk line.",
+    "description": "APA-operated underground gas storage and processing facility near Dongara, WA (Mondarra Gas Storage Facility) - where the Mid West Pipeline and Parmelia Gas Pipeline (PGP) connect into the Dampier to Bunbury Pipeline (DBP) trunk line.",
     "labelPosition": "top"
   },
   {
@@ -271,5 +271,38 @@
       "lng": 115.783
     },
     "description": "Kemerton Strategic Industrial Area near Bunbury (lithium and chemical processing), served by a lateral off the Dampier to Bunbury Pipeline (DBP)."
+  },
+  {
+    "id": "ngi-ggp-junction",
+    "name": "NGI Junction (Leinster area)",
+    "type": "compressor",
+    "region": "west",
+    "geoPos": {
+      "lat": -28.2353,
+      "lng": 120.8114
+    },
+    "description": "Where the Northern Goldfields Interconnect ties into the Goldfields Gas Pipeline (GGP), near Leinster/Leonora."
+  },
+  {
+    "id": "yarraloola",
+    "name": "Yarraloola",
+    "type": "hub",
+    "region": "west",
+    "geoPos": {
+      "lat": -21.4414,
+      "lng": 115.9587
+    },
+    "description": "Compressor station in the Pilbara where the Goldfields Gas Pipeline (GGP) actually begins, upstream of and separate from the Dampier hub."
+  },
+  {
+    "id": "ggp-newman-junction",
+    "name": "Newman Junction (GGP)",
+    "type": "compressor",
+    "region": "west",
+    "geoPos": {
+      "lat": -23.7172,
+      "lng": 119.5472
+    },
+    "description": "Where the Mt Newman Lateral taps off the Goldfields Gas Pipeline (GGP) mainline."
   }
 ]
