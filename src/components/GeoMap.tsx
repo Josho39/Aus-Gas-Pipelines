@@ -218,7 +218,7 @@ export function GeoMap({
             // Trunk lines (solid) are always named; minor dashed laterals
             // only get a name label once the viewer zooms in, same rule as
             // minor facility labels, keeps the default view uncluttered.
-            const showLabel = !pipeline.style.dashed || labelTier >= 1;
+            const showLabel = !pipeline.hideLabel && (!pipeline.style.dashed || labelTier >= 1);
             if (!showLabel) return null;
             return (
               <PipelineLabel

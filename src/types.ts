@@ -47,6 +47,12 @@ export interface Pipeline {
    * absent, the geographic view falls back to straight segments through
    * `path`'s named facility nodes. */
   route?: { lat: number; lng: number }[];
+  /** Never show this pipeline's name label, at any zoom level. For a
+   * cluster of short laterals feeding into the same hub (e.g. the CSG
+   * gathering laterals around Wallumbilla) where even at full zoom there
+   * isn't room for every one of their names without them piling on top of
+   * each other. The line itself still renders and is still clickable. */
+  hideLabel?: boolean;
 }
 
 export type Selection = { kind: "node" | "pipeline"; id: string } | null;

@@ -598,7 +598,8 @@
       "color": "slate",
       "dashed": true
     },
-    "operator": "APA Group"
+    "operator": "APA Group",
+    "hideLabel": true
   },
   {
     "id": "ppl133",
@@ -614,7 +615,8 @@
       "color": "purple",
       "dashed": true
     },
-    "operator": "QGC (Shell)"
+    "operator": "QGC (Shell)",
+    "hideLabel": true
   },
   {
     "id": "ppl134",
@@ -630,7 +632,8 @@
       "color": "purple",
       "dashed": true
     },
-    "operator": "APLNG (Origin / ConocoPhillips)"
+    "operator": "APLNG (Origin / ConocoPhillips)",
+    "hideLabel": true
   },
   {
     "id": "pca",
@@ -912,7 +915,8 @@
     "style": {
       "color": "slate",
       "dashed": true
-    }
+    },
+    "hideLabel": true
   },
   {
     "id": "berwyndale-lateral",
@@ -927,7 +931,8 @@
     "style": {
       "color": "slate",
       "dashed": true
-    }
+    },
+    "hideLabel": true
   },
   {
     "id": "talinga-lateral",
@@ -942,7 +947,8 @@
     "style": {
       "color": "slate",
       "dashed": true
-    }
+    },
+    "hideLabel": true
   },
   {
     "id": "braemar-lateral",
