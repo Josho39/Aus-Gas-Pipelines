@@ -483,7 +483,8 @@
       "lat": -33.83,
       "lng": 150.9
     },
-    "description": "Sydney-area distribution hub connected to the Eastern Gas Pipeline (EGP)."
+    "description": "Sydney-area distribution hub connected to the Eastern Gas Pipeline (EGP).",
+    "labelPosition": "left"
   },
   {
     "id": "act",

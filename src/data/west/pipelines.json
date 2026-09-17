@@ -879,7 +879,8 @@
         "lat": -31.6718,
         "lng": 115.8032
       }
-    ]
+    ],
+    "hideLabel": true
   },
   {
     "id": "mandurah-lateral",
@@ -1065,7 +1066,8 @@
         "lat": -32.4952,
         "lng": 115.7449
       }
-    ]
+    ],
+    "hideLabel": true
   },
   {
     "id": "east-perth-lateral",
@@ -1203,7 +1205,8 @@
         "lat": -31.8844,
         "lng": 115.9842
       }
-    ]
+    ],
+    "hideLabel": true
   },
   {
     "id": "kemerton-lateral",
@@ -1241,6 +1244,7 @@
         "lat": -33.1641,
         "lng": 115.783
       }
-    ]
+    ],
+    "hideLabel": true
   }
 ]

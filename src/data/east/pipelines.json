@@ -1164,17 +1164,7 @@
     "style": {
       "color": "slate",
       "dashed": true
-    },
-    "route": [
-      {
-        "lat": -33.306,
-        "lng": 149.097
-      },
-      {
-        "lat": -33.517,
-        "lng": 149.145
-      }
-    ]
+    }
   },
   {
     "id": "young-dubbo",

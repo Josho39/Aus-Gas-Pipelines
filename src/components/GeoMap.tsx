@@ -131,15 +131,47 @@ export function GeoMap({
   // we have it; otherwise fall back to straight segments through the
   // pipeline's named facility nodes. Computed once and shared by both the
   // line itself and its label, so the label always tracks its own line.
+  //
+  // Two corrections applied to raw route data:
+  //  1. Some GA routes are stored in the opposite direction to our `path`
+  //     list (e.g. SWQP's route runs Wallumbilla-to-Ballera even though
+  //     `path` lists Ballera first) - reverse it when that orientation is
+  //     the closer match, so it doesn't draw a nonsensical line jumping
+  //     across the map to the wrong end first.
+  //  2. A route's first/last point is snapped to its own endpoint node's
+  //     actual position rather than trusted as-is: GA's surveyed route data
+  //     doesn't always reach all the way to the facility we've placed a
+  //     marker at (EGP's real route, for one, ends ~65km short of the
+  //     Horsley Park node), which otherwise renders as a line that visually
+  //     stops in mid-air short of its own destination dot. Snapping is a
+  //     no-op when the route already ends at the node (the extra point is
+  //     coincident, invisible).
   const pipelinePoints = useMemo(
     () =>
       new Map(
-        pipelines.map((pipeline) => [
-          pipeline.id,
-          pipeline.route
-            ? pipeline.route.map((p) => projectGeo(p.lat, p.lng, mapWidth, mapHeight, bounds))
-            : getConnectedNodes(pipeline, nodes).map((n) => projected.get(n.id)!),
-        ])
+        pipelines.map((pipeline) => {
+          const pathNodes = getConnectedNodes(pipeline, nodes);
+          if (!pipeline.route) {
+            return [pipeline.id, pathNodes.map((n) => projected.get(n.id)!)];
+          }
+          const firstNode = pathNodes[0];
+          const lastNode = pathNodes[pathNodes.length - 1];
+          const routeGeo = pipeline.route;
+          const sqDist = (a: { lat: number; lng: number }, b: { lat: number; lng: number }) =>
+            (a.lat - b.lat) ** 2 + (a.lng - b.lng) ** 2;
+          let route = routeGeo;
+          if (firstNode && lastNode && routeGeo.length > 1) {
+            const normal = sqDist(firstNode.geoPos, routeGeo[0]) + sqDist(lastNode.geoPos, routeGeo[routeGeo.length - 1]);
+            const reversed = sqDist(firstNode.geoPos, routeGeo[routeGeo.length - 1]) + sqDist(lastNode.geoPos, routeGeo[0]);
+            if (reversed < normal) route = [...routeGeo].reverse();
+          }
+          const points = route.map((p) => projectGeo(p.lat, p.lng, mapWidth, mapHeight, bounds));
+          const first = firstNode && projected.get(firstNode.id);
+          const last = lastNode && projected.get(lastNode.id);
+          if (first) points.unshift(first);
+          if (last) points.push(last);
+          return [pipeline.id, points];
+        })
       ),
     [pipelines, nodes, bounds, mapWidth, mapHeight, projected]
   );
