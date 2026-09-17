@@ -1,15 +1,785 @@
 [
-  { "id": "swqp", "code": "SWQP", "name": "South West Queensland Pipeline", "region": "east", "path": ["ballera", "gooimbah", "wallumbilla"], "description": "Carries Cooper Basin gas from Ballera east to the Wallumbilla hub — historically the main link between Cooper Basin (SA/QLD) supply and the Queensland east coast market.", "operator": "APA Group", "lengthKm": 813, "capacity": "~130 TJ/day", "style": { "color": "teal" } },
-  { "id": "qgp", "code": "QGP", "name": "Queensland Gas Pipeline", "region": "east", "path": ["gooimbah", "rolleston", "banana", "glng"], "description": "Runs north from the Wallumbilla area through Rolleston and Banana to the Gladstone/Curtis Island LNG precinct.", "operator": "APA Group", "lengthKm": 627, "style": { "color": "teal" } },
-  { "id": "rbp", "code": "RBP", "name": "Roma Brisbane Pipeline", "region": "east", "path": ["wallumbilla", "condamine", "windibri", "argyle", "dalby", "oakey", "ellengrove", "bri-sttm"], "description": "Delivers gas from the Wallumbilla hub east to Brisbane, passing through Dalby and Oakey — the primary supply route for South East Queensland.", "operator": "APA Group", "lengthKm": 438, "style": { "color": "teal" } },
-  { "id": "msp", "code": "MSP", "name": "Moomba Sydney Pipeline", "region": "east", "path": ["moomba-hub", "bella-park", "young", "wilton", "syd-sttm"], "description": "Carries Cooper Basin gas from Moomba to the Sydney market — one of the two original NEM east coast trunk lines.", "operator": "APA Group", "lengthKm": 1300, "style": { "color": "amber" } },
-  { "id": "map", "code": "MAP", "name": "Moomba Adelaide Pipeline", "region": "east", "path": ["moomba-hub", "adl-sttm"], "description": "Carries Cooper Basin gas from Moomba south to Adelaide.", "operator": "APA Group", "lengthKm": 1176, "style": { "color": "amber" } },
-  { "id": "egp", "code": "EGP", "name": "Eastern Gas Pipeline", "region": "east", "path": ["longford", "orbost", "bombala", "cooma", "hoskinstown", "act", "horsley-park", "syd-sttm"], "description": "Connects Gippsland Basin gas from Longford, Victoria, to Sydney, providing a second supply route into NSW independent of the Cooper Basin.", "operator": "APA Group", "lengthKm": 797, "style": { "color": "teal" } },
-  { "id": "tgp", "code": "TGP", "name": "Tasmanian Gas Pipeline", "region": "east", "path": ["longford", "bell-bay"], "description": "Subsea pipeline carrying Gippsland Basin gas under Bass Strait from Longford to Bell Bay, Tasmania — Tasmania's only mainland gas connection.", "operator": "Tasmanian Gas Pipeline Pty Ltd", "lengthKm": 290, "style": { "color": "purple" } },
-  { "id": "ppl90", "code": "PPL 90", "name": "Wallumbilla Lateral (PPL 90)", "region": "east", "path": ["wallumbilla", "gooimbah"], "description": "Pipeline licence lateral linking the Wallumbilla hub trading points into the SWQP/QGP corridor.", "style": { "color": "slate", "dashed": true } },
-  { "id": "ppl133", "code": "PPL 133", "name": "QGC Lateral (PPL 133)", "region": "east", "path": ["ellengrove", "qgc"], "description": "Pipeline licence lateral connecting the QGC-operated Curtis Island LNG project into the Brisbane-area network.", "style": { "color": "purple", "dashed": true } },
-  { "id": "ppl134", "code": "PPL 134", "name": "APLNG Lateral (PPL 134)", "region": "east", "path": ["wallumbilla", "aplng"], "description": "Pipeline licence lateral connecting the APLNG Curtis Island project into the Wallumbilla hub.", "style": { "color": "purple", "dashed": true } },
-  { "id": "pca", "code": "PCA", "name": "SEA Gas Pipeline", "region": "east", "path": ["iona", "adl-sttm"], "description": "Carries gas from the Otway Basin (via Iona) in Victoria west to Adelaide, giving South Australia an alternative supply source to the Moomba Adelaide Pipeline.", "operator": "SEA Gas Pty Ltd", "lengthKm": 680, "style": { "color": "teal" } },
-  { "id": "vic-nsw-interconnect", "code": "Vic-NSW", "name": "Victoria-NSW Interconnect", "region": "east", "path": ["wollert-cs", "eurora-cs", "springhurst-cs", "culcairn", "young"], "description": "Interconnects the Victorian and NSW/Sydney gas networks via a chain of compressor stations, allowing gas to flow either direction between the two markets.", "style": { "color": "amber", "dashed": true } },
-  { "id": "swp", "code": "SWP", "name": "South West Pipeline (Otway–Melbourne)", "region": "east", "path": ["iona", "melbourne"], "description": "Delivers Otway Basin gas from the Iona storage/processing hub to the Melbourne network.", "style": { "color": "teal" } }
+  {
+    "id": "swqp",
+    "code": "SWQP",
+    "name": "South West Queensland Pipeline",
+    "region": "east",
+    "path": [
+      "ballera",
+      "gooimbah",
+      "wallumbilla"
+    ],
+    "description": "Carries Cooper Basin gas from Ballera east to the Wallumbilla hub — historically the main link between Cooper Basin (SA/QLD) supply and the Queensland east coast market.",
+    "operator": "APA Group",
+    "lengthKm": 753,
+    "capacity": "~130 TJ/day",
+    "style": {
+      "color": "teal"
+    },
+    "route": [
+      {
+        "lat": -26.692,
+        "lng": 149.183
+      },
+      {
+        "lat": -26.683,
+        "lng": 147.651
+      },
+      {
+        "lat": -26.611,
+        "lng": 146.539
+      },
+      {
+        "lat": -26.642,
+        "lng": 146.178
+      },
+      {
+        "lat": -26.834,
+        "lng": 144.883
+      },
+      {
+        "lat": -26.843,
+        "lng": 144.543
+      },
+      {
+        "lat": -26.946,
+        "lng": 143.77
+      },
+      {
+        "lat": -26.97,
+        "lng": 143.217
+      },
+      {
+        "lat": -27.115,
+        "lng": 142.57
+      },
+      {
+        "lat": -27.28,
+        "lng": 142.356
+      },
+      {
+        "lat": -27.332,
+        "lng": 142.22
+      },
+      {
+        "lat": -27.398,
+        "lng": 141.818
+      }
+    ]
+  },
+  {
+    "id": "qgp",
+    "code": "QGP",
+    "name": "Queensland Gas Pipeline",
+    "region": "east",
+    "path": [
+      "gooimbah",
+      "rolleston",
+      "banana",
+      "glng"
+    ],
+    "description": "Runs north from the Wallumbilla area through Rolleston and Banana to the Gladstone/Curtis Island LNG precinct.",
+    "operator": "APA Group",
+    "lengthKm": 518,
+    "style": {
+      "color": "teal"
+    },
+    "route": [
+      {
+        "lat": -26.69,
+        "lng": 149.184
+      },
+      {
+        "lat": -25.932,
+        "lng": 148.794
+      },
+      {
+        "lat": -25.753,
+        "lng": 148.655
+      },
+      {
+        "lat": -25.635,
+        "lng": 148.675
+      },
+      {
+        "lat": -25.41,
+        "lng": 148.619
+      },
+      {
+        "lat": -25.236,
+        "lng": 148.697
+      },
+      {
+        "lat": -24.711,
+        "lng": 148.843
+      },
+      {
+        "lat": -24.421,
+        "lng": 149.838
+      },
+      {
+        "lat": -24.266,
+        "lng": 150.516
+      },
+      {
+        "lat": -24.117,
+        "lng": 150.756
+      },
+      {
+        "lat": -24.046,
+        "lng": 150.948
+      },
+      {
+        "lat": -23.883,
+        "lng": 151.014
+      },
+      {
+        "lat": -23.827,
+        "lng": 151.145
+      },
+      {
+        "lat": -23.788,
+        "lng": 151.149
+      }
+    ]
+  },
+  {
+    "id": "rbp",
+    "code": "RBP",
+    "name": "Roma Brisbane Pipeline",
+    "region": "east",
+    "path": [
+      "wallumbilla",
+      "condamine",
+      "windibri",
+      "argyle",
+      "dalby",
+      "oakey",
+      "ellengrove",
+      "bri-sttm"
+    ],
+    "description": "Delivers gas from the Wallumbilla hub east to Brisbane, passing through Dalby and Oakey — the primary supply route for South East Queensland.",
+    "operator": "APA Group",
+    "lengthKm": 440,
+    "style": {
+      "color": "teal"
+    },
+    "route": [
+      {
+        "lat": -26.694,
+        "lng": 149.186
+      },
+      {
+        "lat": -26.794,
+        "lng": 149.627
+      },
+      {
+        "lat": -26.873,
+        "lng": 149.68
+      },
+      {
+        "lat": -26.886,
+        "lng": 149.733
+      },
+      {
+        "lat": -26.922,
+        "lng": 150.083
+      },
+      {
+        "lat": -27.122,
+        "lng": 151.101
+      },
+      {
+        "lat": -27.504,
+        "lng": 151.827
+      },
+      {
+        "lat": -27.544,
+        "lng": 152.171
+      },
+      {
+        "lat": -27.508,
+        "lng": 152.392
+      },
+      {
+        "lat": -27.525,
+        "lng": 152.55
+      },
+      {
+        "lat": -27.581,
+        "lng": 152.84
+      },
+      {
+        "lat": -27.637,
+        "lng": 152.905
+      },
+      {
+        "lat": -27.575,
+        "lng": 153.088
+      },
+      {
+        "lat": -27.437,
+        "lng": 153.125
+      }
+    ]
+  },
+  {
+    "id": "msp",
+    "code": "MSP",
+    "name": "Moomba Sydney Pipeline",
+    "region": "east",
+    "path": [
+      "moomba-hub",
+      "bella-park",
+      "young",
+      "wilton",
+      "syd-sttm"
+    ],
+    "description": "Carries Cooper Basin gas from Moomba to the Sydney market — one of the two original NEM east coast trunk lines.",
+    "operator": "APA Group",
+    "lengthKm": 1300,
+    "style": {
+      "color": "amber"
+    }
+  },
+  {
+    "id": "map",
+    "code": "MAP",
+    "name": "Moomba Adelaide Pipeline",
+    "region": "east",
+    "path": [
+      "moomba-hub",
+      "adl-sttm"
+    ],
+    "description": "Carries Cooper Basin gas from Moomba south to Adelaide.",
+    "operator": "Epic Energy",
+    "lengthKm": 781,
+    "style": {
+      "color": "amber"
+    },
+    "route": [
+      {
+        "lat": -28.116,
+        "lng": 140.206
+      },
+      {
+        "lat": -28.731,
+        "lng": 140.037
+      },
+      {
+        "lat": -29.336,
+        "lng": 140.011
+      },
+      {
+        "lat": -29.81,
+        "lng": 139.887
+      },
+      {
+        "lat": -30.9,
+        "lng": 139.396
+      },
+      {
+        "lat": -31.735,
+        "lng": 139.344
+      },
+      {
+        "lat": -31.857,
+        "lng": 139.308
+      },
+      {
+        "lat": -31.976,
+        "lng": 139.209
+      },
+      {
+        "lat": -32.219,
+        "lng": 139.089
+      },
+      {
+        "lat": -33.333,
+        "lng": 138.761
+      },
+      {
+        "lat": -33.871,
+        "lng": 138.752
+      },
+      {
+        "lat": -34.146,
+        "lng": 138.634
+      },
+      {
+        "lat": -34.661,
+        "lng": 138.621
+      },
+      {
+        "lat": -34.725,
+        "lng": 138.58
+      },
+      {
+        "lat": -34.825,
+        "lng": 138.59
+      },
+      {
+        "lat": -34.805,
+        "lng": 138.52
+      }
+    ]
+  },
+  {
+    "id": "egp",
+    "code": "EGP",
+    "name": "Eastern Gas Pipeline",
+    "region": "east",
+    "path": [
+      "longford",
+      "orbost",
+      "bombala",
+      "cooma",
+      "hoskinstown",
+      "act",
+      "horsley-park",
+      "syd-sttm"
+    ],
+    "description": "Connects Gippsland Basin gas from Longford, Victoria, to Sydney, providing a second supply route into NSW independent of the Cooper Basin.",
+    "operator": "Jemena",
+    "lengthKm": 690,
+    "style": {
+      "color": "teal"
+    },
+    "route": [
+      {
+        "lat": -38.209,
+        "lng": 147.164
+      },
+      {
+        "lat": -38.022,
+        "lng": 147.174
+      },
+      {
+        "lat": -37.773,
+        "lng": 147.663
+      },
+      {
+        "lat": -37.735,
+        "lng": 147.852
+      },
+      {
+        "lat": -37.758,
+        "lng": 147.932
+      },
+      {
+        "lat": -37.729,
+        "lng": 148.082
+      },
+      {
+        "lat": -37.755,
+        "lng": 148.191
+      },
+      {
+        "lat": -37.741,
+        "lng": 148.443
+      },
+      {
+        "lat": -37.683,
+        "lng": 148.803
+      },
+      {
+        "lat": -37.547,
+        "lng": 148.938
+      },
+      {
+        "lat": -37.579,
+        "lng": 148.986
+      },
+      {
+        "lat": -37.561,
+        "lng": 149.099
+      },
+      {
+        "lat": -37.457,
+        "lng": 149.19
+      },
+      {
+        "lat": -37.35,
+        "lng": 149.204
+      },
+      {
+        "lat": -37.223,
+        "lng": 149.168
+      },
+      {
+        "lat": -37.101,
+        "lng": 149.212
+      },
+      {
+        "lat": -37.008,
+        "lng": 149.186
+      },
+      {
+        "lat": -36.797,
+        "lng": 149.281
+      },
+      {
+        "lat": -36.577,
+        "lng": 149.285
+      },
+      {
+        "lat": -36.278,
+        "lng": 149.172
+      },
+      {
+        "lat": -35.974,
+        "lng": 149.143
+      },
+      {
+        "lat": -35.818,
+        "lng": 149.179
+      },
+      {
+        "lat": -35.744,
+        "lng": 149.164
+      },
+      {
+        "lat": -35.566,
+        "lng": 149.234
+      },
+      {
+        "lat": -35.54,
+        "lng": 149.329
+      },
+      {
+        "lat": -35.424,
+        "lng": 149.404
+      },
+      {
+        "lat": -35.383,
+        "lng": 149.5
+      },
+      {
+        "lat": -35.333,
+        "lng": 149.538
+      },
+      {
+        "lat": -35.18,
+        "lng": 149.971
+      },
+      {
+        "lat": -35.088,
+        "lng": 150.119
+      },
+      {
+        "lat": -35.106,
+        "lng": 150.363
+      },
+      {
+        "lat": -35.022,
+        "lng": 150.477
+      },
+      {
+        "lat": -34.828,
+        "lng": 150.582
+      },
+      {
+        "lat": -34.755,
+        "lng": 150.71
+      },
+      {
+        "lat": -34.744,
+        "lng": 150.815
+      },
+      {
+        "lat": -34.51,
+        "lng": 150.771
+      },
+      {
+        "lat": -34.421,
+        "lng": 150.815
+      }
+    ]
+  },
+  {
+    "id": "tgp",
+    "code": "TGP",
+    "name": "Tasmanian Gas Pipeline",
+    "region": "east",
+    "path": [
+      "longford",
+      "bell-bay"
+    ],
+    "description": "Subsea pipeline carrying Gippsland Basin gas under Bass Strait from Longford to Bell Bay, Tasmania — Tasmania's only mainland gas connection.",
+    "operator": "Tasmanian Gas Pipeline Pty Ltd",
+    "lengthKm": 323,
+    "style": {
+      "color": "purple"
+    },
+    "route": [
+      {
+        "lat": -38.208,
+        "lng": 147.158
+      },
+      {
+        "lat": -38.233,
+        "lng": 147.154
+      },
+      {
+        "lat": -38.259,
+        "lng": 147.208
+      },
+      {
+        "lat": -38.387,
+        "lng": 147.214
+      },
+      {
+        "lat": -38.498,
+        "lng": 147.301
+      },
+      {
+        "lat": -39.465,
+        "lng": 147.035
+      },
+      {
+        "lat": -41.033,
+        "lng": 146.893
+      }
+    ]
+  },
+  {
+    "id": "ppl90",
+    "code": "PPL 90",
+    "name": "Wallumbilla Lateral (PPL 90)",
+    "region": "east",
+    "path": [
+      "wallumbilla",
+      "gooimbah"
+    ],
+    "description": "Pipeline licence lateral linking the Wallumbilla hub trading points into the SWQP/QGP corridor.",
+    "style": {
+      "color": "slate",
+      "dashed": true
+    },
+    "operator": "APA Group"
+  },
+  {
+    "id": "ppl133",
+    "code": "PPL 133",
+    "name": "QGC Lateral (PPL 133)",
+    "region": "east",
+    "path": [
+      "ellengrove",
+      "qgc"
+    ],
+    "description": "Pipeline licence lateral connecting the QGC-operated Curtis Island LNG project into the Brisbane-area network.",
+    "style": {
+      "color": "purple",
+      "dashed": true
+    },
+    "operator": "QGC (Shell)"
+  },
+  {
+    "id": "ppl134",
+    "code": "PPL 134",
+    "name": "APLNG Lateral (PPL 134)",
+    "region": "east",
+    "path": [
+      "wallumbilla",
+      "aplng"
+    ],
+    "description": "Pipeline licence lateral connecting the APLNG Curtis Island project into the Wallumbilla hub.",
+    "style": {
+      "color": "purple",
+      "dashed": true
+    },
+    "operator": "APLNG (Origin / ConocoPhillips)"
+  },
+  {
+    "id": "pca",
+    "code": "PCA",
+    "name": "SEA Gas Pipeline",
+    "region": "east",
+    "path": [
+      "iona",
+      "adl-sttm"
+    ],
+    "description": "Carries gas from the Otway Basin (via Iona) in Victoria west to Adelaide, giving South Australia an alternative supply source to the Moomba Adelaide Pipeline.",
+    "operator": "SEA Gas Pty Ltd",
+    "lengthKm": 677,
+    "style": {
+      "color": "teal"
+    },
+    "route": [
+      {
+        "lat": -38.573,
+        "lng": 143.033
+      },
+      {
+        "lat": -38.56,
+        "lng": 142.918
+      },
+      {
+        "lat": -38.094,
+        "lng": 142.189
+      },
+      {
+        "lat": -38.062,
+        "lng": 142.053
+      },
+      {
+        "lat": -37.842,
+        "lng": 141.768
+      },
+      {
+        "lat": -37.791,
+        "lng": 141.62
+      },
+      {
+        "lat": -37.625,
+        "lng": 141.446
+      },
+      {
+        "lat": -37.599,
+        "lng": 141.364
+      },
+      {
+        "lat": -37.499,
+        "lng": 141.333
+      },
+      {
+        "lat": -37.393,
+        "lng": 141.217
+      },
+      {
+        "lat": -37.316,
+        "lng": 141.186
+      },
+      {
+        "lat": -37.032,
+        "lng": 140.895
+      },
+      {
+        "lat": -36.923,
+        "lng": 140.833
+      },
+      {
+        "lat": -36.862,
+        "lng": 140.744
+      },
+      {
+        "lat": -36.771,
+        "lng": 140.71
+      },
+      {
+        "lat": -36.679,
+        "lng": 140.611
+      },
+      {
+        "lat": -36.542,
+        "lng": 140.536
+      },
+      {
+        "lat": -36.415,
+        "lng": 140.385
+      },
+      {
+        "lat": -36.151,
+        "lng": 140.226
+      },
+      {
+        "lat": -36.039,
+        "lng": 140.099
+      },
+      {
+        "lat": -35.875,
+        "lng": 139.99
+      },
+      {
+        "lat": -35.615,
+        "lng": 139.719
+      },
+      {
+        "lat": -35.413,
+        "lng": 139.599
+      },
+      {
+        "lat": -35.331,
+        "lng": 139.521
+      },
+      {
+        "lat": -35.161,
+        "lng": 139.254
+      },
+      {
+        "lat": -34.977,
+        "lng": 139.222
+      },
+      {
+        "lat": -34.795,
+        "lng": 139.148
+      },
+      {
+        "lat": -34.643,
+        "lng": 138.903
+      },
+      {
+        "lat": -34.605,
+        "lng": 138.783
+      },
+      {
+        "lat": -34.659,
+        "lng": 138.724
+      },
+      {
+        "lat": -34.655,
+        "lng": 138.64
+      },
+      {
+        "lat": -34.74,
+        "lng": 138.572
+      },
+      {
+        "lat": -34.832,
+        "lng": 138.581
+      },
+      {
+        "lat": -34.829,
+        "lng": 138.529
+      },
+      {
+        "lat": -34.775,
+        "lng": 138.521
+      }
+    ]
+  },
+  {
+    "id": "vic-nsw-interconnect",
+    "code": "Vic-NSW",
+    "name": "Victoria-NSW Interconnect",
+    "region": "east",
+    "path": [
+      "wollert-cs",
+      "eurora-cs",
+      "springhurst-cs",
+      "culcairn",
+      "young"
+    ],
+    "description": "Interconnects the Victorian and NSW/Sydney gas networks via a chain of compressor stations, allowing gas to flow either direction between the two markets.",
+    "style": {
+      "color": "amber",
+      "dashed": true
+    },
+    "operator": "APA Group"
+  },
+  {
+    "id": "swp",
+    "code": "SWP",
+    "name": "South West Pipeline (Otway–Melbourne)",
+    "region": "east",
+    "path": [
+      "iona",
+      "melbourne"
+    ],
+    "description": "Delivers Otway Basin gas from the Iona storage/processing hub to the Melbourne network.",
+    "style": {
+      "color": "teal"
+    },
+    "operator": "APA Group"
+  }
 ]

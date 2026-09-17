@@ -34,4 +34,20 @@ describe("App", () => {
     fireEvent.click(screen.getByRole("button", { name: /fy26 contracts/i }));
     expect(screen.getByText("Woodside GSA")).toBeInTheDocument();
   });
+
+  it("shows operator chips and dims non-matching pipelines when one is spotlighted", () => {
+    renderApp();
+    fireEvent.click(screen.getByRole("button", { name: "Jemena" }));
+    const egpLine = screen.getByTestId("pipeline-egp");
+    const swqpLine = screen.getByTestId("pipeline-swqp");
+    expect(egpLine.closest("g")).toHaveAttribute("opacity", "1");
+    expect(swqpLine.closest("g")).toHaveAttribute("opacity", "0.15");
+  });
+
+  it("toggles the legend/operator panel", () => {
+    renderApp();
+    expect(screen.getByText("Spotlight an operator")).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: /hide panel/i }));
+    expect(screen.queryByText("Spotlight an operator")).not.toBeInTheDocument();
+  });
 });

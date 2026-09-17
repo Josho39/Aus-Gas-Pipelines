@@ -1,12 +1,779 @@
 [
-  { "id": "dbp", "code": "DBP", "name": "Dampier to Bunbury Pipeline", "region": "west", "path": ["dampier", "msf", "perth", "waggerup-pinjarra", "bunbury"], "description": "WA's principal gas transmission trunk line, running from the North West Shelf at Dampier south through Perth to Bunbury.", "operator": "DBP (Brookfield Infrastructure)", "lengthKm": 1600, "style": { "color": "teal" } },
-  { "id": "pgp", "code": "PGP", "name": "Parmelia Gas Pipeline", "region": "west", "path": ["msf", "perth"], "description": "Parallel trunk line into the Perth/Kwinana metro area, historically a separate line from the DBP, now operating as part of the integrated WA network.", "operator": "APA Group", "lengthKm": 401, "style": { "color": "amber" } },
-  { "id": "ggp", "code": "GGP", "name": "Goldfields Gas Pipeline", "region": "west", "path": ["dampier", "newman", "kalgoorlie"], "description": "Carries Pilbara gas from Dampier south-east to the Goldfields mining region at Kalgoorlie.", "operator": "Goldfields Gas Transmission", "lengthKm": 1380, "style": { "color": "teal" } },
-  { "id": "pilbara-pipeline-system", "code": "PPS", "name": "Pilbara Pipeline System", "region": "west", "path": ["dampier", "port-hedland"], "description": "Regional pipeline network distributing Pilbara gas between Dampier and Port Hedland.", "style": { "color": "slate", "dashed": true } },
-  { "id": "telfer-gas-pipeline", "code": "TGP-WA", "name": "Telfer Gas Pipeline", "region": "west", "path": ["port-hedland", "telfer"], "description": "Lateral pipeline supplying the remote Telfer mine from the Pilbara network at Port Hedland.", "style": { "color": "slate", "dashed": true } },
-  { "id": "mid-west-pipeline", "code": "MWP", "name": "Mid West Pipeline", "region": "west", "path": ["geraldton", "msf", "windimurra"], "description": "Connects Geraldton and the Windimurra vanadium mine into the Dampier to Bunbury Pipeline network.", "style": { "color": "amber" } },
-  { "id": "eastern-goldfields-pipeline-system", "code": "EGPS", "name": "Eastern Goldfields Pipeline System", "region": "west", "path": ["kalgoorlie", "kambalda", "esperance"], "description": "Extends gas supply beyond the Goldfields Gas Pipeline terminus at Kalgoorlie south to Kambalda and Esperance.", "style": { "color": "teal" } },
-  { "id": "northern-goldfields-interconnect", "code": "NGIP", "name": "Northern Goldfields Interconnect Pipeline", "region": "west", "path": ["newman", "kalgoorlie"], "description": "Interconnect linking the Goldfields Gas Pipeline near Newman directly through to Kalgoorlie.", "style": { "color": "purple", "dashed": true } },
-  { "id": "kalgoorlie-kambalda-pipeline", "code": "KKP", "name": "Kalgoorlie-Kambalda Pipeline", "region": "west", "path": ["kalgoorlie", "kambalda"], "description": "Short lateral linking Kalgoorlie to the Kambalda mining area.", "style": { "color": "slate", "dashed": true } },
-  { "id": "kambalda-esperance-gas-pipeline", "code": "KEGP", "name": "Kambalda Esperance Gas Pipeline", "region": "west", "path": ["kambalda", "esperance"], "description": "Extends supply from Kambalda south to the port of Esperance.", "style": { "color": "teal" } }
+  {
+    "id": "dbp",
+    "code": "DBP",
+    "name": "Dampier to Bunbury Pipeline",
+    "region": "west",
+    "path": [
+      "dampier",
+      "msf",
+      "perth",
+      "waggerup-pinjarra",
+      "bunbury"
+    ],
+    "description": "WA's principal gas transmission trunk line, running from the North West Shelf at Dampier south through Perth to Bunbury.",
+    "operator": "DBP (Brookfield Infrastructure)",
+    "lengthKm": 1524,
+    "style": {
+      "color": "teal"
+    },
+    "route": [
+      {
+        "lat": -20.602,
+        "lng": 116.778
+      },
+      {
+        "lat": -20.67,
+        "lng": 116.734
+      },
+      {
+        "lat": -20.716,
+        "lng": 116.761
+      },
+      {
+        "lat": -20.764,
+        "lng": 116.729
+      },
+      {
+        "lat": -20.832,
+        "lng": 116.638
+      },
+      {
+        "lat": -20.943,
+        "lng": 116.366
+      },
+      {
+        "lat": -21.131,
+        "lng": 116.249
+      },
+      {
+        "lat": -21.258,
+        "lng": 116.088
+      },
+      {
+        "lat": -21.901,
+        "lng": 115.604
+      },
+      {
+        "lat": -22.587,
+        "lng": 115.174
+      },
+      {
+        "lat": -22.733,
+        "lng": 115.102
+      },
+      {
+        "lat": -23.023,
+        "lng": 115.024
+      },
+      {
+        "lat": -23.447,
+        "lng": 115.066
+      },
+      {
+        "lat": -23.658,
+        "lng": 115.15
+      },
+      {
+        "lat": -24.019,
+        "lng": 115.186
+      },
+      {
+        "lat": -24.212,
+        "lng": 115.278
+      },
+      {
+        "lat": -24.392,
+        "lng": 115.301
+      },
+      {
+        "lat": -24.43,
+        "lng": 115.272
+      },
+      {
+        "lat": -24.751,
+        "lng": 115.305
+      },
+      {
+        "lat": -26.812,
+        "lng": 115.191
+      },
+      {
+        "lat": -27.523,
+        "lng": 115.183
+      },
+      {
+        "lat": -28.108,
+        "lng": 115.117
+      },
+      {
+        "lat": -28.802,
+        "lng": 115.141
+      },
+      {
+        "lat": -29.332,
+        "lng": 115.121
+      },
+      {
+        "lat": -29.425,
+        "lng": 115.148
+      },
+      {
+        "lat": -29.706,
+        "lng": 115.357
+      },
+      {
+        "lat": -30.038,
+        "lng": 115.355
+      },
+      {
+        "lat": -30.211,
+        "lng": 115.402
+      },
+      {
+        "lat": -31.612,
+        "lng": 115.977
+      },
+      {
+        "lat": -31.776,
+        "lng": 115.953
+      },
+      {
+        "lat": -32.07,
+        "lng": 116.019
+      },
+      {
+        "lat": -32.237,
+        "lng": 115.792
+      },
+      {
+        "lat": -32.423,
+        "lng": 115.912
+      },
+      {
+        "lat": -32.565,
+        "lng": 115.911
+      },
+      {
+        "lat": -32.688,
+        "lng": 115.889
+      },
+      {
+        "lat": -32.797,
+        "lng": 115.83
+      },
+      {
+        "lat": -33.265,
+        "lng": 115.756
+      }
+    ]
+  },
+  {
+    "id": "pgp",
+    "code": "PGP",
+    "name": "Parmelia Gas Pipeline",
+    "region": "west",
+    "path": [
+      "msf",
+      "perth"
+    ],
+    "description": "Parallel trunk line into the Perth/Kwinana metro area, historically a separate line from the DBP, now operating as part of the integrated WA network.",
+    "operator": "APA Group",
+    "lengthKm": 413,
+    "style": {
+      "color": "amber"
+    },
+    "route": [
+      {
+        "lat": -29.263,
+        "lng": 115.01
+      },
+      {
+        "lat": -29.312,
+        "lng": 115.116
+      },
+      {
+        "lat": -29.406,
+        "lng": 115.139
+      },
+      {
+        "lat": -29.824,
+        "lng": 115.252
+      },
+      {
+        "lat": -30.346,
+        "lng": 115.471
+      },
+      {
+        "lat": -30.716,
+        "lng": 115.472
+      },
+      {
+        "lat": -30.902,
+        "lng": 115.684
+      },
+      {
+        "lat": -31.354,
+        "lng": 115.876
+      },
+      {
+        "lat": -31.889,
+        "lng": 115.985
+      },
+      {
+        "lat": -32.027,
+        "lng": 115.972
+      },
+      {
+        "lat": -32.119,
+        "lng": 115.811
+      },
+      {
+        "lat": -32.264,
+        "lng": 115.78
+      },
+      {
+        "lat": -32.532,
+        "lng": 115.873
+      },
+      {
+        "lat": -32.618,
+        "lng": 115.941
+      }
+    ]
+  },
+  {
+    "id": "ggp",
+    "code": "GGP",
+    "name": "Goldfields Gas Pipeline",
+    "region": "west",
+    "path": [
+      "dampier",
+      "newman",
+      "kalgoorlie"
+    ],
+    "description": "Carries Pilbara gas from Dampier south-east to the Goldfields mining region at Kalgoorlie.",
+    "operator": "APA Group",
+    "lengthKm": 1378,
+    "style": {
+      "color": "teal"
+    },
+    "route": [
+      {
+        "lat": -21.441,
+        "lng": 115.959
+      },
+      {
+        "lat": -21.751,
+        "lng": 116.072
+      },
+      {
+        "lat": -21.977,
+        "lng": 116.054
+      },
+      {
+        "lat": -22.509,
+        "lng": 116.083
+      },
+      {
+        "lat": -22.65,
+        "lng": 116.225
+      },
+      {
+        "lat": -22.929,
+        "lng": 116.877
+      },
+      {
+        "lat": -23.563,
+        "lng": 117.962
+      },
+      {
+        "lat": -23.557,
+        "lng": 118.879
+      },
+      {
+        "lat": -23.525,
+        "lng": 119.078
+      },
+      {
+        "lat": -23.553,
+        "lng": 119.221
+      },
+      {
+        "lat": -23.717,
+        "lng": 119.547
+      },
+      {
+        "lat": -24.11,
+        "lng": 119.652
+      },
+      {
+        "lat": -24.538,
+        "lng": 119.714
+      },
+      {
+        "lat": -24.649,
+        "lng": 119.624
+      },
+      {
+        "lat": -24.751,
+        "lng": 119.603
+      },
+      {
+        "lat": -24.85,
+        "lng": 119.625
+      },
+      {
+        "lat": -25.196,
+        "lng": 119.608
+      },
+      {
+        "lat": -25.478,
+        "lng": 119.656
+      },
+      {
+        "lat": -26.114,
+        "lng": 120.142
+      },
+      {
+        "lat": -26.244,
+        "lng": 120.165
+      },
+      {
+        "lat": -26.413,
+        "lng": 120.274
+      },
+      {
+        "lat": -26.582,
+        "lng": 120.311
+      },
+      {
+        "lat": -26.933,
+        "lng": 120.603
+      },
+      {
+        "lat": -27.17,
+        "lng": 120.607
+      },
+      {
+        "lat": -27.889,
+        "lng": 120.763
+      },
+      {
+        "lat": -28.098,
+        "lng": 120.766
+      },
+      {
+        "lat": -28.416,
+        "lng": 120.86
+      },
+      {
+        "lat": -28.546,
+        "lng": 120.911
+      },
+      {
+        "lat": -28.587,
+        "lng": 120.977
+      },
+      {
+        "lat": -28.734,
+        "lng": 121.016
+      },
+      {
+        "lat": -28.837,
+        "lng": 121.173
+      },
+      {
+        "lat": -29.302,
+        "lng": 121.162
+      },
+      {
+        "lat": -29.51,
+        "lng": 121.26
+      },
+      {
+        "lat": -29.897,
+        "lng": 121.349
+      },
+      {
+        "lat": -29.923,
+        "lng": 121.38
+      },
+      {
+        "lat": -30.473,
+        "lng": 121.465
+      },
+      {
+        "lat": -30.576,
+        "lng": 121.431
+      },
+      {
+        "lat": -30.698,
+        "lng": 121.457
+      },
+      {
+        "lat": -30.769,
+        "lng": 121.409
+      },
+      {
+        "lat": -30.866,
+        "lng": 121.481
+      }
+    ]
+  },
+  {
+    "id": "pilbara-pipeline-system",
+    "code": "PPS",
+    "name": "Pilbara Pipeline System",
+    "region": "west",
+    "path": [
+      "dampier",
+      "port-hedland"
+    ],
+    "description": "Regional pipeline network distributing Pilbara gas between Dampier and Port Hedland.",
+    "style": {
+      "color": "slate",
+      "dashed": true
+    },
+    "operator": "APA Group"
+  },
+  {
+    "id": "telfer-gas-pipeline",
+    "code": "TGP-WA",
+    "name": "Telfer Gas Pipeline",
+    "region": "west",
+    "path": [
+      "port-hedland",
+      "telfer"
+    ],
+    "description": "Lateral pipeline supplying the remote Telfer mine from the Pilbara network at Port Hedland.",
+    "style": {
+      "color": "slate",
+      "dashed": true
+    },
+    "operator": "APA Group",
+    "lengthKm": 443,
+    "route": [
+      {
+        "lat": -20.426,
+        "lng": 118.552
+      },
+      {
+        "lat": -20.443,
+        "lng": 118.626
+      },
+      {
+        "lat": -20.403,
+        "lng": 118.925
+      },
+      {
+        "lat": -20.303,
+        "lng": 119.283
+      },
+      {
+        "lat": -20.38,
+        "lng": 120.032
+      },
+      {
+        "lat": -20.49,
+        "lng": 120.45
+      },
+      {
+        "lat": -20.779,
+        "lng": 121.064
+      },
+      {
+        "lat": -20.878,
+        "lng": 121.112
+      },
+      {
+        "lat": -21.354,
+        "lng": 121.558
+      },
+      {
+        "lat": -21.565,
+        "lng": 122.001
+      },
+      {
+        "lat": -21.74,
+        "lng": 122.182
+      }
+    ]
+  },
+  {
+    "id": "mid-west-pipeline",
+    "code": "MWP",
+    "name": "Mid West Pipeline",
+    "region": "west",
+    "path": [
+      "geraldton",
+      "msf",
+      "windimurra"
+    ],
+    "description": "Connects Geraldton and the Windimurra vanadium mine into the Dampier to Bunbury Pipeline network.",
+    "style": {
+      "color": "amber"
+    },
+    "operator": "APA Group"
+  },
+  {
+    "id": "eastern-goldfields-pipeline-system",
+    "code": "EGPS",
+    "name": "Eastern Goldfields Pipeline System",
+    "region": "west",
+    "path": [
+      "kalgoorlie",
+      "kambalda",
+      "esperance"
+    ],
+    "description": "Extends gas supply beyond the Goldfields Gas Pipeline terminus at Kalgoorlie south to Kambalda and Esperance.",
+    "style": {
+      "color": "teal"
+    },
+    "lengthKm": 293,
+    "route": [
+      {
+        "lat": -29.236,
+        "lng": 124.536
+      },
+      {
+        "lat": -29.262,
+        "lng": 124.337
+      },
+      {
+        "lat": -29.236,
+        "lng": 123.805
+      },
+      {
+        "lat": -29.178,
+        "lng": 123.342
+      },
+      {
+        "lat": -29.177,
+        "lng": 123.064
+      },
+      {
+        "lat": -29.067,
+        "lng": 122.585
+      },
+      {
+        "lat": -29.09,
+        "lng": 122.437
+      },
+      {
+        "lat": -28.876,
+        "lng": 122.418
+      },
+      {
+        "lat": -28.802,
+        "lng": 122.312
+      },
+      {
+        "lat": -28.768,
+        "lng": 122.226
+      },
+      {
+        "lat": -28.794,
+        "lng": 122.168
+      },
+      {
+        "lat": -28.79,
+        "lng": 121.916
+      }
+    ],
+    "operator": "APA Group"
+  },
+  {
+    "id": "northern-goldfields-interconnect",
+    "code": "NGIP",
+    "name": "Northern Goldfields Interconnect Pipeline",
+    "region": "west",
+    "path": [
+      "newman",
+      "kalgoorlie"
+    ],
+    "description": "Interconnect linking the Goldfields Gas Pipeline near Newman directly through to Kalgoorlie.",
+    "style": {
+      "color": "purple",
+      "dashed": true
+    },
+    "operator": "APA Group",
+    "lengthKm": 579,
+    "route": [
+      {
+        "lat": -28.235,
+        "lng": 120.811
+      },
+      {
+        "lat": -28.27,
+        "lng": 120.606
+      },
+      {
+        "lat": -28.237,
+        "lng": 120.452
+      },
+      {
+        "lat": -28.228,
+        "lng": 120.072
+      },
+      {
+        "lat": -28.367,
+        "lng": 119.752
+      },
+      {
+        "lat": -28.289,
+        "lng": 119.464
+      },
+      {
+        "lat": -28.231,
+        "lng": 118.428
+      },
+      {
+        "lat": -28.16,
+        "lng": 118.149
+      },
+      {
+        "lat": -28.153,
+        "lng": 117.98
+      },
+      {
+        "lat": -28.359,
+        "lng": 117.013
+      },
+      {
+        "lat": -28.365,
+        "lng": 116.491
+      },
+      {
+        "lat": -28.431,
+        "lng": 116.314
+      },
+      {
+        "lat": -28.415,
+        "lng": 116.224
+      },
+      {
+        "lat": -28.517,
+        "lng": 115.481
+      },
+      {
+        "lat": -28.624,
+        "lng": 115.135
+      }
+    ]
+  },
+  {
+    "id": "kalgoorlie-kambalda-pipeline",
+    "code": "KKP",
+    "name": "Kalgoorlie-Kambalda Pipeline",
+    "region": "west",
+    "path": [
+      "kalgoorlie",
+      "kambalda"
+    ],
+    "description": "Short lateral linking Kalgoorlie to the Kambalda mining area.",
+    "style": {
+      "color": "slate",
+      "dashed": true
+    },
+    "operator": "APA Group"
+  },
+  {
+    "id": "kambalda-esperance-gas-pipeline",
+    "code": "KEGP",
+    "name": "Kambalda Esperance Gas Pipeline",
+    "region": "west",
+    "path": [
+      "kambalda",
+      "esperance"
+    ],
+    "description": "Extends supply from Kambalda south to the port of Esperance.",
+    "style": {
+      "color": "teal"
+    },
+    "lengthKm": 342,
+    "route": [
+      {
+        "lat": -33.876,
+        "lng": 121.899
+      },
+      {
+        "lat": -33.818,
+        "lng": 121.839
+      },
+      {
+        "lat": -33.756,
+        "lng": 121.867
+      },
+      {
+        "lat": -33.694,
+        "lng": 121.854
+      },
+      {
+        "lat": -33.448,
+        "lng": 121.727
+      },
+      {
+        "lat": -33.184,
+        "lng": 121.72
+      },
+      {
+        "lat": -33.054,
+        "lng": 121.681
+      },
+      {
+        "lat": -32.745,
+        "lng": 121.536
+      },
+      {
+        "lat": -32.633,
+        "lng": 121.545
+      },
+      {
+        "lat": -32.519,
+        "lng": 121.615
+      },
+      {
+        "lat": -32.396,
+        "lng": 121.759
+      },
+      {
+        "lat": -32.204,
+        "lng": 121.782
+      },
+      {
+        "lat": -32.16,
+        "lng": 121.772
+      },
+      {
+        "lat": -32.134,
+        "lng": 121.703
+      },
+      {
+        "lat": -31.969,
+        "lng": 121.648
+      },
+      {
+        "lat": -31.844,
+        "lng": 121.646
+      },
+      {
+        "lat": -31.743,
+        "lng": 121.715
+      },
+      {
+        "lat": -31.61,
+        "lng": 121.62
+      },
+      {
+        "lat": -31.321,
+        "lng": 121.513
+      },
+      {
+        "lat": -31.191,
+        "lng": 121.626
+      }
+    ],
+    "operator": "APA Group"
+  }
 ]

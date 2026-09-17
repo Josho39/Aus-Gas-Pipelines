@@ -11,12 +11,12 @@ body {
 }
 
 .pipeline-flow {
-  stroke-dasharray: 6 10;
-  animation: flow 1.4s linear infinite;
+  stroke-dasharray: 3 46;
+  animation: flow 2.4s linear infinite;
 }
 
 @keyframes flow {
   to {
-    stroke-dashoffset: -16;
+    stroke-dashoffset: -49;
   }
 }

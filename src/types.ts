@@ -31,6 +31,11 @@ export interface Pipeline {
   lengthKm?: number;
   capacity?: string;
   style: { color: PipelineColor; dashed?: boolean };
+  /** Real-world route waypoints (lat/lng), from Geoscience Australia's Oil
+   * and Gas Pipelines dataset, for pipelines where a match was found. When
+   * absent, the geographic view falls back to straight segments through
+   * `path`'s named facility nodes. */
+  route?: { lat: number; lng: number }[];
 }
 
 export type Selection = { kind: "node" | "pipeline"; id: string } | null;

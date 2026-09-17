@@ -8,19 +8,29 @@ const wrapper = ({ children }: { children: ReactNode }) => (
 );
 
 describe("useAppState", () => {
-  it("defaults to east region, schematic view, no selection", () => {
+  it("defaults to east region, no selection, no operator filter", () => {
     const { result } = renderHook(() => useAppState(), { wrapper });
     expect(result.current.region).toBe("east");
-    expect(result.current.view).toBe("schematic");
     expect(result.current.selection).toBeNull();
+    expect(result.current.operatorFilter).toBeNull();
   });
 
-  it("setRegion switches region and clears selection", () => {
+  it("setRegion switches region, clears selection and operator filter", () => {
     const { result } = renderHook(() => useAppState(), { wrapper });
     act(() => result.current.select({ kind: "node", id: "wallumbilla" }));
+    act(() => result.current.setOperatorFilter("APA Group"));
     act(() => result.current.setRegion("west"));
     expect(result.current.region).toBe("west");
     expect(result.current.selection).toBeNull();
+    expect(result.current.operatorFilter).toBeNull();
+  });
+
+  it("setOperatorFilter sets and clears the spotlighted operator", () => {
+    const { result } = renderHook(() => useAppState(), { wrapper });
+    act(() => result.current.setOperatorFilter("Jemena"));
+    expect(result.current.operatorFilter).toBe("Jemena");
+    act(() => result.current.setOperatorFilter(null));
+    expect(result.current.operatorFilter).toBeNull();
   });
 
   it("select and clearSelection manage the selection", () => {
