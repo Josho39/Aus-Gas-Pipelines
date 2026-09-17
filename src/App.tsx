@@ -19,34 +19,21 @@ import type { PipelineNode, Pipeline } from "./types";
 import type { ContractsData } from "./data/contracts";
 
 type Tab = "map" | "contracts";
-type MapScope = "east" | "west" | "all";
 
-const EAST_NODES = eastNodes as PipelineNode[];
-const EAST_PIPELINES = eastPipelines as Pipeline[];
-const WEST_NODES = westNodes as PipelineNode[];
-const WEST_PIPELINES = westPipelines as Pipeline[];
 // Node/pipeline ids are unique across both regions (verified — no id
-// appears in both east and west), so a plain concat is a safe merge for
-// the combined "All of Australia" view.
-const ALL_NODES = [...EAST_NODES, ...WEST_NODES];
-const ALL_PIPELINES = [...EAST_PIPELINES, ...WEST_PIPELINES];
+// appears in both east and west), so a plain concat is a safe merge into
+// one combined, whole-of-Australia map.
+const ALL_NODES = [...(eastNodes as PipelineNode[]), ...(westNodes as PipelineNode[])];
+const ALL_PIPELINES = [...(eastPipelines as Pipeline[]), ...(westPipelines as Pipeline[])];
 
 export default function App() {
   const { selection, search, operatorFilter, select, clearSelection, setSearch, setOperatorFilter } = useAppState();
   const { theme, toggleTheme } = useTheme();
   const [tab, setTab] = useState<Tab>("map");
-  const [mapScope, setMapScope] = useState<MapScope>("east");
   const [panelOpen, setPanelOpen] = useState(true);
 
-  const nodes = mapScope === "all" ? ALL_NODES : mapScope === "east" ? EAST_NODES : WEST_NODES;
-  const pipelines = mapScope === "all" ? ALL_PIPELINES : mapScope === "east" ? EAST_PIPELINES : WEST_PIPELINES;
-
-  const selectScope = (scope: MapScope) => {
-    setTab("map");
-    setMapScope(scope);
-    clearSelection();
-    setOperatorFilter(null);
-  };
+  const nodes = ALL_NODES;
+  const pipelines = ALL_PIPELINES;
 
   const operators = useMemo(() => {
     const set = new Set(pipelines.map((p) => p.operator).filter((op): op is string => Boolean(op)));
@@ -79,14 +66,8 @@ export default function App() {
         </div>
 
         <div className="flex items-center gap-1 bg-ink/60 border border-line rounded-lg p-1 flex-wrap">
-          <button className={segmentClass(tab === "map" && mapScope === "east")} onClick={() => selectScope("east")}>
-            East Coast
-          </button>
-          <button className={segmentClass(tab === "map" && mapScope === "west")} onClick={() => selectScope("west")}>
-            West Coast
-          </button>
-          <button className={segmentClass(tab === "map" && mapScope === "all")} onClick={() => selectScope("all")}>
-            All of Australia
+          <button className={segmentClass(tab === "map")} onClick={() => setTab("map")}>
+            Pipeline Map
           </button>
           <button className={segmentClass(tab === "contracts")} onClick={() => setTab("contracts")}>
             FY26 Contracts
@@ -118,7 +99,7 @@ export default function App() {
                 <OperatorFilter operators={operators} active={operatorFilter} onChange={setOperatorFilter} />
               </div>
             )}
-            <div className="absolute inset-0" style={{ backgroundColor: "#0a0f1c" }}>
+            <div className="absolute inset-0 bg-ink">
               <GeoMap
                 nodes={nodes}
                 pipelines={pipelines}

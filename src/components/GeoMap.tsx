@@ -142,7 +142,12 @@ export function GeoMap({
           role="img"
           aria-label="Geographic pipeline map"
         >
-          <path d={coastlinePath} fill="#1c2a45" fillOpacity={0.35} stroke="#324566" strokeWidth={1.5} />
+          <path
+            d={coastlinePath}
+            style={{ fill: "var(--color-panel)", stroke: "var(--color-line)" }}
+            fillOpacity={0.6}
+            strokeWidth={1.5}
+          />
           {pipelines.map((pipeline) => (
             <PipelineLine
               key={pipeline.id}

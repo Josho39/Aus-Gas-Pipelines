@@ -36,12 +36,18 @@ export function PipelineLabel({ pipeline, points, onClick, dimmed = false }: Pip
         width={labelWidth}
         height={15}
         rx={3}
-        fill="#0b1220"
-        stroke={color}
+        style={{ fill: "var(--color-panel)", stroke: color }}
         strokeWidth={0.75}
-        opacity={0.92}
+        opacity={0.95}
       />
-      <text x={x} y={y + 3.5} fontSize={10.5} fontWeight={600} fill="#f1f5f9" textAnchor="middle">
+      <text
+        x={x}
+        y={y + 3.5}
+        fontSize={10.5}
+        fontWeight={600}
+        style={{ fill: "var(--color-fg)" }}
+        textAnchor="middle"
+      >
         {pipeline.code}
       </text>
     </g>

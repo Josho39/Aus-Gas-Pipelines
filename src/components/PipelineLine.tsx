@@ -49,7 +49,7 @@ export function PipelineLine({ pipeline, points, onClick, isSelected, dimmed = f
         <polyline
           points={pointsAttr}
           fill="none"
-          stroke="#f8fafc"
+          style={{ stroke: "var(--color-fg)" }}
           strokeWidth={baseWidth}
           strokeLinecap="round"
           strokeLinejoin="round"

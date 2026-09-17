@@ -28,10 +28,10 @@ export function NodeMarker({ node, x, y, onClick, isSelected, showLabel = true }
             width={labelWidth}
             height={16}
             rx={3}
-            fill="#0b1220"
-            opacity={0.75}
+            style={{ fill: "var(--color-panel)" }}
+            opacity={0.85}
           />
-          <text x={x + 16} y={y + 3.5} fontSize={10.5} fontWeight={500} fill="#e2e8f0">
+          <text x={x + 16} y={y + 3.5} fontSize={10.5} fontWeight={500} style={{ fill: "var(--color-fg)" }}>
             {label}
           </text>
         </>
@@ -42,7 +42,7 @@ export function NodeMarker({ node, x, y, onClick, isSelected, showLabel = true }
         cy={y}
         r={isSelected ? 9 : 6.5}
         fill={color}
-        stroke="#0b1220"
+        style={{ stroke: "var(--color-ink)" }}
         strokeWidth={2}
       />
     </g>

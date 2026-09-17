@@ -12,14 +12,9 @@ function renderApp() {
 }
 
 describe("App", () => {
-  it("defaults to the East Coast map and shows an east node", () => {
+  it("shows the whole-of-Australia map by default, with nodes from both regions", () => {
     renderApp();
     expect(screen.getByTestId("node-wallumbilla")).toBeInTheDocument();
-  });
-
-  it("switches to the West Coast map and shows a west node", () => {
-    renderApp();
-    fireEvent.click(screen.getByRole("button", { name: /west coast/i }));
     expect(screen.getByTestId("node-dampier")).toBeInTheDocument();
   });
 
@@ -42,13 +37,6 @@ describe("App", () => {
     const swqpLine = screen.getByTestId("pipeline-swqp");
     expect(egpLine.closest("g")).toHaveAttribute("opacity", "1");
     expect(swqpLine.closest("g")).toHaveAttribute("opacity", "0.15");
-  });
-
-  it("shows both an east and a west node together in the All of Australia view", () => {
-    renderApp();
-    fireEvent.click(screen.getByRole("button", { name: /all of australia/i }));
-    expect(screen.getByTestId("node-wallumbilla")).toBeInTheDocument();
-    expect(screen.getByTestId("node-dampier")).toBeInTheDocument();
   });
 
   it("toggles the legend/operator panel", () => {
