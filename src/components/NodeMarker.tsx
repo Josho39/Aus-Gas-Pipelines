@@ -12,8 +12,8 @@ interface NodeMarkerProps {
    * viewer zooms in (or always for major hubs, or when selected). */
   showLabel?: boolean;
   /** True once the viewer has zoomed in far enough to reveal every label at
-   * once (see GeoMap's LABEL_ZOOM_THRESHOLD) — at that density, full-size
-   * labels are too bulky, so shrink them by half. */
+   * once (see GeoMap's LABEL_ZOOM_THRESHOLD), at that density, full-size
+   * labels and markers are too bulky, so shrink them. */
   compact?: boolean;
 }
 
@@ -24,6 +24,7 @@ export function NodeMarker({ node, x, y, onClick, isSelected, showLabel = true, 
   const labelWidth = label.length * (compact ? 2.55 : 5.1) + (compact ? 4 : 8);
   const labelHeight = compact ? 6.75 : 13.5;
   const labelOffsetX = compact ? 5 : 10;
+  const radius = isSelected ? (compact ? 6 : 9) : compact ? 3.5 : 6.5;
 
   return (
     <g onClick={() => onClick(node.id)} style={{ cursor: "pointer" }}>
@@ -53,10 +54,10 @@ export function NodeMarker({ node, x, y, onClick, isSelected, showLabel = true, 
         data-testid={`node-${node.id}`}
         cx={x}
         cy={y}
-        r={isSelected ? 9 : 6.5}
+        r={radius}
         fill={color}
         style={{ stroke: "var(--color-ink)" }}
-        strokeWidth={2}
+        strokeWidth={compact ? 1.25 : 2}
       />
     </g>
   );

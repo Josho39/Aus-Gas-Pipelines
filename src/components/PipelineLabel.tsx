@@ -13,7 +13,7 @@ interface PipelineLabelProps {
   onClick: (id: string) => void;
   dimmed?: boolean;
   /** True once the viewer has zoomed in far enough to reveal every label at
-   * once (see GeoMap's LABEL_ZOOM_THRESHOLD) — at that density, full-size
+   * once (see GeoMap's LABEL_ZOOM_THRESHOLD), at that density, full-size
    * labels are too bulky, so shrink them by half. */
   compact?: boolean;
 }
