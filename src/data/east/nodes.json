@@ -888,5 +888,82 @@
       "lng": 147.83
     },
     "description": "Junction on the Young to Wagga Wagga lateral where the Burnt Creek to Griffith pipeline branches off."
+  },
+  {
+    "id": "cheepie",
+    "name": "Cheepie",
+    "type": "compressor",
+    "region": "east",
+    "geoPos": {
+      "lat": -26.8061,
+      "lng": 145.0148
+    },
+    "description": "Junction on the South West Queensland Pipeline (SWQP) mainline where the Cheepie to Barcaldine Gas Pipeline branches off."
+  },
+  {
+    "id": "gilmore-junction",
+    "name": "Gilmore Junction",
+    "type": "compressor",
+    "region": "east",
+    "geoPos": {
+      "lat": -25.356,
+      "lng": 144.88
+    },
+    "description": "Mid-point junction on the Cheepie to Barcaldine Gas Pipeline."
+  },
+  {
+    "id": "barcaldine",
+    "name": "Barcaldine",
+    "type": "town",
+    "region": "east",
+    "geoPos": {
+      "lat": -23.555,
+      "lng": 145.3147
+    },
+    "description": "Central Queensland town, home to Ergon Energy's gas-fired power station, served by the Cheepie to Barcaldine Gas Pipeline."
+  },
+  {
+    "id": "kogan",
+    "name": "Kogan",
+    "type": "compressor",
+    "region": "east",
+    "geoPos": {
+      "lat": -27.0834,
+      "lng": 150.9389
+    },
+    "description": "Active compressor station on the Roma Brisbane Pipeline (RBP) mainline, part of its looped DN400 section."
+  },
+  {
+    "id": "wollongong",
+    "name": "Wollongong",
+    "type": "town",
+    "region": "east",
+    "geoPos": {
+      "lat": -34.233,
+      "lng": 150.7106
+    },
+    "description": "Illawarra regional centre served by a lateral off the Eastern Gas Pipeline (EGP) network via Wilton."
+  },
+  {
+    "id": "port-kembla",
+    "name": "Port Kembla",
+    "type": "sttm",
+    "region": "east",
+    "geoPos": {
+      "lat": -34.4599,
+      "lng": 150.8995
+    },
+    "description": "Port Kembla LNG import terminal and STTM delivery point, served off the Eastern Gas Pipeline (EGP) network via Wollongong."
+  },
+  {
+    "id": "tallawarra",
+    "name": "Tallawarra Power Station",
+    "type": "plant",
+    "region": "east",
+    "geoPos": {
+      "lat": -34.5238,
+      "lng": 150.7783
+    },
+    "description": "Gas-fired power station near Wollongong, served by the Tallawarra Spur off the Port Kembla lateral."
   }
 ]

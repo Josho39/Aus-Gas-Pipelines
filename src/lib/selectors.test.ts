@@ -26,6 +26,6 @@ describe("selectors", () => {
   it("getConnectedNodes resolves a pipeline's path to node objects", () => {
     const swqp = typedPipelines.find((p) => p.id === "swqp")!;
     const connected = getConnectedNodes(swqp, typedNodes);
-    expect(connected.map((n) => n.id)).toEqual(["ballera", "gooimbah", "wallumbilla"]);
+    expect(connected.map((n) => n.id)).toEqual(["ballera", "cheepie", "gooimbah", "wallumbilla"]);
   });
 });
