@@ -56,11 +56,15 @@ export default function App() {
     <div className="h-screen bg-ink text-fg flex flex-col overflow-hidden">
       <header className="border-b border-line px-4 py-2.5 flex flex-wrap items-center gap-3 shrink-0 bg-panel/60 backdrop-blur-sm">
         <div className="flex items-center gap-2 mr-2">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" className="text-teal shrink-0">
-            <circle cx="5" cy="12" r="2.5" fill="currentColor" />
-            <circle cx="19" cy="6" r="2.5" fill="currentColor" />
-            <circle cx="19" cy="18" r="2.5" fill="currentColor" />
-            <path d="M7 12h9M13 12l4-4.5M13 12l4 4.5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
+          <svg width="24" height="24" viewBox="0 0 64 64" className="shrink-0">
+            <rect x="14" y="24" width="36" height="34" rx="2" fill="#3ABB3A" stroke="#0D4B0D" strokeWidth="3" />
+            <rect x="18" y="24" width="7" height="34" fill="#7EE05C" />
+            <rect x="41" y="24" width="7" height="34" fill="#1F7A1F" />
+            <rect x="7" y="8" width="50" height="19" rx="3" fill="#3ABB3A" stroke="#0D4B0D" strokeWidth="3" />
+            <rect x="11" y="8" width="8" height="19" fill="#7EE05C" />
+            <rect x="46" y="8" width="8" height="19" fill="#1F7A1F" />
+            <ellipse cx="32" cy="17.5" rx="21" ry="7.5" fill="#0D4B0D" />
+            <ellipse cx="32" cy="16.5" rx="16" ry="5.5" fill="#0A3A0A" />
           </svg>
           <div className="leading-tight">
             <h1 className="text-base font-bold tracking-tight whitespace-nowrap">Gas Pipeline Network</h1>
