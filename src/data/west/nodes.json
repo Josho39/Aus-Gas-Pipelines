@@ -179,7 +179,8 @@
       "lng": 115.1393
     },
     "description": "APA-operated underground gas storage and processing facility near Dongara, WA (Mondarra Gas Storage Facility) - where the Mid West Pipeline and Parmelia Gas Pipeline (PGP) connect into the Dampier to Bunbury Pipeline (DBP) trunk line.",
-    "labelPosition": "top"
+    "labelPosition": "top",
+    "shortLabel": "MSF"
   },
   {
     "id": "perth",
