@@ -877,5 +877,16 @@
       "lng": 150.0733
     },
     "description": "Upstream gas field, northern end of the Scotia/Peat Lateral off the Roma Brisbane Pipeline (RBP) via Condamine."
+  },
+  {
+    "id": "burnt-creek",
+    "name": "Burnt Creek",
+    "type": "compressor",
+    "region": "east",
+    "geoPos": {
+      "lat": -34.7,
+      "lng": 147.83
+    },
+    "description": "Junction on the Young to Wagga Wagga lateral where the Burnt Creek to Griffith pipeline branches off."
   }
 ]

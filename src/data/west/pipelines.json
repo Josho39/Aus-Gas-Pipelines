@@ -8,6 +8,7 @@
       "dampier",
       "yarraloola",
       "carnarvon-junction",
+      "geraldton",
       "msf",
       "perth",
       "waggerup-pinjarra",
@@ -1282,7 +1283,8 @@
       "color": "slate",
       "dashed": true
     },
-    "operator": "APA Group"
+    "operator": "APA Group",
+    "lengthKm": 219
   },
   {
     "id": "telfer-gas-pipeline",
@@ -1354,29 +1356,14 @@
     "region": "west",
     "path": [
       "geraldton",
-      "msf",
       "windimurra"
     ],
     "description": "Connects Geraldton and the Windimurra vanadium mine into the Dampier to Bunbury Pipeline network.",
     "style": {
       "color": "teal"
     },
-    "operator": "APA Group"
-  },
-  {
-    "id": "eastern-goldfields-pipeline-system",
-    "code": "EGPS",
-    "name": "Eastern Goldfields Pipeline System",
-    "region": "west",
-    "path": [
-      "kalgoorlie",
-      "kambalda",
-      "esperance"
-    ],
-    "description": "Extends gas supply beyond the Goldfields Gas Pipeline terminus at Kalgoorlie south to Kambalda and Esperance.",
-    "style": {
-      "color": "teal"
-    }
+    "operator": "APA Group / Horizon Power",
+    "lengthKm": 353
   },
   {
     "id": "northern-goldfields-interconnect",
@@ -2086,7 +2073,7 @@
     "style": {
       "color": "teal"
     },
-    "lengthKm": 342,
+    "lengthKm": 350,
     "route": [
       {
         "lat": -33.876,
@@ -2169,7 +2156,7 @@
         "lng": 121.626
       }
     ],
-    "operator": "APA Group"
+    "operator": "Esperance Pipeline Company"
   },
   {
     "id": "wheatstone-lateral",

@@ -115,14 +115,14 @@
     "name": "Queensland Gas Pipeline",
     "region": "east",
     "path": [
-      "gooimbah",
+      "wallumbilla",
       "rolleston",
       "banana",
       "glng"
     ],
     "description": "Runs north from the Wallumbilla area through Rolleston and Banana to the Gladstone/Curtis Island LNG precinct.",
-    "operator": "APA Group",
-    "lengthKm": 518,
+    "operator": "Jemena",
+    "lengthKm": 628,
     "style": {
       "color": "teal"
     },
@@ -1514,6 +1514,7 @@
     "region": "east",
     "path": [
       "young",
+      "burnt-creek",
       "wagga-wagga"
     ],
     "description": "Regional lateral off the Moomba Sydney Pipeline at Young, serving the Riverina region toward Wagga Wagga.",
@@ -1552,14 +1553,14 @@
   },
   {
     "id": "wagga-wagga-griffith",
-    "code": "JTG",
-    "name": "Junee to Griffith Lateral",
+    "code": "BCG",
+    "name": "Burnt Creek to Griffith",
     "region": "east",
     "path": [
-      "wagga-wagga",
+      "burnt-creek",
       "griffith"
     ],
-    "description": "Extends the Riverina gas network from the Wagga Wagga/Junee area west to Griffith.",
+    "description": "Extends the Riverina gas network from Burnt Creek (on the Young-Wagga Wagga lateral) west to Griffith.",
     "operator": "APA Group",
     "lengthKm": 180,
     "style": {
