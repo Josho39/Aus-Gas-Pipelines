@@ -9,8 +9,13 @@ import { projectGeo, computeGeoBounds } from "../lib/geoProject";
 import { AUSTRALIA_OUTLINE } from "../lib/australiaOutline";
 import type { PipelineNode, Pipeline, Selection, NodeType } from "../types";
 
-const WIDTH = 1400;
-const HEIGHT = 1500;
+// Pixels per degree of lat/lng — a fixed scale, rather than forcing every
+// region into a fixed-size box. A region's own bounds vary in aspect ratio
+// (the West dataset is much taller/narrower than the East one, and "All of
+// Australia" is wider than either), so a fixed WIDTH/HEIGHT box would
+// visibly stretch or squash whichever region didn't happen to match its
+// aspect ratio — most noticeably the full-country view.
+const PX_PER_DEGREE = 34;
 
 // Hubs, trading markets and LNG plants stay labelled at any zoom level —
 // they're the "main players." Everything else (fields, compressor
@@ -66,20 +71,31 @@ export function GeoMap({
     [nodes, pipelines]
   );
 
+  // Canvas size follows the bounds' actual aspect ratio at a fixed
+  // pixels-per-degree scale, so nothing gets stretched to fit an
+  // unrelated fixed box (see PX_PER_DEGREE comment above).
+  const { width: mapWidth, height: mapHeight } = useMemo(
+    () => ({
+      width: (bounds.maxLng - bounds.minLng) * PX_PER_DEGREE,
+      height: (bounds.maxLat - bounds.minLat) * PX_PER_DEGREE,
+    }),
+    [bounds]
+  );
+
   const projected = useMemo(
-    () => new Map(nodes.map((n) => [n.id, projectGeo(n.geoPos.lat, n.geoPos.lng, WIDTH, HEIGHT, bounds)])),
-    [nodes, bounds]
+    () => new Map(nodes.map((n) => [n.id, projectGeo(n.geoPos.lat, n.geoPos.lng, mapWidth, mapHeight, bounds)])),
+    [nodes, bounds, mapWidth, mapHeight]
   );
 
   const coastlinePath = useMemo(
     () =>
       "M " +
       AUSTRALIA_OUTLINE.map(({ lat, lng }) => {
-        const p = projectGeo(lat, lng, WIDTH, HEIGHT, bounds);
+        const p = projectGeo(lat, lng, mapWidth, mapHeight, bounds);
         return `${p.x} ${p.y}`;
       }).join(" L ") +
       " Z",
-    [bounds]
+    [bounds, mapWidth, mapHeight]
   );
 
   // Real route geometry (from Geoscience Australia's pipeline dataset) when
@@ -92,11 +108,11 @@ export function GeoMap({
         pipelines.map((pipeline) => [
           pipeline.id,
           pipeline.route
-            ? pipeline.route.map((p) => projectGeo(p.lat, p.lng, WIDTH, HEIGHT, bounds))
+            ? pipeline.route.map((p) => projectGeo(p.lat, p.lng, mapWidth, mapHeight, bounds))
             : getConnectedNodes(pipeline, nodes).map((n) => projected.get(n.id)!),
         ])
       ),
-    [pipelines, nodes, bounds, projected]
+    [pipelines, nodes, bounds, mapWidth, mapHeight, projected]
   );
 
   return (
@@ -113,7 +129,7 @@ export function GeoMap({
       <MapZoomControls />
       <TransformComponent wrapperStyle={{ width: "100%", height: "100%" }} contentStyle={{ width: "100%", height: "100%" }}>
         <svg
-          viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
+          viewBox={`0 0 ${mapWidth} ${mapHeight}`}
           style={{ width: "100%", height: "100%" }}
           preserveAspectRatio="xMidYMid meet"
           role="img"

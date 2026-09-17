@@ -19,16 +19,34 @@ import type { PipelineNode, Pipeline } from "./types";
 import type { ContractsData } from "./data/contracts";
 
 type Tab = "map" | "contracts";
+type MapScope = "east" | "west" | "all";
+
+const EAST_NODES = eastNodes as PipelineNode[];
+const EAST_PIPELINES = eastPipelines as Pipeline[];
+const WEST_NODES = westNodes as PipelineNode[];
+const WEST_PIPELINES = westPipelines as Pipeline[];
+// Node/pipeline ids are unique across both regions (verified — no id
+// appears in both east and west), so a plain concat is a safe merge for
+// the combined "All of Australia" view.
+const ALL_NODES = [...EAST_NODES, ...WEST_NODES];
+const ALL_PIPELINES = [...EAST_PIPELINES, ...WEST_PIPELINES];
 
 export default function App() {
-  const { region, selection, search, operatorFilter, setRegion, select, clearSelection, setSearch, setOperatorFilter } =
-    useAppState();
+  const { selection, search, operatorFilter, select, clearSelection, setSearch, setOperatorFilter } = useAppState();
   const { theme, toggleTheme } = useTheme();
   const [tab, setTab] = useState<Tab>("map");
+  const [mapScope, setMapScope] = useState<MapScope>("east");
   const [panelOpen, setPanelOpen] = useState(true);
 
-  const nodes = (region === "east" ? eastNodes : westNodes) as PipelineNode[];
-  const pipelines = (region === "east" ? eastPipelines : westPipelines) as Pipeline[];
+  const nodes = mapScope === "all" ? ALL_NODES : mapScope === "east" ? EAST_NODES : WEST_NODES;
+  const pipelines = mapScope === "all" ? ALL_PIPELINES : mapScope === "east" ? EAST_PIPELINES : WEST_PIPELINES;
+
+  const selectScope = (scope: MapScope) => {
+    setTab("map");
+    setMapScope(scope);
+    clearSelection();
+    setOperatorFilter(null);
+  };
 
   const operators = useMemo(() => {
     const set = new Set(pipelines.map((p) => p.operator).filter((op): op is string => Boolean(op)));
@@ -60,12 +78,15 @@ export default function App() {
           <h1 className="text-base font-bold tracking-tight whitespace-nowrap">Gas Pipeline Network</h1>
         </div>
 
-        <div className="flex items-center gap-1 bg-ink/60 border border-line rounded-lg p-1">
-          <button className={segmentClass(tab === "map" && region === "east")} onClick={() => { setTab("map"); setRegion("east"); }}>
+        <div className="flex items-center gap-1 bg-ink/60 border border-line rounded-lg p-1 flex-wrap">
+          <button className={segmentClass(tab === "map" && mapScope === "east")} onClick={() => selectScope("east")}>
             East Coast
           </button>
-          <button className={segmentClass(tab === "map" && region === "west")} onClick={() => { setTab("map"); setRegion("west"); }}>
+          <button className={segmentClass(tab === "map" && mapScope === "west")} onClick={() => selectScope("west")}>
             West Coast
+          </button>
+          <button className={segmentClass(tab === "map" && mapScope === "all")} onClick={() => selectScope("all")}>
+            All of Australia
           </button>
           <button className={segmentClass(tab === "contracts")} onClick={() => setTab("contracts")}>
             FY26 Contracts

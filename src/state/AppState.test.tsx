@@ -8,19 +8,8 @@ const wrapper = ({ children }: { children: ReactNode }) => (
 );
 
 describe("useAppState", () => {
-  it("defaults to east region, no selection, no operator filter", () => {
+  it("defaults to no selection and no operator filter", () => {
     const { result } = renderHook(() => useAppState(), { wrapper });
-    expect(result.current.region).toBe("east");
-    expect(result.current.selection).toBeNull();
-    expect(result.current.operatorFilter).toBeNull();
-  });
-
-  it("setRegion switches region, clears selection and operator filter", () => {
-    const { result } = renderHook(() => useAppState(), { wrapper });
-    act(() => result.current.select({ kind: "node", id: "wallumbilla" }));
-    act(() => result.current.setOperatorFilter("APA Group"));
-    act(() => result.current.setRegion("west"));
-    expect(result.current.region).toBe("west");
     expect(result.current.selection).toBeNull();
     expect(result.current.operatorFilter).toBeNull();
   });

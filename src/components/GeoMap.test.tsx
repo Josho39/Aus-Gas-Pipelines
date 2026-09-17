@@ -36,7 +36,7 @@ describe("GeoMap", () => {
   });
 
   it("projects west nodes against their own region bounds, spreading them across most of the canvas width", () => {
-    render(
+    const { container } = render(
       <GeoMap
         nodes={nodes as PipelineNode[]}
         pipelines={pipelines as Pipeline[]}
@@ -50,10 +50,14 @@ describe("GeoMap", () => {
       return Number(circle.getAttribute("cx"));
     });
     const spread = Math.max(...xs) - Math.min(...xs);
-    // GeoMap's canvas is 900 wide. Projected against the whole-continent
-    // AUSTRALIA_BOUNDS, the west dataset spans only ~18% of that (x roughly
-    // 56-219). Projected against its own computed bounds it should span the
-    // large majority of the canvas instead.
-    expect(spread).toBeGreaterThan(900 * 0.6);
+    // The canvas width is derived from the west dataset's own bounds (see
+    // GeoMap's PX_PER_DEGREE sizing), not a fixed box — so nodes should
+    // always span the large majority of it, regardless of the exact pixel
+    // width that ends up being. Projected against the whole-continent
+    // AUSTRALIA_BOUNDS instead (the old, wrong behavior), the west dataset
+    // would span only ~18% of a fixed canvas.
+    const svg = container.querySelector("svg")!;
+    const [, , canvasWidth] = svg.getAttribute("viewBox")!.split(" ").map(Number);
+    expect(spread).toBeGreaterThan(canvasWidth * 0.6);
   });
 });

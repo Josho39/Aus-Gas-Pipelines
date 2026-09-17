@@ -44,6 +44,13 @@ describe("App", () => {
     expect(swqpLine.closest("g")).toHaveAttribute("opacity", "0.15");
   });
 
+  it("shows both an east and a west node together in the All of Australia view", () => {
+    renderApp();
+    fireEvent.click(screen.getByRole("button", { name: /all of australia/i }));
+    expect(screen.getByTestId("node-wallumbilla")).toBeInTheDocument();
+    expect(screen.getByTestId("node-dampier")).toBeInTheDocument();
+  });
+
   it("toggles the legend/operator panel", () => {
     renderApp();
     expect(screen.getByText("Spotlight an operator")).toBeInTheDocument();
