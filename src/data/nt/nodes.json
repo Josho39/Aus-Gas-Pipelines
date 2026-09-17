@@ -1,0 +1,146 @@
+[
+  {
+    "id": "darwin",
+    "name": "Darwin",
+    "type": "hub",
+    "region": "nt",
+    "geoPos": {
+      "lat": -12.553,
+      "lng": 130.866
+    },
+    "description": "NT capital and gas demand hub, terminus of the Amadeus Gas Pipeline (AGP) from Central Australia.",
+    "shortLabel": "Darwin"
+  },
+  {
+    "id": "darwin-lng",
+    "name": "Darwin LNG / Port Precinct",
+    "type": "lng",
+    "region": "nt",
+    "geoPos": {
+      "lat": -12.58,
+      "lng": 130.958
+    },
+    "description": "Wickham Point/East Arm industrial and LNG precinct near Darwin, served by the Darwin Spur off the AGP."
+  },
+  {
+    "id": "cosmo-howley",
+    "name": "Cosmo Howley",
+    "type": "compressor",
+    "region": "nt",
+    "geoPos": {
+      "lat": -13.39,
+      "lng": 131.528
+    },
+    "description": "Junction on the Amadeus Gas Pipeline (AGP) where the Blacktip to Cosmo Howley pipeline connects in."
+  },
+  {
+    "id": "blacktip",
+    "name": "Blacktip Field",
+    "type": "plant",
+    "region": "nt",
+    "geoPos": {
+      "lat": -13.894,
+      "lng": 128.485
+    },
+    "description": "ENI-operated offshore gas field in the Bonaparte Basin, feeding the NT gas network via Cosmo Howley."
+  },
+  {
+    "id": "katherine-junction",
+    "name": "Katherine Junction (AGP)",
+    "type": "compressor",
+    "region": "nt",
+    "geoPos": {
+      "lat": -14.472,
+      "lng": 132.192
+    },
+    "description": "Where the Katherine Lateral taps off the Amadeus Gas Pipeline (AGP) mainline."
+  },
+  {
+    "id": "katherine",
+    "name": "Katherine",
+    "type": "town",
+    "region": "nt",
+    "geoPos": {
+      "lat": -14.458,
+      "lng": 132.255
+    },
+    "description": "NT regional town served by a short lateral off the Amadeus Gas Pipeline (AGP)."
+  },
+  {
+    "id": "tennant-creek-junction",
+    "name": "Tennant Creek Junction (AGP)",
+    "type": "compressor",
+    "region": "nt",
+    "geoPos": {
+      "lat": -19.721,
+      "lng": 133.985
+    },
+    "description": "Where the Tennant Creek Lateral taps off the Amadeus Gas Pipeline (AGP) mainline."
+  },
+  {
+    "id": "tennant-creek",
+    "name": "Tennant Creek",
+    "type": "town",
+    "region": "nt",
+    "geoPos": {
+      "lat": -19.656,
+      "lng": 134.175
+    },
+    "description": "NT regional town served by a lateral off the Amadeus Gas Pipeline (AGP)."
+  },
+  {
+    "id": "palm-valley",
+    "name": "Palm Valley",
+    "type": "plant",
+    "region": "nt",
+    "geoPos": {
+      "lat": -23.951,
+      "lng": 132.673
+    },
+    "description": "Central Petroleum-operated gas field, southern origin of the Amadeus Gas Pipeline (AGP)."
+  },
+  {
+    "id": "alice-springs",
+    "name": "Alice Springs",
+    "type": "town",
+    "region": "nt",
+    "geoPos": {
+      "lat": -23.774,
+      "lng": 133.865
+    },
+    "description": "Central Australia's largest town, served by a lateral off the Amadeus Gas Pipeline (AGP) via Palm Valley."
+  },
+  {
+    "id": "mereenie",
+    "name": "Mereenie",
+    "type": "plant",
+    "region": "nt",
+    "geoPos": {
+      "lat": -23.742,
+      "lng": 132.356
+    },
+    "description": "Central Petroleum-operated gas field west of Alice Springs, feeding the Amadeus system via Tylers Pass."
+  },
+  {
+    "id": "bayu-undan",
+    "name": "Bayu-Undan Field",
+    "type": "plant",
+    "region": "nt",
+    "geoPos": {
+      "lat": -11.067,
+      "lng": 126.617
+    },
+    "description": "Santos-operated offshore gas field in the Timor Sea, feeding Darwin LNG."
+  },
+  {
+    "id": "ichthys-field",
+    "name": "Ichthys Field",
+    "type": "plant",
+    "region": "nt",
+    "geoPos": {
+      "lat": -13.934,
+      "lng": 123.297
+    },
+    "description": "Inpex-operated offshore gas field in the Browse Basin, feeding Ichthys LNG near Darwin."
+  }
+]

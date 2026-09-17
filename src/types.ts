@@ -1,4 +1,4 @@
-export type Region = "east" | "west";
+export type Region = "east" | "west" | "nt";
 
 export type NodeType =
   | "hub"

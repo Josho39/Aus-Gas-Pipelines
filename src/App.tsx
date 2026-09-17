@@ -13,6 +13,8 @@ import eastNodes from "./data/east/nodes.json";
 import eastPipelines from "./data/east/pipelines.json";
 import westNodes from "./data/west/nodes.json";
 import westPipelines from "./data/west/pipelines.json";
+import ntNodes from "./data/nt/nodes.json";
+import ntPipelines from "./data/nt/pipelines.json";
 import contracts from "./data/contracts.json";
 
 import type { PipelineNode, Pipeline } from "./types";
@@ -20,11 +22,15 @@ import type { ContractsData } from "./data/contracts";
 
 type Tab = "map" | "contracts";
 
-// Node/pipeline ids are unique across both regions (verified, no id
-// appears in both east and west), so a plain concat is a safe merge into
-// one combined, whole-of-Australia map.
-const ALL_NODES = [...(eastNodes as PipelineNode[]), ...(westNodes as PipelineNode[])];
-const ALL_PIPELINES = [...(eastPipelines as Pipeline[]), ...(westPipelines as Pipeline[])];
+// Node/pipeline ids are unique across all three regions (verified, no id
+// appears in more than one), so a plain concat is a safe merge into one
+// combined, whole-of-Australia map.
+const ALL_NODES = [...(eastNodes as PipelineNode[]), ...(westNodes as PipelineNode[]), ...(ntNodes as PipelineNode[])];
+const ALL_PIPELINES = [
+  ...(eastPipelines as Pipeline[]),
+  ...(westPipelines as Pipeline[]),
+  ...(ntPipelines as Pipeline[]),
+];
 
 export default function App() {
   const { selection, search, operatorFilter, select, clearSelection, setSearch, setOperatorFilter } = useAppState();
