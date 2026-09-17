@@ -438,7 +438,8 @@
       "lat": -34.24,
       "lng": 150.65
     },
-    "description": "Compressor station on the Moomba Sydney Pipeline (MSP) near its Sydney end, also a delivery point referenced in gas trading contracts."
+    "description": "Compressor station on the Moomba Sydney Pipeline (MSP) near its Sydney end, also a delivery point referenced in gas trading contracts. MSP's real terminus and Jemena's actual receipt point into the Sydney network.",
+    "shortLabel": "WCF"
   },
   {
     "id": "young",
@@ -499,8 +500,19 @@
       "lat": -35.28,
       "lng": 149.13
     },
-    "description": "Canberra-area demand centre served off the Eastern Gas Pipeline network via Hoskinstown.",
+    "description": "Canberra-area demand centre, served both off the Eastern Gas Pipeline network via Hoskinstown and off the Moomba Sydney Pipeline (MSP) via the Dalton to Canberra lateral.",
     "shortLabel": "ACT"
+  },
+  {
+    "id": "dalton",
+    "name": "Dalton",
+    "type": "town",
+    "region": "east",
+    "geoPos": {
+      "lat": -34.7186,
+      "lng": 149.2069
+    },
+    "description": "Small NSW town on the Moomba Sydney Pipeline (MSP) mainline, origin of the Dalton to Canberra lateral."
   },
   {
     "id": "hoskinstown",

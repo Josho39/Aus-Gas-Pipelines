@@ -8,7 +8,7 @@ export const PIPELINE_COLORS: Record<PipelineColor, string> = {
 
 export const NODE_TYPE_COLORS: Record<NodeType, string> = {
   hub: "#38bdf8",
-  plant: "#34d399",
+  plant: "#a3e635",
   compressor: "#fbbf24",
   sttm: "#f472b6",
   lng: "#a78bfa",
