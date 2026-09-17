@@ -274,10 +274,9 @@
       "moomba-hub",
       "bella-park",
       "young",
-      "wilton",
-      "syd-sttm"
+      "wilton"
     ],
-    "description": "Carries Cooper Basin gas from Moomba to the Sydney market, one of the two original NEM east coast trunk lines.",
+    "description": "Carries Cooper Basin gas from Moomba to the Sydney market, one of the two original NEM east coast trunk lines. Terminates at Wilton, Jemena's actual receipt point (confirmed via Jemena's own network documentation), rather than continuing on to a separate downstream location.",
     "operator": "APA Group",
     "lengthKm": 1300,
     "style": {

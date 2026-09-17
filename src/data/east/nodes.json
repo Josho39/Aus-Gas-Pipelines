@@ -468,7 +468,7 @@
       "lat": -33.87,
       "lng": 151.21
     },
-    "description": "Short Term Trading Market hub for Sydney, fed by both the Moomba Sydney Pipeline (MSP) and the Eastern Gas Pipeline (EGP)."
+    "description": "Notional Short Term Trading Market reference point for the Sydney gas market. Physically fed via Jemena's local Sydney distribution network (its Central/Southern/Northern Trunk mains) from the two real receipt points, Wilton (MSP) and Horsley Park (EGP), rather than being a further transmission-pipeline hop past either of them."
   },
   {
     "id": "horsley-park",
