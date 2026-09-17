@@ -12,7 +12,7 @@ export function MapZoomControls() {
     "flex items-center justify-center w-9 h-9 text-fg bg-panel hover:bg-ink transition-colors first:rounded-t-md last:rounded-b-md";
 
   return (
-    <div className="absolute right-3 bottom-3 z-10 flex flex-col border border-line rounded-md shadow-lg overflow-hidden divide-y divide-line">
+    <div className="absolute left-3 bottom-3 z-10 flex flex-col border border-line rounded-md shadow-lg overflow-hidden divide-y divide-line">
       <button
         type="button"
         aria-label="Zoom in"
