@@ -121,7 +121,14 @@ export function GeoMap({
       maxScale={12}
       initialScale={1}
       limitToBounds={false}
-      wheel={{ step: 0.08 }}
+      // `smooth` (the library's default) multiplies `wheel.step` by the
+      // wheel event's raw deltaY — and a standard mouse sends ~100-120 per
+      // single click, not ~1. That meant one scroll click was zooming by
+      // ~0.08 * 110 ≈ 8.8, an enormous jump disguised by a small-looking
+      // step value. Disabling it makes `step` a fixed amount per wheel
+      // event instead, which is what a "gentle zoom step" actually needs.
+      smooth={false}
+      wheel={{ step: 0.2 }}
       doubleClick={{ step: 0.7, animationTime: 200 }}
       panning={{ velocityDisabled: false }}
       onTransform={(_ref, state) => setLabelsExpanded(state.scale >= LABEL_ZOOM_THRESHOLD)}

@@ -623,7 +623,7 @@
   },
   {
     "id": "melbourne",
-    "name": "Melbourne Hub",
+    "name": "Melbourne (VTS)",
     "type": "hub",
     "region": "east",
     "schematicPos": {
@@ -634,7 +634,8 @@
       "lat": -37.81,
       "lng": 144.96
     },
-    "description": "Melbourne demand and distribution hub, fed by the Longford gas plant and the SEA Gas/Iona system."
+    "description": "Melbourne-area gas demand hub on the Victorian Transmission System (VTS) — the network of trunk pipelines and city gates APA operates around Melbourne, fed by the Longford gas plant and the SEA Gas/Iona system.",
+    "shortLabel": "VTS"
   },
   {
     "id": "longford",
