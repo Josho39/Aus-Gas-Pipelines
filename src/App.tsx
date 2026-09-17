@@ -68,7 +68,7 @@ export default function App() {
           </svg>
           <div className="leading-tight">
             <h1 className="text-base font-bold tracking-tight whitespace-nowrap">Gas Pipeline Network</h1>
-            <p className="text-[10px] text-fgmuted whitespace-nowrap">Built by Josh and Luc, inspired by Doug</p>
+            <p className="text-[10px] text-fgmuted whitespace-nowrap">Built by Josh and Luc, inspired by Doug, verified by Luc</p>
           </div>
         </div>
 
