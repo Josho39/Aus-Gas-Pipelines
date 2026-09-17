@@ -10,7 +10,7 @@ function readStoredTheme(): Theme | null {
     return stored === "dark" || stored === "light" ? stored : null;
   } catch {
     // localStorage can be unavailable (private browsing, quota, disabled
-    // storage, or a test environment without a real Storage backend) — fall
+    // storage, or a test environment without a real Storage backend), fall
     // through to the system-preference default rather than crashing.
     return null;
   }
@@ -20,7 +20,7 @@ function writeStoredTheme(theme: Theme): void {
   try {
     window.localStorage.setItem(STORAGE_KEY, theme);
   } catch {
-    // Non-fatal — the toggle still works for the rest of the session, it
+    // Non-fatal, the toggle still works for the rest of the session, it
     // just won't be remembered on the next visit.
   }
 }

@@ -9,7 +9,7 @@
       "gooimbah",
       "wallumbilla"
     ],
-    "description": "Carries Cooper Basin gas from Ballera east to the Wallumbilla hub — historically the main link between Cooper Basin (SA/QLD) supply and the Queensland east coast market.",
+    "description": "Carries Cooper Basin gas from Ballera east to the Wallumbilla hub, historically the main link between Cooper Basin (SA/QLD) supply and the Queensland east coast market.",
     "operator": "APA Group",
     "lengthKm": 753,
     "capacity": "~130 TJ/day",
@@ -200,7 +200,7 @@
       "ellengrove",
       "bri-sttm"
     ],
-    "description": "Delivers gas from the Wallumbilla hub east to Brisbane, passing through Dalby and Oakey — the primary supply route for South East Queensland.",
+    "description": "Delivers gas from the Wallumbilla hub east to Brisbane, passing through Dalby and Oakey, the primary supply route for South East Queensland.",
     "operator": "APA Group",
     "lengthKm": 440,
     "style": {
@@ -277,7 +277,7 @@
       "wilton",
       "syd-sttm"
     ],
-    "description": "Carries Cooper Basin gas from Moomba to the Sydney market — one of the two original NEM east coast trunk lines.",
+    "description": "Carries Cooper Basin gas from Moomba to the Sydney market, one of the two original NEM east coast trunk lines.",
     "operator": "APA Group",
     "lengthKm": 1300,
     "style": {
@@ -547,7 +547,7 @@
       "longford",
       "bell-bay"
     ],
-    "description": "Subsea pipeline carrying Gippsland Basin gas under Bass Strait from Longford to Bell Bay, Tasmania — Tasmania's only mainland gas connection.",
+    "description": "Subsea pipeline carrying Gippsland Basin gas under Bass Strait from Longford to Bell Bay, Tasmania, Tasmania's only mainland gas connection.",
     "operator": "Tasmanian Gas Pipeline Pty Ltd",
     "lengthKm": 323,
     "style": {
@@ -812,7 +812,7 @@
   {
     "id": "swp",
     "code": "SWP",
-    "name": "South West Pipeline (Otway–Melbourne)",
+    "name": "South West Pipeline (Otway-Melbourne)",
     "region": "east",
     "path": [
       "iona",

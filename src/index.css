@@ -9,6 +9,7 @@
   --color-line: #223049;
   --color-fg: #e7ecf5;
   --color-fg-muted: #8b98b3;
+  --color-landmass: #121a2c;
 }
 
 :root[data-theme="light"] {
@@ -17,6 +18,10 @@
   --color-line: #dde3ee;
   --color-fg: #101828;
   --color-fg-muted: #5b6779;
+  /* Distinct from --color-panel (white): the coastline needs to read as a
+     visible grey landmass against the light background, not blend into the
+     white UI panels. */
+  --color-landmass: #c7ccd9;
 }
 
 html, body, #root {

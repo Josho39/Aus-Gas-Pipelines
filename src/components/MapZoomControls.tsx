@@ -1,7 +1,7 @@
 import { useControls } from "react-zoom-pan-pinch";
 
 /** Explicit +/−/reset zoom buttons, since relying on scroll-wheel or pinch
- * alone (the map's only zoom affordance before this) isn't discoverable —
+ * alone (the map's only zoom affordance before this) isn't discoverable,
  * most people don't think to scroll on a map, and there was no visible way
  * to zoom in on a touchpad-less desktop. Must render as a child of
  * `TransformWrapper` (it uses `useControls`, which reads that context). */

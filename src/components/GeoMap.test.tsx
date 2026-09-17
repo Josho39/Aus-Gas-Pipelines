@@ -51,7 +51,7 @@ describe("GeoMap", () => {
     });
     const spread = Math.max(...xs) - Math.min(...xs);
     // The canvas width is derived from the west dataset's own bounds (see
-    // GeoMap's PX_PER_DEGREE sizing), not a fixed box — so nodes should
+    // GeoMap's PX_PER_DEGREE sizing), not a fixed box, so nodes should
     // always span the large majority of it, regardless of the exact pixel
     // width that ends up being. Projected against the whole-continent
     // AUSTRALIA_BOUNDS instead (the old, wrong behavior), the west dataset

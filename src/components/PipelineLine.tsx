@@ -12,7 +12,7 @@ interface PipelineLineProps {
   onClick: (id: string) => void;
   isSelected: boolean;
   /** true when an operator spotlight is active and this pipeline isn't the
-   * spotlighted operator — fades it back without hiding it outright. */
+   * spotlighted operator, fades it back without hiding it outright. */
   dimmed?: boolean;
 }
 

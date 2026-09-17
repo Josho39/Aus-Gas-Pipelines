@@ -20,7 +20,7 @@ import type { ContractsData } from "./data/contracts";
 
 type Tab = "map" | "contracts";
 
-// Node/pipeline ids are unique across both regions (verified — no id
+// Node/pipeline ids are unique across both regions (verified, no id
 // appears in both east and west), so a plain concat is a safe merge into
 // one combined, whole-of-Australia map.
 const ALL_NODES = [...(eastNodes as PipelineNode[]), ...(westNodes as PipelineNode[])];

@@ -6,7 +6,7 @@ interface Point {
 export interface LabelPlacement extends Point {
   /** Tangent angle of the line at the label point, in degrees. */
   angle: number;
-  /** The point on the line itself the label is anchored to — draw a leader
+  /** The point on the line itself the label is anchored to, draw a leader
    * line from here to {x, y} so the offset label still reads as attached
    * to its own pipeline. */
   anchor: Point;
@@ -15,14 +15,14 @@ export interface LabelPlacement extends Point {
 /**
  * Finds the point at the midpoint (by arc length, not just by index) of a
  * polyline, offset perpendicular to the line's local direction there. This
- * keeps a label near its own line without sitting directly on top of it —
+ * keeps a label near its own line without sitting directly on top of it,
  * and, since it's offset to one side rather than centred on the stroke,
  * it's far less likely to land on top of a *different* pipeline's line
  * than a naive "put it at the midpoint" placement would be.
  */
 /**
  * Deterministic left/right side for a pipeline's label offset, derived from
- * its id. Every label used to offset to the same side of its line — fine in
+ * its id. Every label used to offset to the same side of its line, fine in
  * isolation, but at a junction where several pipelines converge (e.g. MSF,
  * where DBP/MWP/PGP all meet, or Wallumbilla/RBP on the east coast) they'd
  * all land on the same side and pile on top of each other and the node's

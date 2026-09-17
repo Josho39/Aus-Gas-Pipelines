@@ -12,7 +12,7 @@
       "lat": -28.096,
       "lng": 140.194
     },
-    "description": "Santos-operated gas processing plant in the Cooper Basin, South Australia — the primary source of gas feeding the Moomba hub and the SWQP, MSP and MAP pipelines."
+    "description": "Santos-operated gas processing plant in the Cooper Basin, South Australia, the primary source of gas feeding the Moomba hub and the SWQP, MSP and MAP pipelines."
   },
   {
     "id": "moomba-hub",
@@ -43,7 +43,7 @@
       "lat": -27.4,
       "lng": 141.78
     },
-    "description": "Ballera processing and compressor facility in the Cooper Basin, Queensland — the western origin point of the South West Queensland Pipeline (SWQP)."
+    "description": "Ballera processing and compressor facility in the Cooper Basin, Queensland, the western origin point of the South West Queensland Pipeline (SWQP)."
   },
   {
     "id": "gooimbah",
@@ -634,7 +634,7 @@
       "lat": -37.81,
       "lng": 144.96
     },
-    "description": "Melbourne-area gas demand hub on the Victorian Transmission System (VTS) — the network of trunk pipelines and city gates APA operates around Melbourne, fed by the Longford gas plant and the SEA Gas/Iona system.",
+    "description": "Melbourne-area gas demand hub on the Victorian Transmission System (VTS), the network of trunk pipelines and city gates APA operates around Melbourne, fed by the Longford gas plant and the SEA Gas/Iona system.",
     "shortLabel": "VTS"
   },
   {
@@ -650,7 +650,7 @@
       "lat": -38.2,
       "lng": 147.09
     },
-    "description": "ExxonMobil/Esso-Woodside operated gas processing plant in the Gippsland Basin, Victoria — the principal source for the Eastern Gas Pipeline (EGP), Tasmanian Gas Pipeline (TGP) and the Melbourne network (GNP).",
+    "description": "ExxonMobil/Esso-Woodside operated gas processing plant in the Gippsland Basin, Victoria, the principal source for the Eastern Gas Pipeline (EGP), Tasmanian Gas Pipeline (TGP) and the Melbourne network (GNP).",
     "shortLabel": "Longford"
   },
   {

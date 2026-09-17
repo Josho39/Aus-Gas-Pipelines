@@ -11,27 +11,40 @@ interface NodeMarkerProps {
    * low zoom levels so dense clusters stay legible, revealing them as the
    * viewer zooms in (or always for major hubs, or when selected). */
   showLabel?: boolean;
+  /** True once the viewer has zoomed in far enough to reveal every label at
+   * once (see GeoMap's LABEL_ZOOM_THRESHOLD) — at that density, full-size
+   * labels are too bulky, so shrink them by half. */
+  compact?: boolean;
 }
 
-export function NodeMarker({ node, x, y, onClick, isSelected, showLabel = true }: NodeMarkerProps) {
+export function NodeMarker({ node, x, y, onClick, isSelected, showLabel = true, compact = false }: NodeMarkerProps) {
   const color = NODE_TYPE_COLORS[node.type];
   const label = node.shortLabel ?? node.name;
-  const labelWidth = label.length * 5.1 + 8;
+  const fontSize = compact ? 4.75 : 9.5;
+  const labelWidth = label.length * (compact ? 2.55 : 5.1) + (compact ? 4 : 8);
+  const labelHeight = compact ? 6.75 : 13.5;
+  const labelOffsetX = compact ? 5 : 10;
 
   return (
     <g onClick={() => onClick(node.id)} style={{ cursor: "pointer" }}>
       {(showLabel || isSelected) && (
         <>
           <rect
-            x={x + 10}
-            y={y - 7.5}
+            x={x + labelOffsetX}
+            y={y - labelHeight / 2}
             width={labelWidth}
-            height={13.5}
-            rx={3}
+            height={labelHeight}
+            rx={compact ? 1.5 : 3}
             style={{ fill: "var(--color-panel)" }}
             opacity={0.85}
           />
-          <text x={x + 14.5} y={y + 3} fontSize={9.5} fontWeight={500} style={{ fill: "var(--color-fg)" }}>
+          <text
+            x={x + labelOffsetX + (compact ? 2.25 : 4.5)}
+            y={y + fontSize / 3}
+            fontSize={fontSize}
+            fontWeight={500}
+            style={{ fill: "var(--color-fg)" }}
+          >
             {label}
           </text>
         </>

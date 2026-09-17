@@ -13,7 +13,7 @@ describe("computeLabelPosition", () => {
   });
 
   it("finds the true arc-length midpoint on a multi-segment route, not the middle index", () => {
-    // One long segment then one short one — the arc-length midpoint should
+    // One long segment then one short one, the arc-length midpoint should
     // land inside the long first segment, not at the shared vertex.
     const p = computeLabelPosition(
       [{ x: 0, y: 0 }, { x: 90, y: 0 }, { x: 100, y: 0 }],

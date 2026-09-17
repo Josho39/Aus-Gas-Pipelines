@@ -2,7 +2,7 @@
  * Australia coastline outline, used as a decorative background reference
  * on the map. Sourced from a public-domain low-resolution country
  * boundary (johan/world.geo.json, itself derived from Natural Earth), not
- * hand-drawn — real coastline shape, not an approximation. Each entry is
+ * hand-drawn, real coastline shape, not an approximation. Each entry is
  * one closed ring: the mainland, plus Tasmania and any other islands, so
  * they render as separate landmasses rather than one connected shape.
  */
