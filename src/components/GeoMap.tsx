@@ -3,6 +3,7 @@ import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import { PipelineLine } from "./PipelineLine";
 import { PipelineLabel } from "./PipelineLabel";
 import { NodeMarker } from "./NodeMarker";
+import { MapZoomControls } from "./MapZoomControls";
 import { getConnectedNodes } from "../lib/selectors";
 import { projectGeo, computeGeoBounds } from "../lib/geoProject";
 import { AUSTRALIA_OUTLINE } from "../lib/australiaOutline";
@@ -80,10 +81,12 @@ export function GeoMap({
       maxScale={12}
       initialScale={1}
       limitToBounds={false}
-      wheel={{ step: 0.08 }}
-      doubleClick={{ step: 1.4 }}
+      wheel={{ step: 0.15 }}
+      doubleClick={{ step: 0.7, animationTime: 200 }}
+      panning={{ velocityDisabled: false }}
       onTransform={(_ref, state) => setScale(state.scale)}
     >
+      <MapZoomControls />
       <TransformComponent wrapperStyle={{ width: "100%", height: "100%" }} contentStyle={{ width: "100%", height: "100%" }}>
         <svg
           viewBox={`0 0 ${WIDTH} ${HEIGHT}`}

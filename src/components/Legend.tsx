@@ -18,9 +18,9 @@ const PIPELINE_COLOR_LABELS: Record<keyof typeof PIPELINE_COLORS, string> = {
 
 export function Legend() {
   return (
-    <div className="text-xs text-slate-300 space-y-3">
+    <div className="text-xs text-fgmuted space-y-3">
       <div>
-        <p className="font-semibold text-slate-200 mb-1">Pipelines</p>
+        <p className="font-semibold text-fg mb-1">Pipelines</p>
         <div className="space-y-1">
           {Object.entries(PIPELINE_COLORS).map(([key, color]) => (
             <div key={key} className="flex items-center gap-2">
@@ -38,7 +38,7 @@ export function Legend() {
         </div>
       </div>
       <div>
-        <p className="font-semibold text-slate-200 mb-1">Facilities</p>
+        <p className="font-semibold text-fg mb-1">Facilities</p>
         <div className="space-y-1">
           {Object.entries(NODE_TYPE_COLORS).map(([key, color]) => (
             <div key={key} className="flex items-center gap-2">

@@ -10,13 +10,13 @@ export function OperatorFilter({ operators, active, onChange }: OperatorFilterPr
   const chipClass = (isActive: boolean) =>
     `px-2 py-1 rounded-md text-xs font-medium border transition-colors ${
       isActive
-        ? "bg-teal text-ink border-teal"
-        : "bg-panel text-slate-300 border-line hover:text-slate-100 hover:border-slate-500"
+        ? "bg-teal text-onaccent border-teal"
+        : "bg-panel text-fgmuted border-line hover:text-fg hover:border-slateline"
     }`;
 
   return (
-    <div className="text-xs text-slate-300">
-      <p className="font-semibold text-slate-200 mb-1.5">Spotlight an operator</p>
+    <div className="text-xs text-fgmuted">
+      <p className="font-semibold text-fg mb-1.5">Spotlight an operator</p>
       <div className="flex flex-wrap gap-1.5 max-w-[220px]">
         <button className={chipClass(active === null)} onClick={() => onChange(null)}>
           All

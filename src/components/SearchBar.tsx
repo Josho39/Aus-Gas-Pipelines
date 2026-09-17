@@ -10,7 +10,7 @@ export function SearchBar({ value, onChange }: SearchBarProps) {
       value={value}
       placeholder="Search contracts…"
       onChange={(e) => onChange(e.target.value)}
-      className="w-full rounded-md bg-panel border border-line px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-teal"
+      className="w-full rounded-md bg-panel border border-line px-3 py-2 text-sm text-fg placeholder:text-fgmuted focus:outline-none focus:ring-2 focus:ring-teal"
     />
   );
 }
