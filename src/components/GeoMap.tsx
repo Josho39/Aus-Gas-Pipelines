@@ -66,8 +66,18 @@ export function GeoMap({
   // zoom/pan frame, which was the other half of the "zoom feels janky"
   // problem: real main-thread work competing with the browser's transform
   // animation.
+  // Includes the coastline outline itself, not just node/pipeline
+  // positions — no facility sits up near Cape York or the Gulf of
+  // Carpentaria, so bounds derived from data alone stopped short of the
+  // real northern coastline and clipped the top of the continent off the
+  // SVG viewport.
   const bounds = useMemo(
-    () => computeGeoBounds([...nodes.map((n) => n.geoPos), ...pipelines.flatMap((p) => p.route ?? [])]),
+    () =>
+      computeGeoBounds([
+        ...nodes.map((n) => n.geoPos),
+        ...pipelines.flatMap((p) => p.route ?? []),
+        ...AUSTRALIA_OUTLINE.flat(),
+      ]),
     [nodes, pipelines]
   );
 
@@ -87,14 +97,22 @@ export function GeoMap({
     [nodes, bounds, mapWidth, mapHeight]
   );
 
+  // One "M ... Z" subpath per landmass (mainland, Tasmania, ...) so
+  // separate islands render as separate shapes instead of one shape
+  // connected across open water.
   const coastlinePath = useMemo(
     () =>
-      "M " +
-      AUSTRALIA_OUTLINE.map(({ lat, lng }) => {
-        const p = projectGeo(lat, lng, mapWidth, mapHeight, bounds);
-        return `${p.x} ${p.y}`;
-      }).join(" L ") +
-      " Z",
+      AUSTRALIA_OUTLINE.map(
+        (ring) =>
+          "M " +
+          ring
+            .map(({ lat, lng }) => {
+              const p = projectGeo(lat, lng, mapWidth, mapHeight, bounds);
+              return `${p.x} ${p.y}`;
+            })
+            .join(" L ") +
+          " Z"
+      ).join(" "),
     [bounds, mapWidth, mapHeight]
   );
 

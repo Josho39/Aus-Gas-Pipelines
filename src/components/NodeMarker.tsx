@@ -16,22 +16,22 @@ interface NodeMarkerProps {
 export function NodeMarker({ node, x, y, onClick, isSelected, showLabel = true }: NodeMarkerProps) {
   const color = NODE_TYPE_COLORS[node.type];
   const label = node.shortLabel ?? node.name;
-  const labelWidth = label.length * 5.8 + 10;
+  const labelWidth = label.length * 5.1 + 8;
 
   return (
     <g onClick={() => onClick(node.id)} style={{ cursor: "pointer" }}>
       {(showLabel || isSelected) && (
         <>
           <rect
-            x={x + 11}
-            y={y - 9}
+            x={x + 10}
+            y={y - 7.5}
             width={labelWidth}
-            height={16}
+            height={13.5}
             rx={3}
             style={{ fill: "var(--color-panel)" }}
             opacity={0.85}
           />
-          <text x={x + 16} y={y + 3.5} fontSize={10.5} fontWeight={500} style={{ fill: "var(--color-fg)" }}>
+          <text x={x + 14.5} y={y + 3} fontSize={9.5} fontWeight={500} style={{ fill: "var(--color-fg)" }}>
             {label}
           </text>
         </>

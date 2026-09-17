@@ -1,5 +1,5 @@
 import { PIPELINE_COLORS } from "../lib/colors";
-import { computeLabelPosition } from "../lib/lineLabel";
+import { computeLabelPosition, labelSide } from "../lib/lineLabel";
 import type { Pipeline } from "../types";
 
 interface Point {
@@ -16,8 +16,8 @@ interface PipelineLabelProps {
 
 export function PipelineLabel({ pipeline, points, onClick, dimmed = false }: PipelineLabelProps) {
   const color = PIPELINE_COLORS[pipeline.style.color];
-  const { x, y, anchor } = computeLabelPosition(points, 26);
-  const labelWidth = pipeline.code.length * 6.2 + 12;
+  const { x, y, anchor } = computeLabelPosition(points, 22 * labelSide(pipeline.id));
+  const labelWidth = pipeline.code.length * 5.6 + 9;
 
   return (
     <g
@@ -32,9 +32,9 @@ export function PipelineLabel({ pipeline, points, onClick, dimmed = false }: Pip
       <circle cx={anchor.x} cy={anchor.y} r={2} fill={color} />
       <rect
         x={x - labelWidth / 2}
-        y={y - 8}
+        y={y - 6.5}
         width={labelWidth}
-        height={15}
+        height={13}
         rx={3}
         style={{ fill: "var(--color-panel)", stroke: color }}
         strokeWidth={0.75}
@@ -42,8 +42,8 @@ export function PipelineLabel({ pipeline, points, onClick, dimmed = false }: Pip
       />
       <text
         x={x}
-        y={y + 3.5}
-        fontSize={10.5}
+        y={y + 3}
+        fontSize={9.5}
         fontWeight={600}
         style={{ fill: "var(--color-fg)" }}
         textAnchor="middle"

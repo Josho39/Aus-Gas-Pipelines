@@ -62,7 +62,10 @@ export default function App() {
             <circle cx="19" cy="18" r="2.5" fill="currentColor" />
             <path d="M7 12h9M13 12l4-4.5M13 12l4 4.5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
           </svg>
-          <h1 className="text-base font-bold tracking-tight whitespace-nowrap">Gas Pipeline Network</h1>
+          <div className="leading-tight">
+            <h1 className="text-base font-bold tracking-tight whitespace-nowrap">Gas Pipeline Network</h1>
+            <p className="text-[10px] text-fgmuted whitespace-nowrap">Built by Josh and Luc, inspired by Doug</p>
+          </div>
         </div>
 
         <div className="flex items-center gap-1 bg-ink/60 border border-line rounded-lg p-1 flex-wrap">

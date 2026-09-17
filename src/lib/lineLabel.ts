@@ -20,6 +20,20 @@ export interface LabelPlacement extends Point {
  * it's far less likely to land on top of a *different* pipeline's line
  * than a naive "put it at the midpoint" placement would be.
  */
+/**
+ * Deterministic left/right side for a pipeline's label offset, derived from
+ * its id. Every label used to offset to the same side of its line — fine in
+ * isolation, but at a junction where several pipelines converge (e.g. MSF,
+ * where DBP/MWP/PGP all meet, or Wallumbilla/RBP on the east coast) they'd
+ * all land on the same side and pile on top of each other and the node's
+ * own label. Alternating sides by id spreads them out instead.
+ */
+export function labelSide(id: string): 1 | -1 {
+  let hash = 0;
+  for (let i = 0; i < id.length; i++) hash = (hash + id.charCodeAt(i)) | 0;
+  return hash % 2 === 0 ? 1 : -1;
+}
+
 export function computeLabelPosition(points: Point[], offset = 14): LabelPlacement {
   if (points.length === 0) return { x: 0, y: 0, angle: 0, anchor: { x: 0, y: 0 } };
   if (points.length === 1) {
