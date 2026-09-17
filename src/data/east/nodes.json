@@ -1,48 +1,702 @@
 [
-  { "id": "moomba-plant", "name": "Moomba Gas Plant", "type": "plant", "region": "east", "schematicPos": { "x": 40, "y": 1195 }, "geoPos": { "lat": -28.096, "lng": 140.194 }, "description": "Santos-operated gas processing plant in the Cooper Basin, South Australia — the primary source of gas feeding the Moomba hub and the SWQP, MSP and MAP pipelines." },
-  { "id": "moomba-hub", "name": "Moomba Compression Facility (MCF)", "type": "hub", "region": "east", "schematicPos": { "x": 287, "y": 1150 }, "geoPos": { "lat": -28.10, "lng": 140.20 }, "description": "Central compression and metering facility at Moomba linking Cooper Basin gas fields to the South West Queensland (SWQP), Moomba-Sydney (MSP) and Moomba-Adelaide (MAP) pipelines via its Low Pressure (MLP) and High Pressure (MHP) points." },
-  { "id": "ballera", "name": "Ballera", "type": "plant", "region": "east", "schematicPos": { "x": 289, "y": 854 }, "geoPos": { "lat": -27.40, "lng": 141.78 }, "description": "Ballera processing and compressor facility in the Cooper Basin, Queensland — the western origin point of the South West Queensland Pipeline (SWQP)." },
-  { "id": "gooimbah", "name": "Gooimbah", "type": "hub", "region": "east", "schematicPos": { "x": 740, "y": 461 }, "geoPos": { "lat": -26.60, "lng": 149.90 }, "description": "Junction point on the South West Queensland Pipeline corridor, connecting through to the Queensland Gas Pipeline (QGP) and the Wallumbilla hub." },
-  { "id": "rolleston", "name": "Rolleston", "type": "hub", "region": "east", "schematicPos": { "x": 744, "y": 302 }, "geoPos": { "lat": -24.48, "lng": 148.60 }, "description": "Compression/valve point on the Queensland Gas Pipeline north of Wallumbilla, near gas fields including Fairview and Yellowbank." },
-  { "id": "yellowbank", "name": "Yellowbank", "type": "plant", "region": "east", "schematicPos": { "x": 595, "y": 365 }, "geoPos": { "lat": -24.50, "lng": 148.50 }, "description": "Upstream gas field supplying into the Rolleston junction on the Queensland Gas Pipeline." },
-  { "id": "fairview", "name": "Fairview", "type": "plant", "region": "east", "schematicPos": { "x": 595, "y": 396 }, "geoPos": { "lat": -25.05, "lng": 150.28 }, "description": "Upstream coal seam gas field supplying into the Rolleston junction on the Queensland Gas Pipeline." },
-  { "id": "banana", "name": "Banana", "type": "hub", "region": "east", "schematicPos": { "x": 798, "y": 197 }, "geoPos": { "lat": -24.48, "lng": 150.13 }, "description": "Junction on the Queensland Gas Pipeline connecting toward Rockhampton, Gladstone and Wide Bay, and on to the Curtis Island LNG projects." },
-  { "id": "rockhampton", "name": "Rockhampton", "type": "town", "region": "east", "schematicPos": { "x": 1050, "y": 160 }, "geoPos": { "lat": -23.38, "lng": 150.51 }, "description": "Regional Queensland demand centre served off the Queensland Gas Pipeline via the Banana junction." },
-  { "id": "gladstone", "name": "Gladstone", "type": "town", "region": "east", "schematicPos": { "x": 1050, "y": 190 }, "geoPos": { "lat": -23.84, "lng": 151.26 }, "description": "Industrial port city and home to the Curtis Island LNG export precinct, served off the Queensland Gas Pipeline." },
-  { "id": "widebay", "name": "Wide Bay", "type": "town", "region": "east", "schematicPos": { "x": 1050, "y": 222 }, "geoPos": { "lat": -25.90, "lng": 152.50 }, "description": "Regional demand centre served off the Queensland Gas Pipeline via the Banana junction." },
-  { "id": "glng", "name": "GLNG (Curtis Island)", "type": "lng", "region": "east", "schematicPos": { "x": 985, "y": 30 }, "geoPos": { "lat": -23.82, "lng": 151.28 }, "description": "Santos-operated LNG export facility on Curtis Island, sourcing coal seam gas from the Roma/Fairview fields via the Queensland Gas Pipeline network." },
-  { "id": "wallumbilla", "name": "Wallumbilla Hub (WAL)", "type": "hub", "region": "east", "schematicPos": { "x": 829, "y": 744 }, "geoPos": { "lat": -26.57, "lng": 149.15 }, "description": "Major Queensland gas trading hub where the SWQP, QGP and RBP pipelines meet, with High Pressure (HP) and Low Pressure (LP) trading points." },
-  { "id": "aplng", "name": "APLNG (Curtis Island)", "type": "lng", "region": "east", "schematicPos": { "x": 1414, "y": 362 }, "geoPos": { "lat": -23.82, "lng": 151.29 }, "description": "Origin/ConocoPhillips-operated LNG export facility on Curtis Island, connected into the Wallumbilla network via the PPL 134 lateral." },
-  { "id": "qgc", "name": "QGC (Curtis Island)", "type": "lng", "region": "east", "schematicPos": { "x": 1637, "y": 130 }, "geoPos": { "lat": -23.82, "lng": 151.30 }, "description": "Shell-operated (QGC) LNG export facility on Curtis Island, connected into the Wallumbilla/Ellengrove network via the PPL 133 lateral." },
-  { "id": "condamine", "name": "Condamine", "type": "plant", "region": "east", "schematicPos": { "x": 1290, "y": 750 }, "geoPos": { "lat": -26.85, "lng": 150.10 }, "description": "Coal seam gas field feeding into the Windibri junction on the Roma Brisbane Pipeline (RBP)." },
-  { "id": "windibri", "name": "Windibri", "type": "hub", "region": "east", "schematicPos": { "x": 1305, "y": 858 }, "geoPos": { "lat": -27.00, "lng": 150.50 }, "description": "Junction on the Roma Brisbane Pipeline (RBP) linking QGC-owned gathering infrastructure and the Braemar power station laterals into the main RBP corridor." },
-  { "id": "scotia", "name": "Scotia", "type": "plant", "region": "east", "schematicPos": { "x": 1220, "y": 630 }, "geoPos": { "lat": -26.70, "lng": 150.20 }, "description": "Upstream gas field in the Surat Basin feeding the Wallumbilla hub area." },
-  { "id": "berwyndale", "name": "Berwyndale", "type": "plant", "region": "east", "schematicPos": { "x": 1360, "y": 580 }, "geoPos": { "lat": -26.60, "lng": 150.40 }, "description": "Upstream coal seam gas field in the Surat Basin feeding the Wallumbilla hub area." },
-  { "id": "talinga", "name": "Talinga", "type": "plant", "region": "east", "schematicPos": { "x": 1520, "y": 570 }, "geoPos": { "lat": -26.90, "lng": 150.60 }, "description": "Upstream coal seam gas field in the Surat Basin feeding the Wallumbilla hub area." },
-  { "id": "argyle", "name": "Argyle", "type": "hub", "region": "east", "schematicPos": { "x": 1460, "y": 920 }, "geoPos": { "lat": -27.00, "lng": 150.80 }, "description": "Compression point on the Roma Brisbane Pipeline between Windibri and Dalby." },
-  { "id": "dalby", "name": "Dalby", "type": "town", "region": "east", "schematicPos": { "x": 1487, "y": 858 }, "geoPos": { "lat": -27.18, "lng": 151.26 }, "description": "Regional Queensland demand centre on the Roma Brisbane Pipeline." },
-  { "id": "oakey", "name": "Oakey", "type": "town", "region": "east", "schematicPos": { "x": 1552, "y": 858 }, "geoPos": { "lat": -27.43, "lng": 151.72 }, "description": "Regional Queensland demand centre on the Roma Brisbane Pipeline, near the Oakey compressor station." },
-  { "id": "braemar", "name": "Braemar Power Station Laterals", "type": "plant", "region": "east", "schematicPos": { "x": 1382, "y": 912 }, "geoPos": { "lat": -27.35, "lng": 151.40 }, "description": "Laterals off the Windibri junction supplying the Braemar 1 and Braemar 2 gas-fired power stations, and the Tipton delivery point." },
-  { "id": "ellengrove", "name": "Ellengrove", "type": "hub", "region": "east", "schematicPos": { "x": 1697, "y": 858 }, "geoPos": { "lat": -27.50, "lng": 152.50 }, "description": "Junction near Brisbane connecting the Roma Brisbane Pipeline and the QGC lateral (PPL 133) into the Brisbane STTM." },
-  { "id": "bri-sttm", "name": "Brisbane STTM", "type": "sttm", "region": "east", "schematicPos": { "x": 1742, "y": 858 }, "geoPos": { "lat": -27.47, "lng": 153.03 }, "description": "Short Term Trading Market hub for Brisbane, the eastern terminus of the Roma Brisbane Pipeline (RBP)." },
-  { "id": "toowoomba", "name": "Toowoomba", "type": "town", "region": "east", "schematicPos": { "x": 1645, "y": 995 }, "geoPos": { "lat": -27.56, "lng": 151.95 }, "description": "Regional demand centre served off the Roma Brisbane Pipeline network (non-hub delivery point)." },
-  { "id": "bella-park", "name": "Bella Park CS", "type": "compressor", "region": "east", "schematicPos": { "x": 440, "y": 1178 }, "geoPos": { "lat": -27.90, "lng": 151.90 }, "description": "Compressor station on the Moomba Sydney Pipeline (MSP) shortly after the Moomba MSP inlet." },
-  { "id": "wilton", "name": "Wilton", "type": "compressor", "region": "east", "schematicPos": { "x": 1343, "y": 1178 }, "geoPos": { "lat": -34.24, "lng": 150.65 }, "description": "Compressor station on the Moomba Sydney Pipeline (MSP) near its Sydney end, also a delivery point referenced in gas trading contracts." },
-  { "id": "young", "name": "Young", "type": "hub", "region": "east", "schematicPos": { "x": 1209, "y": 1182 }, "geoPos": { "lat": -34.31, "lng": 148.30 }, "description": "Junction on the Moomba Sydney Pipeline (MSP) in central NSW." },
-  { "id": "syd-sttm", "name": "Sydney STTM", "type": "sttm", "region": "east", "schematicPos": { "x": 1404, "y": 1200 }, "geoPos": { "lat": -33.87, "lng": 151.21 }, "description": "Short Term Trading Market hub for Sydney, fed by both the Moomba Sydney Pipeline (MSP) and the Eastern Gas Pipeline (EGP)." },
-  { "id": "horsley-park", "name": "Horsley Park", "type": "hub", "region": "east", "schematicPos": { "x": 1465, "y": 1234 }, "geoPos": { "lat": -33.83, "lng": 150.90 }, "description": "Sydney-area distribution hub connected to the Eastern Gas Pipeline (EGP)." },
-  { "id": "act", "name": "ACT (Canberra)", "type": "town", "region": "east", "schematicPos": { "x": 1297, "y": 1354 }, "geoPos": { "lat": -35.28, "lng": 149.13 }, "description": "Canberra-area demand centre served off the Eastern Gas Pipeline network via Hoskinstown." },
-  { "id": "hoskinstown", "name": "Hoskinstown", "type": "hub", "region": "east", "schematicPos": { "x": 1447, "y": 1354 }, "geoPos": { "lat": -35.47, "lng": 149.42 }, "description": "Junction on the Eastern Gas Pipeline (EGP) serving the Canberra (ACT) lateral." },
-  { "id": "culcairn", "name": "Culcairn", "type": "compressor", "region": "east", "schematicPos": { "x": 1168, "y": 1424 }, "geoPos": { "lat": -35.66, "lng": 147.04 }, "description": "Compressor station at the Victoria-NSW interconnect, linking the Victorian gas network to the NSW network." },
-  { "id": "cooma", "name": "Cooma", "type": "town", "region": "east", "schematicPos": { "x": 1443, "y": 1451 }, "geoPos": { "lat": -36.24, "lng": 149.13 }, "description": "Southern NSW town on the Eastern Gas Pipeline (EGP) route between Victoria and Sydney." },
-  { "id": "bombala", "name": "Bombala", "type": "town", "region": "east", "schematicPos": { "x": 1443, "y": 1543 }, "geoPos": { "lat": -36.91, "lng": 149.23 }, "description": "Southern NSW town on the Eastern Gas Pipeline (EGP) route, close to the Victorian border." },
-  { "id": "orbost", "name": "Orbost", "type": "hub", "region": "east", "schematicPos": { "x": 1436, "y": 1611 }, "geoPos": { "lat": -37.70, "lng": 148.45 }, "description": "East Gippsland junction where the Eastern Gas Pipeline (EGP) begins its run from Longford toward NSW." },
-  { "id": "wollert-cs", "name": "Wollert CS", "type": "compressor", "region": "east", "schematicPos": { "x": 1166, "y": 1667 }, "geoPos": { "lat": -37.55, "lng": 145.02 }, "description": "Compressor station north of Melbourne on the Victoria-NSW interconnect corridor." },
-  { "id": "eurora-cs", "name": "Eurora CS", "type": "compressor", "region": "east", "schematicPos": { "x": 1163, "y": 1611 }, "geoPos": { "lat": -36.40, "lng": 146.00 }, "description": "Compressor station on the Victoria-NSW interconnect corridor between Wollert and Culcairn." },
-  { "id": "springhurst-cs", "name": "Springhurst CS", "type": "compressor", "region": "east", "schematicPos": { "x": 1157, "y": 1554 }, "geoPos": { "lat": -36.40, "lng": 146.55 }, "description": "Compressor station on the Victoria-NSW interconnect corridor near the NSW border." },
-  { "id": "melbourne", "name": "Melbourne Hub", "type": "hub", "region": "east", "schematicPos": { "x": 1206, "y": 1852 }, "geoPos": { "lat": -37.81, "lng": 144.96 }, "description": "Melbourne demand and distribution hub, fed by the Longford gas plant and the SEA Gas/Iona system." },
-  { "id": "longford", "name": "Longford Gas Plant", "type": "plant", "region": "east", "schematicPos": { "x": 1408, "y": 1852 }, "geoPos": { "lat": -38.20, "lng": 147.09 }, "description": "ExxonMobil/Esso-Woodside operated gas processing plant in the Gippsland Basin, Victoria — the principal source for the Eastern Gas Pipeline (EGP), Tasmanian Gas Pipeline (TGP) and the Melbourne network (GNP)." },
-  { "id": "iona", "name": "Iona Underground Storage", "type": "plant", "region": "east", "schematicPos": { "x": 864, "y": 1930 }, "geoPos": { "lat": -38.62, "lng": 142.87 }, "description": "Underground gas storage facility near Port Campbell, western Victoria, and connection point for Otway Basin production feeding the SEA Gas Pipeline (PCA) and Melbourne." },
-  { "id": "adl-sttm", "name": "Adelaide STTM", "type": "sttm", "region": "east", "schematicPos": { "x": 289, "y": 1953 }, "geoPos": { "lat": -34.93, "lng": 138.60 }, "description": "Short Term Trading Market hub for Adelaide, fed by the Moomba Adelaide Pipeline (MAP) and the SEA Gas Pipeline (PCA) from Victoria." },
-  { "id": "bell-bay", "name": "Bell Bay (Tasmania)", "type": "town", "region": "east", "schematicPos": { "x": 1500, "y": 1980 }, "geoPos": { "lat": -41.15, "lng": 146.87 }, "description": "Tasmanian receiving point for the Tasmanian Gas Pipeline (TGP), which runs under Bass Strait from Longford." }
+  {
+    "id": "moomba-plant",
+    "name": "Moomba Gas Plant",
+    "type": "plant",
+    "region": "east",
+    "schematicPos": {
+      "x": 40,
+      "y": 1195
+    },
+    "geoPos": {
+      "lat": -28.096,
+      "lng": 140.194
+    },
+    "description": "Santos-operated gas processing plant in the Cooper Basin, South Australia — the primary source of gas feeding the Moomba hub and the SWQP, MSP and MAP pipelines."
+  },
+  {
+    "id": "moomba-hub",
+    "name": "Moomba Compression Facility (MCF)",
+    "type": "hub",
+    "region": "east",
+    "schematicPos": {
+      "x": 287,
+      "y": 1150
+    },
+    "geoPos": {
+      "lat": -28.1,
+      "lng": 140.2
+    },
+    "description": "Central compression and metering facility at Moomba linking Cooper Basin gas fields to the South West Queensland (SWQP), Moomba-Sydney (MSP) and Moomba-Adelaide (MAP) pipelines via its Low Pressure (MLP) and High Pressure (MHP) points.",
+    "shortLabel": "MCF"
+  },
+  {
+    "id": "ballera",
+    "name": "Ballera",
+    "type": "plant",
+    "region": "east",
+    "schematicPos": {
+      "x": 289,
+      "y": 854
+    },
+    "geoPos": {
+      "lat": -27.4,
+      "lng": 141.78
+    },
+    "description": "Ballera processing and compressor facility in the Cooper Basin, Queensland — the western origin point of the South West Queensland Pipeline (SWQP)."
+  },
+  {
+    "id": "gooimbah",
+    "name": "Gooimbah",
+    "type": "hub",
+    "region": "east",
+    "schematicPos": {
+      "x": 740,
+      "y": 461
+    },
+    "geoPos": {
+      "lat": -26.6,
+      "lng": 149.9
+    },
+    "description": "Junction point on the South West Queensland Pipeline corridor, connecting through to the Queensland Gas Pipeline (QGP) and the Wallumbilla hub."
+  },
+  {
+    "id": "rolleston",
+    "name": "Rolleston",
+    "type": "hub",
+    "region": "east",
+    "schematicPos": {
+      "x": 744,
+      "y": 302
+    },
+    "geoPos": {
+      "lat": -24.48,
+      "lng": 148.6
+    },
+    "description": "Compression/valve point on the Queensland Gas Pipeline north of Wallumbilla, near gas fields including Fairview and Yellowbank."
+  },
+  {
+    "id": "yellowbank",
+    "name": "Yellowbank",
+    "type": "plant",
+    "region": "east",
+    "schematicPos": {
+      "x": 595,
+      "y": 365
+    },
+    "geoPos": {
+      "lat": -24.5,
+      "lng": 148.5
+    },
+    "description": "Upstream gas field supplying into the Rolleston junction on the Queensland Gas Pipeline."
+  },
+  {
+    "id": "fairview",
+    "name": "Fairview",
+    "type": "plant",
+    "region": "east",
+    "schematicPos": {
+      "x": 595,
+      "y": 396
+    },
+    "geoPos": {
+      "lat": -25.05,
+      "lng": 150.28
+    },
+    "description": "Upstream coal seam gas field supplying into the Rolleston junction on the Queensland Gas Pipeline."
+  },
+  {
+    "id": "banana",
+    "name": "Banana",
+    "type": "hub",
+    "region": "east",
+    "schematicPos": {
+      "x": 798,
+      "y": 197
+    },
+    "geoPos": {
+      "lat": -24.48,
+      "lng": 150.13
+    },
+    "description": "Junction on the Queensland Gas Pipeline connecting toward Rockhampton, Gladstone and Wide Bay, and on to the Curtis Island LNG projects."
+  },
+  {
+    "id": "rockhampton",
+    "name": "Rockhampton",
+    "type": "town",
+    "region": "east",
+    "schematicPos": {
+      "x": 1050,
+      "y": 160
+    },
+    "geoPos": {
+      "lat": -23.38,
+      "lng": 150.51
+    },
+    "description": "Regional Queensland demand centre served off the Queensland Gas Pipeline via the Banana junction."
+  },
+  {
+    "id": "gladstone",
+    "name": "Gladstone",
+    "type": "town",
+    "region": "east",
+    "schematicPos": {
+      "x": 1050,
+      "y": 190
+    },
+    "geoPos": {
+      "lat": -23.84,
+      "lng": 151.26
+    },
+    "description": "Industrial port city and home to the Curtis Island LNG export precinct, served off the Queensland Gas Pipeline."
+  },
+  {
+    "id": "widebay",
+    "name": "Wide Bay",
+    "type": "town",
+    "region": "east",
+    "schematicPos": {
+      "x": 1050,
+      "y": 222
+    },
+    "geoPos": {
+      "lat": -25.9,
+      "lng": 152.5
+    },
+    "description": "Regional demand centre served off the Queensland Gas Pipeline via the Banana junction."
+  },
+  {
+    "id": "glng",
+    "name": "GLNG (Curtis Island)",
+    "type": "lng",
+    "region": "east",
+    "schematicPos": {
+      "x": 985,
+      "y": 30
+    },
+    "geoPos": {
+      "lat": -23.82,
+      "lng": 151.28
+    },
+    "description": "Santos-operated LNG export facility on Curtis Island, sourcing coal seam gas from the Roma/Fairview fields via the Queensland Gas Pipeline network.",
+    "shortLabel": "GLNG"
+  },
+  {
+    "id": "wallumbilla",
+    "name": "Wallumbilla Hub (WAL)",
+    "type": "hub",
+    "region": "east",
+    "schematicPos": {
+      "x": 829,
+      "y": 744
+    },
+    "geoPos": {
+      "lat": -26.57,
+      "lng": 149.15
+    },
+    "description": "Major Queensland gas trading hub where the SWQP, QGP and RBP pipelines meet, with High Pressure (HP) and Low Pressure (LP) trading points.",
+    "shortLabel": "WAL"
+  },
+  {
+    "id": "aplng",
+    "name": "APLNG (Curtis Island)",
+    "type": "lng",
+    "region": "east",
+    "schematicPos": {
+      "x": 1414,
+      "y": 362
+    },
+    "geoPos": {
+      "lat": -23.82,
+      "lng": 151.29
+    },
+    "description": "Origin/ConocoPhillips-operated LNG export facility on Curtis Island, connected into the Wallumbilla network via the PPL 134 lateral.",
+    "shortLabel": "APLNG"
+  },
+  {
+    "id": "qgc",
+    "name": "QGC (Curtis Island)",
+    "type": "lng",
+    "region": "east",
+    "schematicPos": {
+      "x": 1637,
+      "y": 130
+    },
+    "geoPos": {
+      "lat": -23.82,
+      "lng": 151.3
+    },
+    "description": "Shell-operated (QGC) LNG export facility on Curtis Island, connected into the Wallumbilla/Ellengrove network via the PPL 133 lateral.",
+    "shortLabel": "QGC"
+  },
+  {
+    "id": "condamine",
+    "name": "Condamine",
+    "type": "plant",
+    "region": "east",
+    "schematicPos": {
+      "x": 1290,
+      "y": 750
+    },
+    "geoPos": {
+      "lat": -26.85,
+      "lng": 150.1
+    },
+    "description": "Coal seam gas field feeding into the Windibri junction on the Roma Brisbane Pipeline (RBP)."
+  },
+  {
+    "id": "windibri",
+    "name": "Windibri",
+    "type": "hub",
+    "region": "east",
+    "schematicPos": {
+      "x": 1305,
+      "y": 858
+    },
+    "geoPos": {
+      "lat": -27,
+      "lng": 150.5
+    },
+    "description": "Junction on the Roma Brisbane Pipeline (RBP) linking QGC-owned gathering infrastructure and the Braemar power station laterals into the main RBP corridor."
+  },
+  {
+    "id": "scotia",
+    "name": "Scotia",
+    "type": "plant",
+    "region": "east",
+    "schematicPos": {
+      "x": 1220,
+      "y": 630
+    },
+    "geoPos": {
+      "lat": -26.7,
+      "lng": 150.2
+    },
+    "description": "Upstream gas field in the Surat Basin feeding the Wallumbilla hub area."
+  },
+  {
+    "id": "berwyndale",
+    "name": "Berwyndale",
+    "type": "plant",
+    "region": "east",
+    "schematicPos": {
+      "x": 1360,
+      "y": 580
+    },
+    "geoPos": {
+      "lat": -26.6,
+      "lng": 150.4
+    },
+    "description": "Upstream coal seam gas field in the Surat Basin feeding the Wallumbilla hub area."
+  },
+  {
+    "id": "talinga",
+    "name": "Talinga",
+    "type": "plant",
+    "region": "east",
+    "schematicPos": {
+      "x": 1520,
+      "y": 570
+    },
+    "geoPos": {
+      "lat": -26.9,
+      "lng": 150.6
+    },
+    "description": "Upstream coal seam gas field in the Surat Basin feeding the Wallumbilla hub area."
+  },
+  {
+    "id": "argyle",
+    "name": "Argyle",
+    "type": "hub",
+    "region": "east",
+    "schematicPos": {
+      "x": 1460,
+      "y": 920
+    },
+    "geoPos": {
+      "lat": -27,
+      "lng": 150.8
+    },
+    "description": "Compression point on the Roma Brisbane Pipeline between Windibri and Dalby."
+  },
+  {
+    "id": "dalby",
+    "name": "Dalby",
+    "type": "town",
+    "region": "east",
+    "schematicPos": {
+      "x": 1487,
+      "y": 858
+    },
+    "geoPos": {
+      "lat": -27.18,
+      "lng": 151.26
+    },
+    "description": "Regional Queensland demand centre on the Roma Brisbane Pipeline."
+  },
+  {
+    "id": "oakey",
+    "name": "Oakey",
+    "type": "town",
+    "region": "east",
+    "schematicPos": {
+      "x": 1552,
+      "y": 858
+    },
+    "geoPos": {
+      "lat": -27.43,
+      "lng": 151.72
+    },
+    "description": "Regional Queensland demand centre on the Roma Brisbane Pipeline, near the Oakey compressor station."
+  },
+  {
+    "id": "braemar",
+    "name": "Braemar Power Station Laterals",
+    "type": "plant",
+    "region": "east",
+    "schematicPos": {
+      "x": 1382,
+      "y": 912
+    },
+    "geoPos": {
+      "lat": -27.35,
+      "lng": 151.4
+    },
+    "description": "Laterals off the Windibri junction supplying the Braemar 1 and Braemar 2 gas-fired power stations, and the Tipton delivery point.",
+    "shortLabel": "Braemar"
+  },
+  {
+    "id": "ellengrove",
+    "name": "Ellengrove",
+    "type": "hub",
+    "region": "east",
+    "schematicPos": {
+      "x": 1697,
+      "y": 858
+    },
+    "geoPos": {
+      "lat": -27.5,
+      "lng": 152.5
+    },
+    "description": "Junction near Brisbane connecting the Roma Brisbane Pipeline and the QGC lateral (PPL 133) into the Brisbane STTM."
+  },
+  {
+    "id": "bri-sttm",
+    "name": "Brisbane STTM",
+    "type": "sttm",
+    "region": "east",
+    "schematicPos": {
+      "x": 1742,
+      "y": 858
+    },
+    "geoPos": {
+      "lat": -27.47,
+      "lng": 153.03
+    },
+    "description": "Short Term Trading Market hub for Brisbane, the eastern terminus of the Roma Brisbane Pipeline (RBP)."
+  },
+  {
+    "id": "toowoomba",
+    "name": "Toowoomba",
+    "type": "town",
+    "region": "east",
+    "schematicPos": {
+      "x": 1645,
+      "y": 995
+    },
+    "geoPos": {
+      "lat": -27.56,
+      "lng": 151.95
+    },
+    "description": "Regional demand centre served off the Roma Brisbane Pipeline network (non-hub delivery point)."
+  },
+  {
+    "id": "bella-park",
+    "name": "Bella Park CS",
+    "type": "compressor",
+    "region": "east",
+    "schematicPos": {
+      "x": 440,
+      "y": 1178
+    },
+    "geoPos": {
+      "lat": -27.9,
+      "lng": 151.9
+    },
+    "description": "Compressor station on the Moomba Sydney Pipeline (MSP) shortly after the Moomba MSP inlet."
+  },
+  {
+    "id": "wilton",
+    "name": "Wilton",
+    "type": "compressor",
+    "region": "east",
+    "schematicPos": {
+      "x": 1343,
+      "y": 1178
+    },
+    "geoPos": {
+      "lat": -34.24,
+      "lng": 150.65
+    },
+    "description": "Compressor station on the Moomba Sydney Pipeline (MSP) near its Sydney end, also a delivery point referenced in gas trading contracts."
+  },
+  {
+    "id": "young",
+    "name": "Young",
+    "type": "hub",
+    "region": "east",
+    "schematicPos": {
+      "x": 1209,
+      "y": 1182
+    },
+    "geoPos": {
+      "lat": -34.31,
+      "lng": 148.3
+    },
+    "description": "Junction on the Moomba Sydney Pipeline (MSP) in central NSW."
+  },
+  {
+    "id": "syd-sttm",
+    "name": "Sydney STTM",
+    "type": "sttm",
+    "region": "east",
+    "schematicPos": {
+      "x": 1404,
+      "y": 1200
+    },
+    "geoPos": {
+      "lat": -33.87,
+      "lng": 151.21
+    },
+    "description": "Short Term Trading Market hub for Sydney, fed by both the Moomba Sydney Pipeline (MSP) and the Eastern Gas Pipeline (EGP)."
+  },
+  {
+    "id": "horsley-park",
+    "name": "Horsley Park",
+    "type": "hub",
+    "region": "east",
+    "schematicPos": {
+      "x": 1465,
+      "y": 1234
+    },
+    "geoPos": {
+      "lat": -33.83,
+      "lng": 150.9
+    },
+    "description": "Sydney-area distribution hub connected to the Eastern Gas Pipeline (EGP)."
+  },
+  {
+    "id": "act",
+    "name": "ACT (Canberra)",
+    "type": "town",
+    "region": "east",
+    "schematicPos": {
+      "x": 1297,
+      "y": 1354
+    },
+    "geoPos": {
+      "lat": -35.28,
+      "lng": 149.13
+    },
+    "description": "Canberra-area demand centre served off the Eastern Gas Pipeline network via Hoskinstown.",
+    "shortLabel": "ACT"
+  },
+  {
+    "id": "hoskinstown",
+    "name": "Hoskinstown",
+    "type": "hub",
+    "region": "east",
+    "schematicPos": {
+      "x": 1447,
+      "y": 1354
+    },
+    "geoPos": {
+      "lat": -35.47,
+      "lng": 149.42
+    },
+    "description": "Junction on the Eastern Gas Pipeline (EGP) serving the Canberra (ACT) lateral."
+  },
+  {
+    "id": "culcairn",
+    "name": "Culcairn",
+    "type": "compressor",
+    "region": "east",
+    "schematicPos": {
+      "x": 1168,
+      "y": 1424
+    },
+    "geoPos": {
+      "lat": -35.66,
+      "lng": 147.04
+    },
+    "description": "Compressor station at the Victoria-NSW interconnect, linking the Victorian gas network to the NSW network."
+  },
+  {
+    "id": "cooma",
+    "name": "Cooma",
+    "type": "town",
+    "region": "east",
+    "schematicPos": {
+      "x": 1443,
+      "y": 1451
+    },
+    "geoPos": {
+      "lat": -36.24,
+      "lng": 149.13
+    },
+    "description": "Southern NSW town on the Eastern Gas Pipeline (EGP) route between Victoria and Sydney."
+  },
+  {
+    "id": "bombala",
+    "name": "Bombala",
+    "type": "town",
+    "region": "east",
+    "schematicPos": {
+      "x": 1443,
+      "y": 1543
+    },
+    "geoPos": {
+      "lat": -36.91,
+      "lng": 149.23
+    },
+    "description": "Southern NSW town on the Eastern Gas Pipeline (EGP) route, close to the Victorian border."
+  },
+  {
+    "id": "orbost",
+    "name": "Orbost",
+    "type": "hub",
+    "region": "east",
+    "schematicPos": {
+      "x": 1436,
+      "y": 1611
+    },
+    "geoPos": {
+      "lat": -37.7,
+      "lng": 148.45
+    },
+    "description": "East Gippsland junction where the Eastern Gas Pipeline (EGP) begins its run from Longford toward NSW."
+  },
+  {
+    "id": "wollert-cs",
+    "name": "Wollert CS",
+    "type": "compressor",
+    "region": "east",
+    "schematicPos": {
+      "x": 1166,
+      "y": 1667
+    },
+    "geoPos": {
+      "lat": -37.55,
+      "lng": 145.02
+    },
+    "description": "Compressor station north of Melbourne on the Victoria-NSW interconnect corridor."
+  },
+  {
+    "id": "eurora-cs",
+    "name": "Eurora CS",
+    "type": "compressor",
+    "region": "east",
+    "schematicPos": {
+      "x": 1163,
+      "y": 1611
+    },
+    "geoPos": {
+      "lat": -36.4,
+      "lng": 146
+    },
+    "description": "Compressor station on the Victoria-NSW interconnect corridor between Wollert and Culcairn."
+  },
+  {
+    "id": "springhurst-cs",
+    "name": "Springhurst CS",
+    "type": "compressor",
+    "region": "east",
+    "schematicPos": {
+      "x": 1157,
+      "y": 1554
+    },
+    "geoPos": {
+      "lat": -36.4,
+      "lng": 146.55
+    },
+    "description": "Compressor station on the Victoria-NSW interconnect corridor near the NSW border."
+  },
+  {
+    "id": "melbourne",
+    "name": "Melbourne Hub",
+    "type": "hub",
+    "region": "east",
+    "schematicPos": {
+      "x": 1206,
+      "y": 1852
+    },
+    "geoPos": {
+      "lat": -37.81,
+      "lng": 144.96
+    },
+    "description": "Melbourne demand and distribution hub, fed by the Longford gas plant and the SEA Gas/Iona system."
+  },
+  {
+    "id": "longford",
+    "name": "Longford Gas Plant",
+    "type": "plant",
+    "region": "east",
+    "schematicPos": {
+      "x": 1408,
+      "y": 1852
+    },
+    "geoPos": {
+      "lat": -38.2,
+      "lng": 147.09
+    },
+    "description": "ExxonMobil/Esso-Woodside operated gas processing plant in the Gippsland Basin, Victoria — the principal source for the Eastern Gas Pipeline (EGP), Tasmanian Gas Pipeline (TGP) and the Melbourne network (GNP).",
+    "shortLabel": "Longford"
+  },
+  {
+    "id": "iona",
+    "name": "Iona Underground Storage",
+    "type": "plant",
+    "region": "east",
+    "schematicPos": {
+      "x": 864,
+      "y": 1930
+    },
+    "geoPos": {
+      "lat": -38.62,
+      "lng": 142.87
+    },
+    "description": "Underground gas storage facility near Port Campbell, western Victoria, and connection point for Otway Basin production feeding the SEA Gas Pipeline (PCA) and Melbourne.",
+    "shortLabel": "Iona"
+  },
+  {
+    "id": "adl-sttm",
+    "name": "Adelaide STTM",
+    "type": "sttm",
+    "region": "east",
+    "schematicPos": {
+      "x": 289,
+      "y": 1953
+    },
+    "geoPos": {
+      "lat": -34.93,
+      "lng": 138.6
+    },
+    "description": "Short Term Trading Market hub for Adelaide, fed by the Moomba Adelaide Pipeline (MAP) and the SEA Gas Pipeline (PCA) from Victoria."
+  },
+  {
+    "id": "bell-bay",
+    "name": "Bell Bay (Tasmania)",
+    "type": "town",
+    "region": "east",
+    "schematicPos": {
+      "x": 1500,
+      "y": 1980
+    },
+    "geoPos": {
+      "lat": -41.15,
+      "lng": 146.87
+    },
+    "description": "Tasmanian receiving point for the Tasmanian Gas Pipeline (TGP), which runs under Bass Strait from Longford.",
+    "shortLabel": "Bell Bay"
+  }
 ]

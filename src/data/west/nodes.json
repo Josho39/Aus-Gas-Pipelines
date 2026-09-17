@@ -1,17 +1,228 @@
 [
-  { "id": "tubridgi-wheatstone", "name": "Tubridgi / Wheatstone", "type": "plant", "region": "west", "schematicPos": { "x": 400, "y": 180 }, "geoPos": { "lat": -21.64, "lng": 115.12 }, "description": "Chevron-operated Wheatstone LNG and domestic gas plant near Onslow, WA — a supply point into the Dampier to Bunbury (DBP) and Pilbara pipeline network." },
-  { "id": "gorgon", "name": "Gorgon (Barrow Island)", "type": "plant", "region": "west", "schematicPos": { "x": 430, "y": 120 }, "geoPos": { "lat": -20.83, "lng": 115.45 }, "description": "Chevron-operated Gorgon LNG and domestic gas plant on Barrow Island, connected into the Dampier hub area." },
-  { "id": "dampier", "name": "Dampier Hub", "type": "hub", "region": "west", "schematicPos": { "x": 500, "y": 150 }, "geoPos": { "lat": -20.66, "lng": 116.71 }, "description": "Pilbara coastal hub where Woodside's North West Shelf gas processing connects into the Dampier to Bunbury Pipeline (DBP) and the Goldfields Gas Pipeline (GGP)." },
-  { "id": "port-hedland", "name": "Port Hedland", "type": "town", "region": "west", "schematicPos": { "x": 550, "y": 150 }, "geoPos": { "lat": -20.31, "lng": 118.57 }, "description": "Pilbara port town served by the regional Pilbara Pipeline System, and the start of the Telfer Gas Pipeline." },
-  { "id": "telfer", "name": "Telfer", "type": "plant", "region": "west", "schematicPos": { "x": 650, "y": 180 }, "geoPos": { "lat": -21.71, "lng": 122.22 }, "description": "Remote Pilbara gold/copper mine supplied by the Telfer Gas Pipeline from Port Hedland." },
-  { "id": "newman", "name": "Newman", "type": "town", "region": "west", "schematicPos": { "x": 780, "y": 270 }, "geoPos": { "lat": -23.36, "lng": 119.73 }, "description": "Pilbara mining town and junction point on the Goldfields Gas Pipeline (GGP), also linked toward Kalgoorlie via the Northern Goldfields Interconnect." },
-  { "id": "kalgoorlie", "name": "Kalgoorlie", "type": "town", "region": "west", "schematicPos": { "x": 780, "y": 480 }, "geoPos": { "lat": -30.75, "lng": 121.47 }, "description": "Goldfields mining hub, the southern terminus of the Goldfields Gas Pipeline (GGP) and origin of the Eastern Goldfields Pipeline System." },
-  { "id": "kambalda", "name": "Kambalda", "type": "town", "region": "west", "schematicPos": { "x": 780, "y": 520 }, "geoPos": { "lat": -31.19, "lng": 121.65 }, "description": "Goldfields mining town south of Kalgoorlie, connected via the Kalgoorlie-Kambalda Pipeline and onward to Esperance." },
-  { "id": "esperance", "name": "Esperance", "type": "town", "region": "west", "schematicPos": { "x": 780, "y": 620 }, "geoPos": { "lat": -33.86, "lng": 121.89 }, "description": "South coast WA port town, the terminus of the Eastern Goldfields Pipeline System and the Kambalda Esperance Gas Pipeline." },
-  { "id": "windimurra", "name": "Windimurra", "type": "plant", "region": "west", "schematicPos": { "x": 590, "y": 470 }, "geoPos": { "lat": -27.80, "lng": 118.60 }, "description": "Mid West WA vanadium mine served by the Mid West Pipeline." },
-  { "id": "geraldton", "name": "Geraldton", "type": "town", "region": "west", "schematicPos": { "x": 340, "y": 480 }, "geoPos": { "lat": -28.78, "lng": 114.61 }, "description": "Mid West WA coastal city, the western end of the Mid West Pipeline." },
-  { "id": "msf", "name": "MSF", "type": "hub", "region": "west", "schematicPos": { "x": 430, "y": 530 }, "geoPos": { "lat": -28.00, "lng": 116.00 }, "description": "Metering/supply facility on the Dampier to Bunbury Pipeline (DBP) where the Mid West Pipeline and Parmelia Gas Pipeline (PGP) connect into the main trunk line." },
-  { "id": "perth", "name": "Perth Hub", "type": "hub", "region": "west", "schematicPos": { "x": 400, "y": 650 }, "geoPos": { "lat": -31.95, "lng": 115.86 }, "description": "Perth metropolitan gas distribution hub (Metro North and Metro South zones), the largest demand centre on the WA gas network." },
-  { "id": "waggerup-pinjarra", "name": "Waggerup & Pinjarra (DBP Connect)", "type": "plant", "region": "west", "schematicPos": { "x": 400, "y": 730 }, "geoPos": { "lat": -33.00, "lng": 115.85 }, "description": "Alcoa alumina refineries south of Perth connected directly into the Dampier to Bunbury Pipeline (DBP)." },
-  { "id": "bunbury", "name": "Bunbury", "type": "town", "region": "west", "schematicPos": { "x": 400, "y": 760 }, "geoPos": { "lat": -33.33, "lng": 115.64 }, "description": "South-west WA port city, the southern terminus of the Dampier to Bunbury Pipeline (DBP)." }
+  {
+    "id": "tubridgi-wheatstone",
+    "name": "Tubridgi / Wheatstone",
+    "type": "plant",
+    "region": "west",
+    "schematicPos": {
+      "x": 400,
+      "y": 180
+    },
+    "geoPos": {
+      "lat": -21.64,
+      "lng": 115.12
+    },
+    "description": "Chevron-operated Wheatstone LNG and domestic gas plant near Onslow, WA — a supply point into the Dampier to Bunbury (DBP) and Pilbara pipeline network."
+  },
+  {
+    "id": "gorgon",
+    "name": "Gorgon (Barrow Island)",
+    "type": "plant",
+    "region": "west",
+    "schematicPos": {
+      "x": 430,
+      "y": 120
+    },
+    "geoPos": {
+      "lat": -20.83,
+      "lng": 115.45
+    },
+    "description": "Chevron-operated Gorgon LNG and domestic gas plant on Barrow Island, connected into the Dampier hub area."
+  },
+  {
+    "id": "dampier",
+    "name": "Dampier Hub",
+    "type": "hub",
+    "region": "west",
+    "schematicPos": {
+      "x": 500,
+      "y": 150
+    },
+    "geoPos": {
+      "lat": -20.66,
+      "lng": 116.71
+    },
+    "description": "Pilbara coastal hub where Woodside's North West Shelf gas processing connects into the Dampier to Bunbury Pipeline (DBP) and the Goldfields Gas Pipeline (GGP)."
+  },
+  {
+    "id": "port-hedland",
+    "name": "Port Hedland",
+    "type": "town",
+    "region": "west",
+    "schematicPos": {
+      "x": 550,
+      "y": 150
+    },
+    "geoPos": {
+      "lat": -20.31,
+      "lng": 118.57
+    },
+    "description": "Pilbara port town served by the regional Pilbara Pipeline System, and the start of the Telfer Gas Pipeline."
+  },
+  {
+    "id": "telfer",
+    "name": "Telfer",
+    "type": "plant",
+    "region": "west",
+    "schematicPos": {
+      "x": 650,
+      "y": 180
+    },
+    "geoPos": {
+      "lat": -21.71,
+      "lng": 122.22
+    },
+    "description": "Remote Pilbara gold/copper mine supplied by the Telfer Gas Pipeline from Port Hedland."
+  },
+  {
+    "id": "newman",
+    "name": "Newman",
+    "type": "town",
+    "region": "west",
+    "schematicPos": {
+      "x": 780,
+      "y": 270
+    },
+    "geoPos": {
+      "lat": -23.36,
+      "lng": 119.73
+    },
+    "description": "Pilbara mining town and junction point on the Goldfields Gas Pipeline (GGP), also linked toward Kalgoorlie via the Northern Goldfields Interconnect."
+  },
+  {
+    "id": "kalgoorlie",
+    "name": "Kalgoorlie",
+    "type": "town",
+    "region": "west",
+    "schematicPos": {
+      "x": 780,
+      "y": 480
+    },
+    "geoPos": {
+      "lat": -30.75,
+      "lng": 121.47
+    },
+    "description": "Goldfields mining hub, the southern terminus of the Goldfields Gas Pipeline (GGP) and origin of the Eastern Goldfields Pipeline System."
+  },
+  {
+    "id": "kambalda",
+    "name": "Kambalda",
+    "type": "town",
+    "region": "west",
+    "schematicPos": {
+      "x": 780,
+      "y": 520
+    },
+    "geoPos": {
+      "lat": -31.19,
+      "lng": 121.65
+    },
+    "description": "Goldfields mining town south of Kalgoorlie, connected via the Kalgoorlie-Kambalda Pipeline and onward to Esperance."
+  },
+  {
+    "id": "esperance",
+    "name": "Esperance",
+    "type": "town",
+    "region": "west",
+    "schematicPos": {
+      "x": 780,
+      "y": 620
+    },
+    "geoPos": {
+      "lat": -33.86,
+      "lng": 121.89
+    },
+    "description": "South coast WA port town, the terminus of the Eastern Goldfields Pipeline System and the Kambalda Esperance Gas Pipeline."
+  },
+  {
+    "id": "windimurra",
+    "name": "Windimurra",
+    "type": "plant",
+    "region": "west",
+    "schematicPos": {
+      "x": 590,
+      "y": 470
+    },
+    "geoPos": {
+      "lat": -27.8,
+      "lng": 118.6
+    },
+    "description": "Mid West WA vanadium mine served by the Mid West Pipeline."
+  },
+  {
+    "id": "geraldton",
+    "name": "Geraldton",
+    "type": "town",
+    "region": "west",
+    "schematicPos": {
+      "x": 340,
+      "y": 480
+    },
+    "geoPos": {
+      "lat": -28.78,
+      "lng": 114.61
+    },
+    "description": "Mid West WA coastal city, the western end of the Mid West Pipeline."
+  },
+  {
+    "id": "msf",
+    "name": "MSF",
+    "type": "hub",
+    "region": "west",
+    "schematicPos": {
+      "x": 430,
+      "y": 530
+    },
+    "geoPos": {
+      "lat": -28,
+      "lng": 116
+    },
+    "description": "Metering/supply facility on the Dampier to Bunbury Pipeline (DBP) where the Mid West Pipeline and Parmelia Gas Pipeline (PGP) connect into the main trunk line."
+  },
+  {
+    "id": "perth",
+    "name": "Perth Hub",
+    "type": "hub",
+    "region": "west",
+    "schematicPos": {
+      "x": 400,
+      "y": 650
+    },
+    "geoPos": {
+      "lat": -31.95,
+      "lng": 115.86
+    },
+    "description": "Perth metropolitan gas distribution hub (Metro North and Metro South zones), the largest demand centre on the WA gas network."
+  },
+  {
+    "id": "waggerup-pinjarra",
+    "name": "Waggerup & Pinjarra (DBP Connect)",
+    "type": "plant",
+    "region": "west",
+    "schematicPos": {
+      "x": 400,
+      "y": 730
+    },
+    "geoPos": {
+      "lat": -33,
+      "lng": 115.85
+    },
+    "description": "Alcoa alumina refineries south of Perth connected directly into the Dampier to Bunbury Pipeline (DBP).",
+    "shortLabel": "Waggerup & Pinjarra"
+  },
+  {
+    "id": "bunbury",
+    "name": "Bunbury",
+    "type": "town",
+    "region": "west",
+    "schematicPos": {
+      "x": 400,
+      "y": 760
+    },
+    "geoPos": {
+      "lat": -33.33,
+      "lng": 115.64
+    },
+    "description": "South-west WA port city, the southern terminus of the Dampier to Bunbury Pipeline (DBP)."
+  }
 ]

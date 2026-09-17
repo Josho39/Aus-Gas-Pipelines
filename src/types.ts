@@ -16,6 +16,10 @@ export interface PipelineNode {
   schematicPos: { x: number; y: number };
   geoPos: { lat: number; lng: number };
   description: string;
+  /** Compact label for the map marker (e.g. "MCF" for "Moomba Compression
+   * Facility (MCF)"). Falls back to `name` when absent. The detail panel
+   * always shows the full `name`. */
+  shortLabel?: string;
 }
 
 export type PipelineColor = "teal" | "amber" | "purple" | "slate";

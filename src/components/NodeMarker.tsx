@@ -15,7 +15,8 @@ interface NodeMarkerProps {
 
 export function NodeMarker({ node, x, y, onClick, isSelected, showLabel = true }: NodeMarkerProps) {
   const color = NODE_TYPE_COLORS[node.type];
-  const labelWidth = node.name.length * 5.8 + 10;
+  const label = node.shortLabel ?? node.name;
+  const labelWidth = label.length * 5.8 + 10;
 
   return (
     <g onClick={() => onClick(node.id)} style={{ cursor: "pointer" }}>
@@ -31,7 +32,7 @@ export function NodeMarker({ node, x, y, onClick, isSelected, showLabel = true }
             opacity={0.75}
           />
           <text x={x + 16} y={y + 3.5} fontSize={10.5} fontWeight={500} fill="#e2e8f0">
-            {node.name}
+            {label}
           </text>
         </>
       )}
