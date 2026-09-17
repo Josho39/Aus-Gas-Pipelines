@@ -24,10 +24,13 @@ export function NodeMarker({ node, x, y, onClick, isSelected, showLabel = true, 
   const labelWidth = label.length * (compact ? 2.55 : 5.1) + (compact ? 4 : 8);
   const labelHeight = compact ? 6.75 : 13.5;
   const labelOffsetX = compact ? 5 : 10;
-  const radius = isSelected ? (compact ? 6 : 9) : compact ? 3.5 : 6.5;
+  const radius = compact ? 3.5 : 6.5;
 
   return (
     <g onClick={() => onClick(node.id)} style={{ cursor: "pointer" }}>
+      {isSelected && (
+        <circle cx={x} cy={y} r={radius + 4} fill="none" stroke="#2dd4bf" strokeWidth={2} />
+      )}
       {(showLabel || isSelected) && (
         <>
           <rect

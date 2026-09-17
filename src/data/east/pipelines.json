@@ -825,21 +825,6 @@
     "operator": "APA Group"
   },
   {
-    "id": "moomba-gathering",
-    "code": "Moomba Gathering",
-    "name": "Moomba Field Gathering Line",
-    "region": "east",
-    "path": [
-      "moomba-plant",
-      "moomba-hub"
-    ],
-    "description": "Gathers processed gas from the Moomba Gas Plant into the Moomba Compression Facility.",
-    "style": {
-      "color": "slate",
-      "dashed": true
-    }
-  },
-  {
     "id": "yellowbank-lateral",
     "code": "Yellowbank Lat.",
     "name": "Yellowbank Lateral",
