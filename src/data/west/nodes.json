@@ -304,5 +304,27 @@
       "lng": 119.5472
     },
     "description": "Where the Mt Newman Lateral taps off the Goldfields Gas Pipeline (GGP) mainline."
+  },
+  {
+    "id": "carnarvon-junction",
+    "name": "Carnarvon Junction (DBP)",
+    "type": "compressor",
+    "region": "west",
+    "geoPos": {
+      "lat": -25.1287,
+      "lng": 115.2791
+    },
+    "description": "Where the Carnarvon Lateral taps off the Dampier to Bunbury Pipeline (DBP) mainline."
+  },
+  {
+    "id": "carnarvon",
+    "name": "Carnarvon",
+    "type": "town",
+    "region": "west",
+    "geoPos": {
+      "lat": -24.8685,
+      "lng": 113.675
+    },
+    "description": "Coastal WA town on the Mid West coast, served by a lateral off the Dampier to Bunbury Pipeline (DBP)."
   }
 ]

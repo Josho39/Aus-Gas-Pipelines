@@ -20,9 +20,7 @@ describe("selectors", () => {
   it("getConnectedPipelines finds every pipeline touching a node", () => {
     const connected = getConnectedPipelines("wallumbilla", typedPipelines);
     const ids = connected.map((p) => p.id).sort();
-    expect(ids).toEqual(
-      ["ppl134", "ppl90", "rbp", "swqp", "scotia-lateral", "berwyndale-lateral", "talinga-lateral"].sort()
-    );
+    expect(ids).toEqual(["ppl134", "ppl90", "rbp", "swqp", "berwyndale-lateral", "talinga-lateral"].sort());
   });
 
   it("getConnectedNodes resolves a pipeline's path to node objects", () => {

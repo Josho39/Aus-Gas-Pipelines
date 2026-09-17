@@ -811,5 +811,71 @@
       "lng": 140.1055
     },
     "description": "Where the Cannington Lateral taps off the Carpentaria Gas Pipeline (CGP) mainline."
+  },
+  {
+    "id": "port-pirie",
+    "name": "Port Pirie",
+    "type": "town",
+    "region": "east",
+    "geoPos": {
+      "lat": -33.1915,
+      "lng": 138.0443
+    },
+    "description": "South Australian industrial town (lead smelter), served by a lateral off the Moomba Adelaide Pipeline (MAP)."
+  },
+  {
+    "id": "whyalla",
+    "name": "Whyalla",
+    "type": "town",
+    "region": "east",
+    "geoPos": {
+      "lat": -33.0061,
+      "lng": 137.5772
+    },
+    "description": "South Australian steelworks town, served by a lateral off the Moomba Adelaide Pipeline (MAP)."
+  },
+  {
+    "id": "angaston",
+    "name": "Angaston",
+    "type": "town",
+    "region": "east",
+    "geoPos": {
+      "lat": -34.5025,
+      "lng": 139.0266
+    },
+    "description": "Barossa Valley, SA demand centre served by a lateral off the Moomba Adelaide Pipeline (MAP)."
+  },
+  {
+    "id": "map-port-pirie-junction",
+    "name": "Port Pirie/Whyalla Junction (MAP)",
+    "type": "compressor",
+    "region": "east",
+    "geoPos": {
+      "lat": -33.333,
+      "lng": 138.761
+    },
+    "description": "Where the Port Pirie and Whyalla laterals tap off the Moomba Adelaide Pipeline (MAP) mainline."
+  },
+  {
+    "id": "map-angaston-junction",
+    "name": "Angaston Junction (MAP)",
+    "type": "compressor",
+    "region": "east",
+    "geoPos": {
+      "lat": -34.661,
+      "lng": 138.621
+    },
+    "description": "Where the Angaston lateral taps off the Moomba Adelaide Pipeline (MAP) mainline."
+  },
+  {
+    "id": "peat",
+    "name": "Peat",
+    "type": "plant",
+    "region": "east",
+    "geoPos": {
+      "lat": -25.9447,
+      "lng": 150.0733
+    },
+    "description": "Upstream gas field, northern end of the Scotia/Peat Lateral off the Roma Brisbane Pipeline (RBP) via Condamine."
   }
 ]
