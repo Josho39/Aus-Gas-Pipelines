@@ -698,5 +698,71 @@
     },
     "description": "Tasmanian receiving point for the Tasmanian Gas Pipeline (TGP), which runs under Bass Strait from Longford.",
     "shortLabel": "Bell Bay"
+  },
+  {
+    "id": "wagga-wagga",
+    "name": "Wagga Wagga",
+    "type": "town",
+    "region": "east",
+    "geoPos": {
+      "lat": -35.1082,
+      "lng": 147.3598
+    },
+    "description": "Southern NSW regional centre on the Central West gas network, connected to the Moomba Sydney Pipeline via Young."
+  },
+  {
+    "id": "griffith",
+    "name": "Griffith",
+    "type": "town",
+    "region": "east",
+    "geoPos": {
+      "lat": -34.2871,
+      "lng": 146.0475
+    },
+    "description": "Riverina regional centre supplied via the Junee to Griffith lateral off the Wagga Wagga gas network."
+  },
+  {
+    "id": "lithgow",
+    "name": "Lithgow",
+    "type": "town",
+    "region": "east",
+    "geoPos": {
+      "lat": -33.479,
+      "lng": 150.1555
+    },
+    "description": "Central Tablelands NSW town on the Young to Lithgow lateral off the Moomba Sydney Pipeline."
+  },
+  {
+    "id": "orange",
+    "name": "Orange",
+    "type": "town",
+    "region": "east",
+    "geoPos": {
+      "lat": -33.2839,
+      "lng": 149.1
+    },
+    "description": "Central West NSW regional centre served by a spur off the Young to Lithgow lateral."
+  },
+  {
+    "id": "dubbo",
+    "name": "Dubbo",
+    "type": "town",
+    "region": "east",
+    "geoPos": {
+      "lat": -32.2431,
+      "lng": 148.6019
+    },
+    "description": "Central West NSW regional centre at the western end of the Central West Pipeline, and the southern end of the Central Ranges Pipeline."
+  },
+  {
+    "id": "tamworth",
+    "name": "Tamworth",
+    "type": "town",
+    "region": "east",
+    "geoPos": {
+      "lat": -31.0927,
+      "lng": 150.9291
+    },
+    "description": "New England NSW regional centre at the northern end of the Central Ranges Pipeline."
   }
 ]

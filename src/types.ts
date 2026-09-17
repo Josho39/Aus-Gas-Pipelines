@@ -13,7 +13,10 @@ export interface PipelineNode {
   name: string;
   type: NodeType;
   region: Region;
-  schematicPos: { x: number; y: number };
+  /** Unused since the schematic view was dropped in favour of a single
+   * geographic map; kept optional for backward compatibility with older
+   * data entries rather than stripping the field from all of them. */
+  schematicPos?: { x: number; y: number };
   geoPos: { lat: number; lng: number };
   description: string;
   /** Compact label for the map marker (e.g. "MCF" for "Moomba Compression

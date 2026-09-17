@@ -988,5 +988,411 @@
       "color": "slate",
       "dashed": true
     }
+  },
+  {
+    "id": "young-wagga-wagga",
+    "code": "YWW",
+    "name": "Young to Wagga Wagga Lateral",
+    "region": "east",
+    "path": [
+      "young",
+      "wagga-wagga"
+    ],
+    "description": "Regional lateral off the Moomba Sydney Pipeline at Young, serving the Riverina region toward Wagga Wagga.",
+    "operator": "APA Group",
+    "lengthKm": 131,
+    "style": {
+      "color": "slate",
+      "dashed": true
+    },
+    "route": [
+      {
+        "lat": -35.081,
+        "lng": 147.395
+      },
+      {
+        "lat": -34.739,
+        "lng": 147.881
+      },
+      {
+        "lat": -34.679,
+        "lng": 147.916
+      },
+      {
+        "lat": -34.493,
+        "lng": 148.137
+      },
+      {
+        "lat": -34.291,
+        "lng": 148.227
+      },
+      {
+        "lat": -34.239,
+        "lng": 148.326
+      }
+    ]
+  },
+  {
+    "id": "wagga-wagga-griffith",
+    "code": "JTG",
+    "name": "Junee to Griffith Lateral",
+    "region": "east",
+    "path": [
+      "wagga-wagga",
+      "griffith"
+    ],
+    "description": "Extends the Riverina gas network from the Wagga Wagga/Junee area west to Griffith.",
+    "operator": "APA Group",
+    "lengthKm": 180,
+    "style": {
+      "color": "slate",
+      "dashed": true
+    },
+    "route": [
+      {
+        "lat": -34.315,
+        "lng": 146.1
+      },
+      {
+        "lat": -34.389,
+        "lng": 146.262
+      },
+      {
+        "lat": -34.385,
+        "lng": 146.322
+      },
+      {
+        "lat": -34.413,
+        "lng": 146.381
+      },
+      {
+        "lat": -34.502,
+        "lng": 146.463
+      },
+      {
+        "lat": -34.595,
+        "lng": 146.418
+      },
+      {
+        "lat": -34.721,
+        "lng": 146.57
+      },
+      {
+        "lat": -34.719,
+        "lng": 146.708
+      },
+      {
+        "lat": -34.774,
+        "lng": 146.801
+      },
+      {
+        "lat": -34.886,
+        "lng": 147.59
+      },
+      {
+        "lat": -34.916,
+        "lng": 147.625
+      }
+    ]
+  },
+  {
+    "id": "young-lithgow",
+    "code": "YTL",
+    "name": "Young to Lithgow Lateral",
+    "region": "east",
+    "path": [
+      "young",
+      "lithgow"
+    ],
+    "description": "Regional lateral off the Moomba Sydney Pipeline at Young, serving the Central Tablelands toward Lithgow.",
+    "operator": "APA Group",
+    "lengthKm": 213,
+    "style": {
+      "color": "slate",
+      "dashed": true
+    },
+    "route": [
+      {
+        "lat": -34.239,
+        "lng": 148.326
+      },
+      {
+        "lat": -34.118,
+        "lng": 148.502
+      },
+      {
+        "lat": -33.852,
+        "lng": 148.714
+      },
+      {
+        "lat": -33.743,
+        "lng": 148.829
+      },
+      {
+        "lat": -33.682,
+        "lng": 148.98
+      },
+      {
+        "lat": -33.517,
+        "lng": 149.145
+      },
+      {
+        "lat": -33.515,
+        "lng": 149.445
+      },
+      {
+        "lat": -33.471,
+        "lng": 149.557
+      },
+      {
+        "lat": -33.464,
+        "lng": 149.906
+      },
+      {
+        "lat": -33.427,
+        "lng": 150.061
+      },
+      {
+        "lat": -33.456,
+        "lng": 150.169
+      }
+    ]
+  },
+  {
+    "id": "lithgow-orange",
+    "code": "ORS",
+    "name": "Orange Spur",
+    "region": "east",
+    "path": [
+      "lithgow",
+      "orange"
+    ],
+    "description": "Spur off the Young to Lithgow lateral serving Orange.",
+    "operator": "APA Group",
+    "lengthKm": 25,
+    "style": {
+      "color": "slate",
+      "dashed": true
+    },
+    "route": [
+      {
+        "lat": -33.306,
+        "lng": 149.097
+      },
+      {
+        "lat": -33.517,
+        "lng": 149.145
+      }
+    ]
+  },
+  {
+    "id": "young-dubbo",
+    "code": "CWP",
+    "name": "Central West Pipeline",
+    "region": "east",
+    "path": [
+      "young",
+      "dubbo"
+    ],
+    "description": "Regional pipeline extending the NSW gas network from the Young/Wagga Wagga area west to Dubbo.",
+    "operator": "APA Group",
+    "lengthKm": 253,
+    "style": {
+      "color": "slate",
+      "dashed": true
+    },
+    "route": [
+      {
+        "lat": -33.789,
+        "lng": 147.528
+      },
+      {
+        "lat": -33.703,
+        "lng": 147.531
+      },
+      {
+        "lat": -33.688,
+        "lng": 147.569
+      },
+      {
+        "lat": -33.611,
+        "lng": 147.623
+      },
+      {
+        "lat": -33.509,
+        "lng": 147.799
+      },
+      {
+        "lat": -33.49,
+        "lng": 147.892
+      },
+      {
+        "lat": -33.433,
+        "lng": 147.967
+      },
+      {
+        "lat": -33.371,
+        "lng": 147.995
+      },
+      {
+        "lat": -33.356,
+        "lng": 148.049
+      },
+      {
+        "lat": -33.192,
+        "lng": 148.151
+      },
+      {
+        "lat": -33.13,
+        "lng": 148.167
+      },
+      {
+        "lat": -33.045,
+        "lng": 148.152
+      },
+      {
+        "lat": -32.814,
+        "lng": 148.22
+      },
+      {
+        "lat": -32.481,
+        "lng": 148.128
+      },
+      {
+        "lat": -32.325,
+        "lng": 148.174
+      },
+      {
+        "lat": -32.283,
+        "lng": 148.212
+      },
+      {
+        "lat": -32.272,
+        "lng": 148.359
+      },
+      {
+        "lat": -32.216,
+        "lng": 148.452
+      },
+      {
+        "lat": -32.231,
+        "lng": 148.539
+      },
+      {
+        "lat": -32.214,
+        "lng": 148.633
+      }
+    ]
+  },
+  {
+    "id": "dubbo-tamworth",
+    "code": "CRP",
+    "name": "Central Ranges Pipeline",
+    "region": "east",
+    "path": [
+      "dubbo",
+      "tamworth"
+    ],
+    "description": "Regional pipeline extending the NSW gas network from Dubbo north to Tamworth.",
+    "operator": "APA Group",
+    "lengthKm": 292,
+    "style": {
+      "color": "slate",
+      "dashed": true
+    },
+    "route": [
+      {
+        "lat": -31.08,
+        "lng": 150.872
+      },
+      {
+        "lat": -31.167,
+        "lng": 150.78
+      },
+      {
+        "lat": -31.221,
+        "lng": 150.653
+      },
+      {
+        "lat": -31.247,
+        "lng": 150.437
+      },
+      {
+        "lat": -31.371,
+        "lng": 150.37
+      },
+      {
+        "lat": -31.378,
+        "lng": 150.262
+      },
+      {
+        "lat": -31.483,
+        "lng": 150.083
+      },
+      {
+        "lat": -31.562,
+        "lng": 149.999
+      },
+      {
+        "lat": -31.572,
+        "lng": 149.862
+      },
+      {
+        "lat": -31.63,
+        "lng": 149.81
+      },
+      {
+        "lat": -31.647,
+        "lng": 149.752
+      },
+      {
+        "lat": -31.729,
+        "lng": 149.702
+      },
+      {
+        "lat": -31.787,
+        "lng": 149.7
+      },
+      {
+        "lat": -31.826,
+        "lng": 149.729
+      },
+      {
+        "lat": -31.971,
+        "lng": 149.639
+      },
+      {
+        "lat": -32.013,
+        "lng": 149.541
+      },
+      {
+        "lat": -32.009,
+        "lng": 149.411
+      },
+      {
+        "lat": -32.039,
+        "lng": 149.289
+      },
+      {
+        "lat": -32.133,
+        "lng": 149.168
+      },
+      {
+        "lat": -32.128,
+        "lng": 149.114
+      },
+      {
+        "lat": -32.208,
+        "lng": 148.846
+      },
+      {
+        "lat": -32.19,
+        "lng": 148.77
+      },
+      {
+        "lat": -32.214,
+        "lng": 148.633
+      }
+    ]
   }
 ]
