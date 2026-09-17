@@ -10,10 +10,10 @@ const NODE_TYPE_LABELS: Record<keyof typeof NODE_TYPE_COLORS, string> = {
 };
 
 const PIPELINE_COLOR_LABELS: Record<keyof typeof PIPELINE_COLORS, string> = {
-  teal: "Major transmission trunk line",
-  amber: "Secondary trunk / cross-connect line",
-  purple: "LNG project or interstate interconnect lateral",
-  slate: "Minor / regional lateral",
+  teal: "Major trunk",
+  amber: "Secondary trunk",
+  purple: "LNG / interstate",
+  slate: "Minor lateral",
 };
 
 export function Legend() {
@@ -33,7 +33,7 @@ export function Legend() {
               className="inline-block w-4 h-0.5"
               style={{ backgroundImage: "repeating-linear-gradient(90deg, #94a3b8 0 4px, transparent 4px 7px)" }}
             />
-            <span>Dashed = licence / lateral line</span>
+            <span>Dashed = lateral</span>
           </div>
         </div>
       </div>

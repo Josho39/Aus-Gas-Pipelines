@@ -105,7 +105,7 @@ export function GeoMap({
       maxScale={12}
       initialScale={1}
       limitToBounds={false}
-      wheel={{ step: 0.15 }}
+      wheel={{ step: 0.08 }}
       doubleClick={{ step: 0.7, animationTime: 200 }}
       panning={{ velocityDisabled: false }}
       onTransform={(_ref, state) => setLabelsExpanded(state.scale >= LABEL_ZOOM_THRESHOLD)}
