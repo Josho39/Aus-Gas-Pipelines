@@ -12,18 +12,18 @@ interface PipelineLabelProps {
   points: Point[];
   onClick: (id: string) => void;
   dimmed?: boolean;
-  /** True once the viewer has zoomed in far enough to reveal every label at
-   * once (see GeoMap's LABEL_ZOOM_THRESHOLD), at that density, full-size
-   * labels are too bulky, so shrink them by half. */
-  compact?: boolean;
+  /** Label size step, driven by GeoMap's zoom thresholds: 0 = full size,
+   * 1 = half size, 2 = quarter size. See NodeMarker's `tier` for why. */
+  tier?: 0 | 1 | 2;
 }
 
-export function PipelineLabel({ pipeline, points, onClick, dimmed = false, compact = false }: PipelineLabelProps) {
+export function PipelineLabel({ pipeline, points, onClick, dimmed = false, tier = 0 }: PipelineLabelProps) {
   const color = PIPELINE_COLORS[pipeline.style.color];
-  const { x, y, anchor } = computeLabelPosition(points, (compact ? 11 : 22) * labelSide(pipeline.id));
-  const fontSize = compact ? 4.75 : 9.5;
-  const labelWidth = pipeline.code.length * (compact ? 2.8 : 5.6) + (compact ? 4.5 : 9);
-  const labelHeight = compact ? 6.5 : 13;
+  const scale = tier === 2 ? 0.25 : tier === 1 ? 0.5 : 1;
+  const { x, y, anchor } = computeLabelPosition(points, 22 * scale * labelSide(pipeline.id));
+  const fontSize = 9.5 * scale;
+  const labelWidth = pipeline.code.length * 5.6 * scale + 9 * scale;
+  const labelHeight = 13 * scale;
 
   return (
     <g
@@ -41,7 +41,7 @@ export function PipelineLabel({ pipeline, points, onClick, dimmed = false, compa
         y={y - labelHeight / 2}
         width={labelWidth}
         height={labelHeight}
-        rx={compact ? 1.5 : 3}
+        rx={3 * scale}
         style={{ fill: "var(--color-panel)", stroke: color }}
         strokeWidth={0.75}
         opacity={0.95}

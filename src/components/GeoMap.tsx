@@ -24,6 +24,11 @@ const PX_PER_DEGREE = 34;
 // turn into an unreadable pile of overlapping text.
 const ALWAYS_LABELLED: ReadonlySet<NodeType> = new Set(["hub", "sttm", "lng"]);
 const LABEL_ZOOM_THRESHOLD = 1.8;
+// A second, deeper threshold: past this, labels shrink again (see the
+// `tier` prop on NodeMarker/PipelineLabel) rather than staying pinned at
+// half size forever while the rest of the map keeps growing underneath
+// them.
+const LABEL_ZOOM_THRESHOLD_2 = 4.5;
 
 interface GeoMapProps {
   nodes: PipelineNode[];
@@ -54,7 +59,7 @@ export function GeoMap({
   // threshold-crossing boolean means React's setState bails out via
   // Object.is on every frame that doesn't cross the threshold, so a smooth
   // zoom triggers ~0 re-renders instead of ~60/second.
-  const [labelsExpanded, setLabelsExpanded] = useState(false);
+  const [labelTier, setLabelTier] = useState<0 | 1 | 2>(0);
 
   // Project against this region's own extent, including real pipeline
   // route waypoints, not just facility positions, since a route can bow out
@@ -149,7 +154,9 @@ export function GeoMap({
       wheel={{ step: 0.2 }}
       doubleClick={{ step: 0.7, animationTime: 200 }}
       panning={{ velocityDisabled: false }}
-      onTransform={(_ref, state) => setLabelsExpanded(state.scale >= LABEL_ZOOM_THRESHOLD)}
+      onTransform={(_ref, state) =>
+        setLabelTier(state.scale >= LABEL_ZOOM_THRESHOLD_2 ? 2 : state.scale >= LABEL_ZOOM_THRESHOLD ? 1 : 0)
+      }
     >
       <MapZoomControls />
       <TransformComponent wrapperStyle={{ width: "100%", height: "100%" }} contentStyle={{ width: "100%", height: "100%" }}>
@@ -187,8 +194,8 @@ export function GeoMap({
                 y={pos.y}
                 onClick={onSelectNode}
                 isSelected={isSelected}
-                showLabel={ALWAYS_LABELLED.has(node.type) || labelsExpanded}
-                compact={labelsExpanded}
+                showLabel={ALWAYS_LABELLED.has(node.type) || labelTier >= 1}
+                tier={labelTier}
               />
             );
           })}
@@ -196,7 +203,7 @@ export function GeoMap({
             // Trunk lines (solid) are always named; minor dashed laterals
             // only get a name label once the viewer zooms in, same rule as
             // minor facility labels, keeps the default view uncluttered.
-            const showLabel = !pipeline.style.dashed || labelsExpanded;
+            const showLabel = !pipeline.style.dashed || labelTier >= 1;
             if (!showLabel) return null;
             return (
               <PipelineLabel
@@ -205,7 +212,7 @@ export function GeoMap({
                 points={pipelinePoints.get(pipeline.id)!}
                 onClick={onSelectPipeline}
                 dimmed={operatorFilter !== null && pipeline.operator !== operatorFilter}
-                compact={labelsExpanded}
+                tier={labelTier}
               />
             );
           })}

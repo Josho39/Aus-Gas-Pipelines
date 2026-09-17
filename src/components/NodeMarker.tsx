@@ -11,19 +11,23 @@ interface NodeMarkerProps {
    * low zoom levels so dense clusters stay legible, revealing them as the
    * viewer zooms in (or always for major hubs, or when selected). */
   showLabel?: boolean;
-  /** True once the viewer has zoomed in far enough to reveal every label at
-   * once (see GeoMap's LABEL_ZOOM_THRESHOLD), at that density, full-size
-   * labels and markers are too bulky, so shrink them. */
-  compact?: boolean;
+  /** Label size step, driven by GeoMap's zoom thresholds: 0 = full size,
+   * 1 = half size, 2 = quarter size. The map itself keeps scaling up as the
+   * viewer zooms, so a fixed label size would balloon into an unreadable,
+   * overlapping mess; each tier keeps text legible without ever letting it
+   * dominate the view. The marker dot only shrinks once, at tier 1. */
+  tier?: 0 | 1 | 2;
 }
 
-export function NodeMarker({ node, x, y, onClick, isSelected, showLabel = true, compact = false }: NodeMarkerProps) {
+export function NodeMarker({ node, x, y, onClick, isSelected, showLabel = true, tier = 0 }: NodeMarkerProps) {
   const color = NODE_TYPE_COLORS[node.type];
   const label = node.shortLabel ?? node.name;
-  const fontSize = compact ? 4.75 : 9.5;
-  const labelWidth = label.length * (compact ? 2.55 : 5.1) + (compact ? 4 : 8);
-  const labelHeight = compact ? 6.75 : 13.5;
-  const labelOffsetX = compact ? 5 : 10;
+  const scale = tier === 2 ? 0.25 : tier === 1 ? 0.5 : 1;
+  const compact = tier >= 1;
+  const fontSize = 9.5 * scale;
+  const labelWidth = label.length * 5.1 * scale + 8 * scale;
+  const labelHeight = 13.5 * scale;
+  const labelOffsetX = 10 * scale;
   const radius = compact ? 3.5 : 6.5;
 
   return (
@@ -38,12 +42,12 @@ export function NodeMarker({ node, x, y, onClick, isSelected, showLabel = true, 
             y={y - labelHeight / 2}
             width={labelWidth}
             height={labelHeight}
-            rx={compact ? 1.5 : 3}
+            rx={3 * scale}
             style={{ fill: "var(--color-panel)" }}
             opacity={0.85}
           />
           <text
-            x={x + labelOffsetX + (compact ? 2.25 : 4.5)}
+            x={x + labelOffsetX + 4.5 * scale}
             y={y + fontSize / 3}
             fontSize={fontSize}
             fontWeight={500}
