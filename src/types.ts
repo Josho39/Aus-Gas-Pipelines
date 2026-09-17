@@ -23,6 +23,10 @@ export interface PipelineNode {
    * Facility (MCF)"). Falls back to `name` when absent. The detail panel
    * always shows the full `name`. */
   shortLabel?: string;
+  /** Which side of the marker its label sits on. Defaults to "right". Used
+   * to pull a label away from a neighbouring node or line it would
+   * otherwise sit on top of. */
+  labelPosition?: "right" | "left" | "top" | "bottom";
 }
 
 export type PipelineColor = "teal" | "amber" | "purple" | "slate";

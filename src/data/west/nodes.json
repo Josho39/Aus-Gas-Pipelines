@@ -162,7 +162,8 @@
       "lat": -28.78,
       "lng": 114.61
     },
-    "description": "Mid West WA coastal city, the western end of the Mid West Pipeline."
+    "description": "Mid West WA coastal city, the western end of the Mid West Pipeline.",
+    "labelPosition": "left"
   },
   {
     "id": "msf",
@@ -177,7 +178,8 @@
       "lat": -28,
       "lng": 116
     },
-    "description": "Metering/supply facility on the Dampier to Bunbury Pipeline (DBP) where the Mid West Pipeline and Parmelia Gas Pipeline (PGP) connect into the main trunk line."
+    "description": "Metering/supply facility on the Dampier to Bunbury Pipeline (DBP) where the Mid West Pipeline and Parmelia Gas Pipeline (PGP) connect into the main trunk line.",
+    "labelPosition": "top"
   },
   {
     "id": "perth",
@@ -192,7 +194,8 @@
       "lat": -31.95,
       "lng": 115.86
     },
-    "description": "Perth metropolitan gas distribution hub (Metro North and Metro South zones), the largest demand centre on the WA gas network."
+    "description": "Perth metropolitan gas distribution hub (Metro North and Metro South zones), the largest demand centre on the WA gas network.",
+    "labelPosition": "left"
   },
   {
     "id": "waggerup-pinjarra",

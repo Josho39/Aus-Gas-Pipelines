@@ -27,8 +27,35 @@ export function NodeMarker({ node, x, y, onClick, isSelected, showLabel = true, 
   const fontSize = 9.5 * scale;
   const labelWidth = label.length * 5.1 * scale + 8 * scale;
   const labelHeight = 13.5 * scale;
-  const labelOffsetX = 10 * scale;
+  const gap = 10 * scale;
   const radius = compact ? 3.5 : 6.5;
+
+  const position = node.labelPosition ?? "right";
+  let rectX: number;
+  let rectY: number;
+  let textX: number;
+  let textAnchor: "start" | "end" | "middle" = "start";
+  if (position === "left") {
+    rectX = x - gap - labelWidth;
+    rectY = y - labelHeight / 2;
+    textX = x - gap - 4.5 * scale;
+    textAnchor = "end";
+  } else if (position === "top") {
+    rectX = x - labelWidth / 2;
+    rectY = y - gap - labelHeight;
+    textX = x;
+    textAnchor = "middle";
+  } else if (position === "bottom") {
+    rectX = x - labelWidth / 2;
+    rectY = y + gap;
+    textX = x;
+    textAnchor = "middle";
+  } else {
+    rectX = x + gap;
+    rectY = y - labelHeight / 2;
+    textX = x + gap + 4.5 * scale;
+  }
+  const textY = position === "top" || position === "bottom" ? rectY + labelHeight / 2 + fontSize / 3 : y + fontSize / 3;
 
   return (
     <g onClick={() => onClick(node.id)} style={{ cursor: "pointer" }}>
@@ -38,19 +65,21 @@ export function NodeMarker({ node, x, y, onClick, isSelected, showLabel = true, 
       {(showLabel || isSelected) && (
         <>
           <rect
-            x={x + labelOffsetX}
-            y={y - labelHeight / 2}
+            x={rectX}
+            y={rectY}
             width={labelWidth}
             height={labelHeight}
             rx={3 * scale}
-            style={{ fill: "var(--color-panel)" }}
-            opacity={0.85}
+            style={{ fill: "var(--color-panel)", stroke: color }}
+            strokeWidth={0.75}
+            opacity={0.9}
           />
           <text
-            x={x + labelOffsetX + 4.5 * scale}
-            y={y + fontSize / 3}
+            x={textX}
+            y={textY}
             fontSize={fontSize}
             fontWeight={500}
+            textAnchor={textAnchor}
             style={{ fill: "var(--color-fg)" }}
           >
             {label}

@@ -23,6 +23,12 @@ const PX_PER_DEGREE = 34;
 // LABEL_ZOOM_THRESHOLD, so a zoomed-out view of a dense cluster doesn't
 // turn into an unreadable pile of overlapping text.
 const ALWAYS_LABELLED: ReadonlySet<NodeType> = new Set(["hub", "sttm", "lng"]);
+// Processing plants sit right on top of the hub they feed (e.g. Moomba Gas
+// Plant vs the Moomba Compression Facility) at essentially the same
+// coordinates, so their label would just permanently overlap the more
+// important node's. Never auto-reveal it; clicking the marker still shows
+// it via the isSelected check in NodeMarker.
+const NEVER_AUTO_LABELLED: ReadonlySet<NodeType> = new Set(["plant"]);
 const LABEL_ZOOM_THRESHOLD = 1.8;
 // A second, deeper threshold: past this, labels shrink again (see the
 // `tier` prop on NodeMarker/PipelineLabel) rather than staying pinned at
@@ -173,16 +179,25 @@ export function GeoMap({
             fillOpacity={0.7}
             strokeWidth={1.5}
           />
-          {pipelines.map((pipeline) => (
-            <PipelineLine
-              key={pipeline.id}
-              pipeline={pipeline}
-              points={pipelinePoints.get(pipeline.id)!}
-              onClick={onSelectPipeline}
-              isSelected={selection?.kind === "pipeline" && selection.id === pipeline.id}
-              dimmed={operatorFilter !== null && pipeline.operator !== operatorFilter}
-            />
-          ))}
+          {pipelines.map((pipeline) => {
+            const isSelected = selection?.kind === "pipeline" && selection.id === pipeline.id;
+            // Minor dashed laterals (CSG gathering lines, interconnects)
+            // stay hidden entirely, not just unlabelled, until the viewer
+            // zooms in past the first threshold. Left always-on, a dense
+            // cluster of them (e.g. the Surat Basin laterals) renders as an
+            // unreadable pile of overlapping lines at the default zoom.
+            if (pipeline.style.dashed && labelTier === 0 && !isSelected) return null;
+            return (
+              <PipelineLine
+                key={pipeline.id}
+                pipeline={pipeline}
+                points={pipelinePoints.get(pipeline.id)!}
+                onClick={onSelectPipeline}
+                isSelected={isSelected}
+                dimmed={operatorFilter !== null && pipeline.operator !== operatorFilter}
+              />
+            );
+          })}
           {nodes.map((node) => {
             const pos = projected.get(node.id)!;
             const isSelected = selection?.kind === "node" && selection.id === node.id;
@@ -194,7 +209,7 @@ export function GeoMap({
                 y={pos.y}
                 onClick={onSelectNode}
                 isSelected={isSelected}
-                showLabel={ALWAYS_LABELLED.has(node.type) || labelTier >= 1}
+                showLabel={!NEVER_AUTO_LABELLED.has(node.type) && (ALWAYS_LABELLED.has(node.type) || labelTier >= 1)}
                 tier={labelTier}
               />
             );
