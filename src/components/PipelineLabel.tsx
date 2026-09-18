@@ -13,13 +13,15 @@ interface PipelineLabelProps {
   onClick: (id: string) => void;
   dimmed?: boolean;
   /** Label size step, driven by GeoMap's zoom thresholds: 0 = full size,
-   * 1 = half size, 2 = quarter size. See NodeMarker's `tier` for why. */
-  tier?: 0 | 1 | 2;
+   * each step roughly halves it again. See NodeMarker's `tier` for why. */
+  tier?: 0 | 1 | 2 | 3;
 }
+
+const SCALE_BY_TIER = [1, 0.5, 0.25, 0.12] as const;
 
 export function PipelineLabel({ pipeline, points, onClick, dimmed = false, tier = 0 }: PipelineLabelProps) {
   const color = PIPELINE_COLORS[pipeline.style.color];
-  const scale = tier === 2 ? 0.25 : tier === 1 ? 0.5 : 1;
+  const scale = SCALE_BY_TIER[tier];
   const { x, y, anchor } = computeLabelPosition(points, 22 * scale * labelSide(pipeline.id));
   const fontSize = 9.5 * scale;
   const labelWidth = pipeline.code.length * 5.6 * scale + 9 * scale;

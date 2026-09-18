@@ -30,9 +30,4 @@ describe("useAppState", () => {
     expect(result.current.selection).toBeNull();
   });
 
-  it("setSearch updates the search query", () => {
-    const { result } = renderHook(() => useAppState(), { wrapper });
-    act(() => result.current.setSearch("moomba"));
-    expect(result.current.search).toBe("moomba");
-  });
 });

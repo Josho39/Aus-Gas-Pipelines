@@ -12,21 +12,21 @@ interface NodeMarkerProps {
    * viewer zooms in (or always for major hubs, or when selected). */
   showLabel?: boolean;
   /** Label/marker size step, driven by GeoMap's zoom thresholds: 0 = full
-   * size, 1 = half size, 2 = quarter size (labels) / a smaller floor
-   * (marker dot). The map itself keeps scaling up as the viewer zooms, so a
-   * fixed size would balloon into an unreadable, overlapping mess; each
-   * tier keeps everything legible without ever letting it dominate the
-   * view. */
-  tier?: 0 | 1 | 2;
+   * size, each step roughly halves it again. The map itself keeps scaling
+   * up as the viewer zooms, so a fixed size would balloon into an
+   * unreadable, overlapping mess; each tier keeps everything legible
+   * without ever letting it dominate the view. */
+  tier?: 0 | 1 | 2 | 3;
 }
 
-const RADIUS_BY_TIER = [6.5, 4, 2.75] as const;
-const NODE_STROKE_BY_TIER = [2, 1.25, 0.9] as const;
+const SCALE_BY_TIER = [1, 0.5, 0.25, 0.12] as const;
+const RADIUS_BY_TIER = [6.5, 4, 2.75, 1.8] as const;
+const NODE_STROKE_BY_TIER = [2, 1.25, 0.9, 0.6] as const;
 
 export function NodeMarker({ node, x, y, onClick, isSelected, showLabel = true, tier = 0 }: NodeMarkerProps) {
   const color = NODE_TYPE_COLORS[node.type];
   const label = node.shortLabel ?? node.name;
-  const scale = tier === 2 ? 0.25 : tier === 1 ? 0.5 : 1;
+  const scale = SCALE_BY_TIER[tier];
   const fontSize = 9.5 * scale;
   const labelWidth = label.length * 5.1 * scale + 8 * scale;
   const labelHeight = 13.5 * scale;

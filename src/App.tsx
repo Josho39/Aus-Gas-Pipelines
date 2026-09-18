@@ -5,8 +5,6 @@ import { GeoMap } from "./components/GeoMap";
 import { DetailPanel } from "./components/DetailPanel";
 import { Legend } from "./components/Legend";
 import { OperatorFilter } from "./components/OperatorFilter";
-import { SearchBar } from "./components/SearchBar";
-import { ContractsView } from "./components/ContractsView";
 import { ThemeToggle } from "./components/ThemeToggle";
 
 import eastNodes from "./data/east/nodes.json";
@@ -15,12 +13,8 @@ import westNodes from "./data/west/nodes.json";
 import westPipelines from "./data/west/pipelines.json";
 import ntNodes from "./data/nt/nodes.json";
 import ntPipelines from "./data/nt/pipelines.json";
-import contracts from "./data/contracts.json";
 
 import type { PipelineNode, Pipeline } from "./types";
-import type { ContractsData } from "./data/contracts";
-
-type Tab = "map" | "contracts";
 
 // Node/pipeline ids are unique across all three regions (verified, no id
 // appears in more than one), so a plain concat is a safe merge into one
@@ -33,9 +27,8 @@ const ALL_PIPELINES = [
 ];
 
 export default function App() {
-  const { selection, search, operatorFilter, select, clearSelection, setSearch, setOperatorFilter } = useAppState();
+  const { selection, operatorFilter, select, clearSelection, setOperatorFilter } = useAppState();
   const { theme, toggleTheme } = useTheme();
-  const [tab, setTab] = useState<Tab>("map");
   const [panelOpen, setPanelOpen] = useState(true);
 
   const nodes = ALL_NODES;
@@ -45,11 +38,6 @@ export default function App() {
     const set = new Set(pipelines.map((p) => p.operator).filter((op): op is string => Boolean(op)));
     return Array.from(set).sort();
   }, [pipelines]);
-
-  const segmentClass = (active: boolean) =>
-    `px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
-      active ? "bg-teal text-onaccent shadow-sm" : "text-fgmuted hover:text-fg"
-    }`;
 
   const ghostButtonClass = (active: boolean) =>
     `px-3 py-1.5 rounded-md text-sm font-medium border transition-colors ${
@@ -78,57 +66,33 @@ export default function App() {
           </div>
         </div>
 
-        <div className="flex items-center gap-1 bg-ink/60 border border-line rounded-lg p-1 flex-wrap">
-          <button className={segmentClass(tab === "map")} onClick={() => setTab("map")}>
-            Pipeline Map
-          </button>
-          <button className={segmentClass(tab === "contracts")} onClick={() => setTab("contracts")}>
-            FY26 Contracts
-          </button>
-        </div>
-
-        {tab === "map" && (
-          <button className={ghostButtonClass(panelOpen)} onClick={() => setPanelOpen((v) => !v)}>
-            {panelOpen ? "Hide panel" : "Legend & operators"}
-          </button>
-        )}
+        <button className={ghostButtonClass(panelOpen)} onClick={() => setPanelOpen((v) => !v)}>
+          {panelOpen ? "Hide panel" : "Legend & operators"}
+        </button>
 
         <div className="flex items-center gap-2 ml-auto">
-          {tab === "contracts" && (
-            <div className="w-64">
-              <SearchBar value={search} onChange={setSearch} />
-            </div>
-          )}
           <ThemeToggle theme={theme} onToggle={toggleTheme} />
         </div>
       </header>
 
       <main className="flex-1 relative overflow-hidden">
-        {tab === "map" ? (
-          <>
-            {panelOpen && (
-              <div className="absolute left-3 top-3 z-10 bg-panel/95 border border-line rounded-lg shadow-lg p-3 space-y-4 max-h-[calc(100%-1.5rem)] overflow-y-auto">
-                <Legend />
-                <OperatorFilter operators={operators} active={operatorFilter} onChange={setOperatorFilter} />
-              </div>
-            )}
-            <div className="absolute inset-0 bg-ink">
-              <GeoMap
-                nodes={nodes}
-                pipelines={pipelines}
-                selection={selection}
-                onSelectNode={(id) => select({ kind: "node", id })}
-                onSelectPipeline={(id) => select({ kind: "pipeline", id })}
-                operatorFilter={operatorFilter}
-              />
-            </div>
-            <DetailPanel selection={selection} nodes={nodes} pipelines={pipelines} onSelect={select} onClose={clearSelection} />
-          </>
-        ) : (
-          <div className="absolute inset-0 overflow-y-auto">
-            <ContractsView data={contracts as ContractsData} search={search} />
+        {panelOpen && (
+          <div className="absolute left-3 top-3 z-10 bg-panel/95 border border-line rounded-lg shadow-lg p-3 space-y-4 max-h-[calc(100%-1.5rem)] overflow-y-auto">
+            <Legend />
+            <OperatorFilter operators={operators} active={operatorFilter} onChange={setOperatorFilter} />
           </div>
         )}
+        <div className="absolute inset-0 bg-ink">
+          <GeoMap
+            nodes={nodes}
+            pipelines={pipelines}
+            selection={selection}
+            onSelectNode={(id) => select({ kind: "node", id })}
+            onSelectPipeline={(id) => select({ kind: "pipeline", id })}
+            operatorFilter={operatorFilter}
+          />
+        </div>
+        <DetailPanel selection={selection} nodes={nodes} pipelines={pipelines} onSelect={select} onClose={clearSelection} />
       </main>
     </div>
   );

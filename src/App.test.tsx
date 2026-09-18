@@ -24,12 +24,6 @@ describe("App", () => {
     expect(screen.getByText(/Major Queensland gas trading hub/)).toBeInTheDocument();
   });
 
-  it("switches to the FY26 Contracts tab", () => {
-    renderApp();
-    fireEvent.click(screen.getByRole("button", { name: /fy26 contracts/i }));
-    expect(screen.getByText("Woodside GSA")).toBeInTheDocument();
-  });
-
   it("shows operator chips and dims non-matching pipelines when one is spotlighted", () => {
     renderApp();
     fireEvent.click(screen.getByRole("button", { name: "Jemena" }));
