@@ -22,7 +22,7 @@ interface PipelineLineProps {
   tier?: 0 | 1 | 2 | 3;
 }
 
-const WIDTH_SCALE_BY_TIER = [1, 0.7, 0.45, 0.3] as const;
+const WIDTH_SCALE_BY_TIER = [1, 0.42, 0.27, 0.18] as const;
 
 export function PipelineLine({ pipeline, points, onClick, isSelected, dimmed = false, tier = 0 }: PipelineLineProps) {
   const color = PIPELINE_COLORS[pipeline.style.color];

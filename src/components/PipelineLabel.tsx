@@ -17,7 +17,7 @@ interface PipelineLabelProps {
   tier?: 0 | 1 | 2 | 3;
 }
 
-const SCALE_BY_TIER = [1, 0.5, 0.25, 0.12] as const;
+const SCALE_BY_TIER = [1, 0.625, 0.3125, 0.15] as const;
 
 export function PipelineLabel({ pipeline, points, onClick, dimmed = false, tier = 0 }: PipelineLabelProps) {
   const color = PIPELINE_COLORS[pipeline.style.color];

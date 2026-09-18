@@ -19,9 +19,9 @@ interface NodeMarkerProps {
   tier?: 0 | 1 | 2 | 3;
 }
 
-const SCALE_BY_TIER = [1, 0.5, 0.25, 0.12] as const;
-const RADIUS_BY_TIER = [6.5, 4, 2.75, 1.8] as const;
-const NODE_STROKE_BY_TIER = [2, 1.25, 0.9, 0.6] as const;
+const SCALE_BY_TIER = [1, 0.625, 0.3125, 0.15] as const;
+const RADIUS_BY_TIER = [6.5, 2.4, 1.65, 1.1] as const;
+const NODE_STROKE_BY_TIER = [2, 0.75, 0.55, 0.35] as const;
 
 export function NodeMarker({ node, x, y, onClick, isSelected, showLabel = true, tier = 0 }: NodeMarkerProps) {
   const color = NODE_TYPE_COLORS[node.type];
