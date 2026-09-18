@@ -14,13 +14,19 @@ interface PipelineLineProps {
   /** true when an operator spotlight is active and this pipeline isn't the
    * spotlighted operator, fades it back without hiding it outright. */
   dimmed?: boolean;
+  /** Line-width step, driven by GeoMap's zoom thresholds (see NodeMarker's
+   * `tier` for why): 0 = full width, 1 and 2 progressively thinner. Without
+   * this, a fixed stroke width gets visually thicker as the map scales up
+   * under zoom, turning a dense cluster of lines into a solid smear. */
+  tier?: 0 | 1 | 2;
 }
 
-export function PipelineLine({ pipeline, points, onClick, isSelected, dimmed = false }: PipelineLineProps) {
+export function PipelineLine({ pipeline, points, onClick, isSelected, dimmed = false, tier = 0 }: PipelineLineProps) {
   const color = PIPELINE_COLORS[pipeline.style.color];
   const pointsAttr = points.map((p) => `${p.x},${p.y}`).join(" ");
   const dashed = Boolean(pipeline.style.dashed);
-  const baseWidth = isSelected ? 6 : dashed ? 2.5 : 4.5;
+  const widthScale = tier === 2 ? 0.45 : tier === 1 ? 0.7 : 1;
+  const baseWidth = (isSelected ? 6 : dashed ? 2.5 : 4.5) * widthScale;
   const opacity = dimmed ? 0.15 : 1;
 
   return (
@@ -40,7 +46,7 @@ export function PipelineLine({ pipeline, points, onClick, isSelected, dimmed = f
         fill="none"
         stroke={color}
         strokeWidth={baseWidth}
-        strokeDasharray={dashed ? "8 6" : undefined}
+        strokeDasharray={dashed ? `${8 * widthScale} ${6 * widthScale}` : undefined}
         strokeLinecap="round"
         strokeLinejoin="round"
         style={!dashed && !dimmed ? { filter: `drop-shadow(0 0 3px ${color}99)` } : undefined}

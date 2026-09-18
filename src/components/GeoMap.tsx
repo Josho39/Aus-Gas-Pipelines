@@ -227,6 +227,7 @@ export function GeoMap({
                 onClick={onSelectPipeline}
                 isSelected={isSelected}
                 dimmed={operatorFilter !== null && pipeline.operator !== operatorFilter}
+                tier={labelTier}
               />
             );
           })}

@@ -11,24 +11,27 @@ interface NodeMarkerProps {
    * low zoom levels so dense clusters stay legible, revealing them as the
    * viewer zooms in (or always for major hubs, or when selected). */
   showLabel?: boolean;
-  /** Label size step, driven by GeoMap's zoom thresholds: 0 = full size,
-   * 1 = half size, 2 = quarter size. The map itself keeps scaling up as the
-   * viewer zooms, so a fixed label size would balloon into an unreadable,
-   * overlapping mess; each tier keeps text legible without ever letting it
-   * dominate the view. The marker dot only shrinks once, at tier 1. */
+  /** Label/marker size step, driven by GeoMap's zoom thresholds: 0 = full
+   * size, 1 = half size, 2 = quarter size (labels) / a smaller floor
+   * (marker dot). The map itself keeps scaling up as the viewer zooms, so a
+   * fixed size would balloon into an unreadable, overlapping mess; each
+   * tier keeps everything legible without ever letting it dominate the
+   * view. */
   tier?: 0 | 1 | 2;
 }
+
+const RADIUS_BY_TIER = [6.5, 4, 2.75] as const;
+const NODE_STROKE_BY_TIER = [2, 1.25, 0.9] as const;
 
 export function NodeMarker({ node, x, y, onClick, isSelected, showLabel = true, tier = 0 }: NodeMarkerProps) {
   const color = NODE_TYPE_COLORS[node.type];
   const label = node.shortLabel ?? node.name;
   const scale = tier === 2 ? 0.25 : tier === 1 ? 0.5 : 1;
-  const compact = tier >= 1;
   const fontSize = 9.5 * scale;
   const labelWidth = label.length * 5.1 * scale + 8 * scale;
   const labelHeight = 13.5 * scale;
   const gap = 10 * scale;
-  const radius = compact ? 3.5 : 6.5;
+  const radius = RADIUS_BY_TIER[tier];
 
   const position = node.labelPosition ?? "right";
   let rectX: number;
@@ -60,7 +63,7 @@ export function NodeMarker({ node, x, y, onClick, isSelected, showLabel = true, 
   return (
     <g onClick={() => onClick(node.id)} style={{ cursor: "pointer" }}>
       {isSelected && (
-        <circle cx={x} cy={y} r={radius + 4} fill="none" stroke="#2dd4bf" strokeWidth={2} />
+        <circle cx={x} cy={y} r={radius + 4 * scale} fill="none" stroke="#2dd4bf" strokeWidth={2 * scale} />
       )}
       {(showLabel || isSelected) && (
         <>
@@ -93,7 +96,7 @@ export function NodeMarker({ node, x, y, onClick, isSelected, showLabel = true, 
         r={radius}
         fill={color}
         style={{ stroke: "var(--color-ink)" }}
-        strokeWidth={compact ? 1.25 : 2}
+        strokeWidth={NODE_STROKE_BY_TIER[tier]}
       />
     </g>
   );
