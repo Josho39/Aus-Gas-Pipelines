@@ -1,4 +1,5 @@
 import { NODE_TYPE_COLORS } from "../lib/colors";
+import { labelScale, markerRadius } from "../lib/zoomScale";
 import type { PipelineNode } from "../types";
 
 interface NodeMarkerProps {
@@ -11,27 +12,39 @@ interface NodeMarkerProps {
    * low zoom levels so dense clusters stay legible, revealing them as the
    * viewer zooms in (or always for major hubs, or when selected). */
   showLabel?: boolean;
-  /** Label/marker size step, driven by GeoMap's zoom thresholds: 0 = full
-   * size, each step roughly halves it again. The map itself keeps scaling
-   * up as the viewer zooms, so a fixed size would balloon into an
-   * unreadable, overlapping mess; each tier keeps everything legible
-   * without ever letting it dominate the view. */
-  tier?: 0 | 1 | 2 | 3;
+  /** Opacity for the name label alone (not the dot), so a label being
+   * revealed by zoom can fade in instead of appearing all at once. */
+  labelOpacity?: number;
+  /** Current map zoom. The map keeps scaling up as the viewer zooms, so a
+   * fixed size would balloon into an unreadable, overlapping mess; the dot
+   * and its label shrink continuously to hold their on-screen size instead.
+   * See ../lib/zoomScale. */
+  zoom?: number;
 }
 
-const SCALE_BY_TIER = [1, 0.625, 0.3125, 0.15] as const;
-const RADIUS_BY_TIER = [6.5, 2.4, 1.65, 1.1] as const;
-const NODE_STROKE_BY_TIER = [2, 0.75, 0.55, 0.35] as const;
-
-export function NodeMarker({ node, x, y, onClick, isSelected, showLabel = true, tier = 0 }: NodeMarkerProps) {
+export function NodeMarker({
+  node,
+  x,
+  y,
+  onClick,
+  isSelected,
+  showLabel = true,
+  labelOpacity = 1,
+  zoom = 1,
+}: NodeMarkerProps) {
   const color = NODE_TYPE_COLORS[node.type];
   const label = node.shortLabel ?? node.name;
-  const scale = SCALE_BY_TIER[tier];
+  const scale = labelScale(zoom);
   const fontSize = 9.5 * scale;
   const labelWidth = label.length * 5.1 * scale + 8 * scale;
   const labelHeight = 13.5 * scale;
   const gap = 10 * scale;
-  const radius = RADIUS_BY_TIER[tier];
+  const radius = markerRadius(zoom);
+  // One rule for the dot's outline rather than its own curve: a constant
+  // fraction of the radius keeps the ring visible at every zoom without it
+  // ever swallowing the fill, down to a floor where it would vanish.
+  const markerStroke = Math.max(0.3, radius * 0.3);
+  const boxStroke = Math.max(0.12, 0.75 * scale);
 
   const position = node.labelPosition ?? "right";
   let rectX: number;
@@ -66,7 +79,7 @@ export function NodeMarker({ node, x, y, onClick, isSelected, showLabel = true, 
         <circle cx={x} cy={y} r={radius + 4 * scale} fill="none" stroke="#2dd4bf" strokeWidth={2 * scale} />
       )}
       {(showLabel || isSelected) && (
-        <>
+        <g opacity={isSelected ? 1 : labelOpacity}>
           <rect
             x={rectX}
             y={rectY}
@@ -74,7 +87,7 @@ export function NodeMarker({ node, x, y, onClick, isSelected, showLabel = true, 
             height={labelHeight}
             rx={3 * scale}
             style={{ fill: "var(--color-panel)", stroke: color }}
-            strokeWidth={0.75}
+            strokeWidth={boxStroke}
             opacity={0.9}
           />
           <text
@@ -87,7 +100,7 @@ export function NodeMarker({ node, x, y, onClick, isSelected, showLabel = true, 
           >
             {label}
           </text>
-        </>
+        </g>
       )}
       <circle
         data-testid={`node-${node.id}`}
@@ -96,7 +109,7 @@ export function NodeMarker({ node, x, y, onClick, isSelected, showLabel = true, 
         r={radius}
         fill={color}
         style={{ stroke: "var(--color-ink)" }}
-        strokeWidth={NODE_STROKE_BY_TIER[tier]}
+        strokeWidth={markerStroke}
       />
     </g>
   );

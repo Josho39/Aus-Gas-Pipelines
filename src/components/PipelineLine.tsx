@@ -1,4 +1,5 @@
 import { PIPELINE_COLORS } from "../lib/colors";
+import { lineScale } from "../lib/zoomScale";
 import type { Pipeline } from "../types";
 
 interface Point {
@@ -14,32 +15,43 @@ interface PipelineLineProps {
   /** true when an operator spotlight is active and this pipeline isn't the
    * spotlighted operator, fades it back without hiding it outright. */
   dimmed?: boolean;
-  /** Line-width step, driven by GeoMap's zoom thresholds (see NodeMarker's
-   * `tier` for why): 0 = full width, each step progressively thinner.
-   * Without this, a fixed stroke width gets visually thicker as the map
-   * scales up under zoom, turning a dense cluster of lines into a solid
-   * smear. */
-  tier?: 0 | 1 | 2 | 3;
+  /** Extra opacity multiplier, so a line being revealed by zoom can fade in
+   * instead of appearing all at once. */
+  fade?: number;
+  /** Current map zoom. A fixed stroke width gets visually thicker as the
+   * map scales up under zoom, turning a dense cluster of lines into a solid
+   * smear; the width shrinks continuously to counter that. See
+   * ../lib/zoomScale. */
+  zoom?: number;
 }
 
-const WIDTH_SCALE_BY_TIER = [1, 0.42, 0.27, 0.18] as const;
-
-export function PipelineLine({ pipeline, points, onClick, isSelected, dimmed = false, tier = 0 }: PipelineLineProps) {
+export function PipelineLine({
+  pipeline,
+  points,
+  onClick,
+  isSelected,
+  dimmed = false,
+  fade = 1,
+  zoom = 1,
+}: PipelineLineProps) {
   const color = PIPELINE_COLORS[pipeline.style.color];
   const pointsAttr = points.map((p) => `${p.x},${p.y}`).join(" ");
   const dashed = Boolean(pipeline.style.dashed);
-  const widthScale = WIDTH_SCALE_BY_TIER[tier];
+  const widthScale = lineScale(zoom);
   const baseWidth = (isSelected ? 6 : dashed ? 2.5 : 4.5) * widthScale;
-  const opacity = dimmed ? 0.15 : 1;
+  const opacity = (dimmed ? 0.15 : 1) * fade;
 
   return (
     <g style={{ cursor: "pointer" }} onClick={() => onClick(pipeline.id)} opacity={opacity}>
-      {/* wide invisible hit area, easier to click than a 2-4px line */}
+      {/* wide invisible hit area, easier to click than a 2-4px line. Scales
+          with the zoom like everything else: left fixed, at high zoom these
+          grow into overlapping slabs and clicking one line of a dense
+          cluster picks whichever neighbour happens to be drawn last. */}
       <polyline
         points={pointsAttr}
         fill="none"
         stroke="transparent"
-        strokeWidth={18}
+        strokeWidth={Math.max(2.5, 18 * widthScale)}
         strokeLinecap="round"
         strokeLinejoin="round"
       />

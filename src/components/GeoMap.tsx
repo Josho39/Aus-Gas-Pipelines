@@ -7,6 +7,7 @@ import { MapZoomControls } from "./MapZoomControls";
 import { getConnectedNodes } from "../lib/selectors";
 import { projectGeo, computeGeoBounds } from "../lib/geoProject";
 import { AUSTRALIA_OUTLINE } from "../lib/australiaOutline";
+import { quantizeZoom, outlineScale, revealOpacity } from "../lib/zoomScale";
 import type { PipelineNode, Pipeline, Selection, NodeType } from "../types";
 
 // Pixels per degree of lat/lng, a fixed scale, rather than forcing every
@@ -29,15 +30,13 @@ const ALWAYS_LABELLED: ReadonlySet<NodeType> = new Set(["hub", "sttm", "lng"]);
 // important node's. Never auto-reveal it; clicking the marker still shows
 // it via the isSelected check in NodeMarker.
 const NEVER_AUTO_LABELLED: ReadonlySet<NodeType> = new Set(["plant"]);
+// This is the only thing zoom still switches on. How big everything is
+// drawn is a continuous function of the zoom instead (see ../lib/zoomScale
+// and the `zoom` prop on NodeMarker/PipelineLabel/PipelineLine), so labels,
+// markers and line widths shrink a little on every scroll click rather than
+// growing through a band and snapping down a step at its edge. Even this
+// reveal fades in over a few clicks rather than popping.
 const LABEL_ZOOM_THRESHOLD = 1.8;
-// Further thresholds: past each one, labels/lines/markers shrink again (see
-// the `tier` prop on NodeMarker/PipelineLabel/PipelineLine) rather than
-// staying pinned at one size while the map keeps growing underneath them.
-// Without enough of these spread across the zoom range (up to maxScale
-// below), everything still visibly grows on screen between thresholds even
-// though its tier hasn't changed.
-const LABEL_ZOOM_THRESHOLD_2 = 3.2;
-const LABEL_ZOOM_THRESHOLD_3 = 6;
 
 interface GeoMapProps {
   nodes: PipelineNode[];
@@ -58,17 +57,21 @@ export function GeoMap({
   onSelectPipeline,
   operatorFilter = null,
 }: GeoMapProps) {
-  // Whether minor (dashed/non-anchor) labels are currently shown. This is
-  // deliberately a boolean, not the raw zoom scale: react-zoom-pan-pinch's
+  // Current zoom scale, rounded (see quantizeZoom). react-zoom-pan-pinch's
   // pan/zoom itself is a CSS transform applied directly to the DOM (smooth
   // regardless of React), but `onTransform` fires on every single frame of
-  // a gesture, storing the raw scale would re-render this whole tree (and
-  // every child below) dozens of times a second while the user zooms,
-  // which is what made zooming feel janky. Storing just the
-  // threshold-crossing boolean means React's setState bails out via
-  // Object.is on every frame that doesn't cross the threshold, so a smooth
-  // zoom triggers ~0 re-renders instead of ~60/second.
-  const [labelTier, setLabelTier] = useState<0 | 1 | 2 | 3>(0);
+  // a gesture, and storing the raw scale would re-render this whole tree
+  // (and every child below) dozens of times a second while the user zooms,
+  // which is what made zooming feel janky. Rounding first means React's
+  // setState bails out via Object.is on every frame that doesn't actually
+  // change the zoom - all of a pan, and most frames of an inertial glide -
+  // while a real zoom step still re-renders once, at the size it landed on.
+  const [zoom, setZoom] = useState(1);
+
+  // Minor detail (dashed laterals, minor facility labels) fades in across
+  // the threshold instead of the whole set appearing on one scroll click.
+  const minorReveal = revealOpacity(zoom, LABEL_ZOOM_THRESHOLD);
+  const showMinor = minorReveal > 0;
 
   // Project against this region's own extent, including real pipeline
   // route waypoints, not just facility positions, since a route can bow out
@@ -182,7 +185,11 @@ export function GeoMap({
   return (
     <TransformWrapper
       minScale={0.5}
-      maxScale={12}
+      // Deep enough to pick apart a single junction (individual laterals
+      // off Wallumbilla, say). Nothing pins its own size in SVG user units
+      // any more, so raising the ceiling no longer makes labels and dots
+      // balloon out at the far end of the range - see ../lib/zoomScale.
+      maxScale={20}
       initialScale={1}
       limitToBounds={false}
       // `smooth` (the library's default) multiplies `wheel.step` by the
@@ -195,17 +202,7 @@ export function GeoMap({
       wheel={{ step: 0.2 }}
       doubleClick={{ step: 0.7, animationTime: 200 }}
       panning={{ velocityDisabled: false }}
-      onTransform={(_ref, state) =>
-        setLabelTier(
-          state.scale >= LABEL_ZOOM_THRESHOLD_3
-            ? 3
-            : state.scale >= LABEL_ZOOM_THRESHOLD_2
-              ? 2
-              : state.scale >= LABEL_ZOOM_THRESHOLD
-                ? 1
-                : 0
-        )
-      }
+      onTransform={(_ref, state) => setZoom(quantizeZoom(state.scale))}
     >
       <MapZoomControls />
       <TransformComponent wrapperStyle={{ width: "100%", height: "100%" }} contentStyle={{ width: "100%", height: "100%" }}>
@@ -220,7 +217,7 @@ export function GeoMap({
             d={coastlinePath}
             style={{ fill: "var(--color-landmass)", stroke: "var(--color-line)" }}
             fillOpacity={0.7}
-            strokeWidth={1.5}
+            strokeWidth={1.5 * outlineScale(zoom)}
           />
           {pipelines.map((pipeline) => {
             const isSelected = selection?.kind === "pipeline" && selection.id === pipeline.id;
@@ -229,7 +226,7 @@ export function GeoMap({
             // zooms in past the first threshold. Left always-on, a dense
             // cluster of them (e.g. the Surat Basin laterals) renders as an
             // unreadable pile of overlapping lines at the default zoom.
-            if (pipeline.style.dashed && labelTier === 0 && !isSelected) return null;
+            if (pipeline.style.dashed && !showMinor && !isSelected) return null;
             return (
               <PipelineLine
                 key={pipeline.id}
@@ -238,13 +235,15 @@ export function GeoMap({
                 onClick={onSelectPipeline}
                 isSelected={isSelected}
                 dimmed={operatorFilter !== null && pipeline.operator !== operatorFilter}
-                tier={labelTier}
+                fade={pipeline.style.dashed && !isSelected ? minorReveal : 1}
+                zoom={zoom}
               />
             );
           })}
           {nodes.map((node) => {
             const pos = projected.get(node.id)!;
             const isSelected = selection?.kind === "node" && selection.id === node.id;
+            const isMajor = ALWAYS_LABELLED.has(node.type);
             return (
               <NodeMarker
                 key={node.id}
@@ -253,8 +252,9 @@ export function GeoMap({
                 y={pos.y}
                 onClick={onSelectNode}
                 isSelected={isSelected}
-                showLabel={!NEVER_AUTO_LABELLED.has(node.type) && (ALWAYS_LABELLED.has(node.type) || labelTier >= 1)}
-                tier={labelTier}
+                showLabel={!NEVER_AUTO_LABELLED.has(node.type) && (isMajor || showMinor)}
+                labelOpacity={isMajor ? 1 : minorReveal}
+                zoom={zoom}
               />
             );
           })}
@@ -262,7 +262,7 @@ export function GeoMap({
             // Trunk lines (solid) are always named; minor dashed laterals
             // only get a name label once the viewer zooms in, same rule as
             // minor facility labels, keeps the default view uncluttered.
-            const showLabel = !pipeline.hideLabel && (!pipeline.style.dashed || labelTier >= 1);
+            const showLabel = !pipeline.hideLabel && (!pipeline.style.dashed || showMinor);
             if (!showLabel) return null;
             return (
               <PipelineLabel
@@ -271,7 +271,8 @@ export function GeoMap({
                 points={pipelinePoints.get(pipeline.id)!}
                 onClick={onSelectPipeline}
                 dimmed={operatorFilter !== null && pipeline.operator !== operatorFilter}
-                tier={labelTier}
+                fade={pipeline.style.dashed ? minorReveal : 1}
+                zoom={zoom}
               />
             );
           })}
