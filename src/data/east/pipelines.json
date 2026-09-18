@@ -8,7 +8,7 @@
       "ballera",
       "cheepie",
       "gooimbah",
-      "wallumbilla"
+      "wallumbilla-hp"
     ],
     "description": "Carries Cooper Basin gas from Ballera east to the Wallumbilla hub, historically the main link between Cooper Basin (SA/QLD) supply and the Queensland east coast market.",
     "operator": "APA Group",
@@ -116,7 +116,7 @@
     "name": "Queensland Gas Pipeline",
     "region": "east",
     "path": [
-      "wallumbilla",
+      "wallumbilla-hp",
       "rolleston",
       "banana",
       "glng"
@@ -192,7 +192,7 @@
     "name": "Roma Brisbane Pipeline",
     "region": "east",
     "path": [
-      "wallumbilla",
+      "wallumbilla-lp",
       "condamine",
       "windibri",
       "kogan",
@@ -7336,5 +7336,37 @@
         "lng": 150.7783
       }
     ]
+  },
+  {
+    "id": "wallumbilla-hp-link",
+    "code": "WAL-HP Link",
+    "name": "Wallumbilla HP Interconnect",
+    "region": "east",
+    "path": [
+      "wallumbilla",
+      "wallumbilla-hp"
+    ],
+    "description": "Links the Wallumbilla umbrella location to its High Pressure trading point.",
+    "style": {
+      "color": "slate",
+      "dashed": true
+    },
+    "hideLabel": true
+  },
+  {
+    "id": "wallumbilla-lp-link",
+    "code": "WAL-LP Link",
+    "name": "Wallumbilla LP Interconnect",
+    "region": "east",
+    "path": [
+      "wallumbilla",
+      "wallumbilla-lp"
+    ],
+    "description": "Links the Wallumbilla umbrella location to its Low Pressure trading point; gas moving from here to the HP side requires compression.",
+    "style": {
+      "color": "slate",
+      "dashed": true
+    },
+    "hideLabel": true
   }
 ]

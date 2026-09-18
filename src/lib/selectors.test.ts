@@ -20,12 +20,14 @@ describe("selectors", () => {
   it("getConnectedPipelines finds every pipeline touching a node", () => {
     const connected = getConnectedPipelines("wallumbilla", typedPipelines);
     const ids = connected.map((p) => p.id).sort();
-    expect(ids).toEqual(["ppl134", "ppl90", "rbp", "swqp", "qgp", "berwyndale-lateral", "talinga-lateral"].sort());
+    expect(ids).toEqual(
+      ["ppl134", "ppl90", "berwyndale-lateral", "talinga-lateral", "wallumbilla-hp-link", "wallumbilla-lp-link"].sort()
+    );
   });
 
   it("getConnectedNodes resolves a pipeline's path to node objects", () => {
     const swqp = typedPipelines.find((p) => p.id === "swqp")!;
     const connected = getConnectedNodes(swqp, typedNodes);
-    expect(connected.map((n) => n.id)).toEqual(["ballera", "cheepie", "gooimbah", "wallumbilla"]);
+    expect(connected.map((n) => n.id)).toEqual(["ballera", "cheepie", "gooimbah", "wallumbilla-hp"]);
   });
 });

@@ -194,7 +194,7 @@
       "lat": -26.57,
       "lng": 149.15
     },
-    "description": "Major Queensland gas trading hub where the SWQP, QGP and RBP pipelines meet, with High Pressure (HP) and Low Pressure (LP) trading points.",
+    "description": "Major Queensland gas trading hub, the umbrella Wallumbilla (WAL) location containing separate High Pressure and Low Pressure trading points, connected via on-site compression.",
     "shortLabel": "WAL"
   },
   {
@@ -965,5 +965,29 @@
       "lng": 150.7783
     },
     "description": "Gas-fired power station near Wollongong, served by the Tallawarra Spur off the Port Kembla lateral."
+  },
+  {
+    "id": "wallumbilla-hp",
+    "name": "Wallumbilla HP",
+    "type": "hub",
+    "region": "east",
+    "geoPos": {
+      "lat": -26.545,
+      "lng": 149.18
+    },
+    "description": "High Pressure trading point at the Wallumbilla hub (up to 10.2 MPa). SWQP and QGP both deliver/receive gas here.",
+    "shortLabel": "WAL HP"
+  },
+  {
+    "id": "wallumbilla-lp",
+    "name": "Wallumbilla LP",
+    "type": "hub",
+    "region": "east",
+    "geoPos": {
+      "lat": -26.595,
+      "lng": 149.12
+    },
+    "description": "Low Pressure trading point at the Wallumbilla hub (max 9.6 MPa). RBP connects here; moving gas onward into the HP side requires compression.",
+    "shortLabel": "WAL LP"
   }
 ]

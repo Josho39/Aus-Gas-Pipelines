@@ -19,15 +19,15 @@ describe("DetailPanel", () => {
   it("shows a node's name, description, and connected pipelines", () => {
     render(
       <DetailPanel
-        selection={{ kind: "node", id: "wallumbilla" }}
+        selection={{ kind: "node", id: "wallumbilla-hp" }}
         nodes={typedNodes}
         pipelines={typedPipelines}
         onSelect={() => {}}
         onClose={() => {}}
       />
     );
-    expect(screen.getByText("Wallumbilla Hub (WAL)")).toBeInTheDocument();
-    expect(screen.getByText(/Major Queensland gas trading hub/)).toBeInTheDocument();
+    expect(screen.getByText("Wallumbilla HP")).toBeInTheDocument();
+    expect(screen.getByText(/High Pressure trading point/)).toBeInTheDocument();
     expect(screen.getByText("South West Queensland Pipeline")).toBeInTheDocument();
   });
 
