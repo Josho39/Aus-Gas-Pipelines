@@ -260,7 +260,9 @@ export function GeoMap({
                 y={pos.y}
                 onClick={onSelectNode}
                 isSelected={isSelected}
-                showLabel={!NEVER_AUTO_LABELLED.has(node.type) && reveal > 0}
+                // A node naming its own zoom to wait for has opted in
+                // explicitly, which beats the blanket rule for its type.
+                showLabel={(!NEVER_AUTO_LABELLED.has(node.type) || node.labelMinZoom != null) && reveal > 0}
                 labelOpacity={reveal}
                 zoom={zoom}
               />

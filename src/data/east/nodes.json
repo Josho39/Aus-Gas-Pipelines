@@ -1187,7 +1187,77 @@
     },
     "description": "Notional interconnect trade point on the Roma to Brisbane Pipeline, allocated to the Kogan receipt and delivery zone. Both a forward haul receipt and a delivery point, and the RBP side of trades into Condamine and the Brisbane STTM.",
     "shortLabel": "RBP IPT",
-    "labelPosition": "right",
+    "labelPosition": "bottomright",
     "labelMinZoom": 9
+  },
+  {
+    "id": "woleebee-creek",
+    "name": "Woleebee Creek Gas Plant",
+    "type": "plant",
+    "region": "east",
+    "geoPos": {
+      "lat": -26.2202,
+      "lng": 149.7721
+    },
+    "description": "QGC processing hub in the Surat Basin, west of Wandoan. A receipt point on the Wallumbilla to Gladstone Pipeline, feeding the QCLNG trains on Curtis Island.",
+    "shortLabel": "Woleebee Ck",
+    "labelPosition": "bottomleft",
+    "labelMinZoom": 4
+  },
+  {
+    "id": "atlas",
+    "name": "Atlas Gas Plant",
+    "type": "plant",
+    "region": "east",
+    "geoPos": {
+      "lat": -26.1957,
+      "lng": 149.7906
+    },
+    "description": "Senex's Atlas development in the Surat Basin. AEMO's register has it receipting into two pipelines: the Atlas lateral on the Darling Downs Pipeline, and the Atlas to Reedy Creek stream on the RCWP.",
+    "shortLabel": "Atlas",
+    "labelPosition": "topright",
+    "labelMinZoom": 4
+  },
+  {
+    "id": "bellevue",
+    "name": "Bellevue",
+    "type": "plant",
+    "region": "east",
+    "geoPos": {
+      "lat": -26.465,
+      "lng": 150.326
+    },
+    "description": "QGC field in the Surat Basin, both a receipt and a delivery point on the Wallumbilla to Gladstone Pipeline. Position derived from AEMO's gas map, which is a high-level representation: good to about 5 km here, not surveyed.",
+    "shortLabel": "Bellevue",
+    "labelPosition": "bottomright",
+    "labelMinZoom": 4
+  },
+  {
+    "id": "orana",
+    "name": "Orana",
+    "type": "plant",
+    "region": "east",
+    "geoPos": {
+      "lat": -26.707,
+      "lng": 150.718
+    },
+    "description": "Australia Pacific LNG field in the Surat Basin, a receipt point in the Darling Downs Pipeline's Surat zone alongside Kenya and Ruby. Position derived from AEMO's gas map, which is a high-level representation: good to about 5 km here, not surveyed.",
+    "shortLabel": "Orana",
+    "labelPosition": "bottomright",
+    "labelMinZoom": 4
+  },
+  {
+    "id": "taloona",
+    "name": "Taloona",
+    "type": "plant",
+    "region": "east",
+    "geoPos": {
+      "lat": -26.058,
+      "lng": 149.283
+    },
+    "description": "Santos field north of Wallumbilla, one of the two receipt points in the Darling Downs Pipeline's Spring Gully zone. Position derived from AEMO's gas map, which is a high-level representation: good to about 5 km here, not surveyed.",
+    "shortLabel": "Taloona",
+    "labelPosition": "topleft",
+    "labelMinZoom": 4
   }
 ]

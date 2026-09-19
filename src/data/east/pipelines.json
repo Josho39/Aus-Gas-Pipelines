@@ -7561,5 +7561,72 @@
       "dashed": true
     },
     "hideLabel": true
+  },
+  {
+    "id": "wgp",
+    "code": "WGP",
+    "name": "Wallumbilla to Gladstone Pipeline",
+    "region": "east",
+    "path": [
+      "woleebee-creek",
+      "bellevue",
+      "qgc"
+    ],
+    "description": "APA's 543 km export line to the QCLNG trains on Curtis Island, formerly the QCLNG export pipeline. Despite the name it has no Wallumbilla service point in AEMO's register: it is fed from the Surat fields, receipting at Ruby Jo, Jordan, Kenya, Bellevue, Woleebee Creek and the Wandoan interconnect with the APLNG pipeline, then at Mt Larcom from the GLNG transmission pipeline.",
+    "operator": "APA Group",
+    "lengthKm": 543,
+    "minorLabel": true,
+    "labelMinZoom": 4,
+    "style": {
+      "color": "teal"
+    }
+  },
+  {
+    "id": "atlas-lateral",
+    "code": "Atlas Lat.",
+    "name": "Atlas Lateral",
+    "region": "east",
+    "path": [
+      "atlas",
+      "reedy-creek"
+    ],
+    "description": "Senex's Atlas gas into the Reedy Creek connection point, where the RCWP receipts it.",
+    "labelMinZoom": 6,
+    "style": {
+      "color": "slate",
+      "dashed": true
+    }
+  },
+  {
+    "id": "taloona-lateral",
+    "code": "Taloona Lat.",
+    "name": "Taloona Lateral",
+    "region": "east",
+    "path": [
+      "taloona",
+      "spring-gully"
+    ],
+    "description": "Taloona into the Darling Downs Pipeline's Spring Gully receipt zone.",
+    "labelMinZoom": 6,
+    "style": {
+      "color": "slate",
+      "dashed": true
+    }
+  },
+  {
+    "id": "orana-lateral",
+    "code": "Orana Lat.",
+    "name": "Orana Lateral",
+    "region": "east",
+    "path": [
+      "orana",
+      "talinga"
+    ],
+    "description": "Orana into the Darling Downs Pipeline's Surat receipt zone at Talinga.",
+    "labelMinZoom": 6,
+    "style": {
+      "color": "slate",
+      "dashed": true
+    }
   }
 ]
