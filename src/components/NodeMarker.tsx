@@ -1,4 +1,4 @@
-import { NODE_TYPE_COLORS } from "../lib/colors";
+import { NODE_TYPE_COLORS, NODE_TYPE_SIZE, HOLLOW_NODE_TYPES } from "../lib/colors";
 import { labelScale, markerRadius } from "../lib/zoomScale";
 import type { PipelineNode } from "../types";
 
@@ -36,9 +36,9 @@ export function NodeMarker({
   const label = node.shortLabel ?? node.name;
   const scale = labelScale(zoom);
   const fontSize = 9.5 * scale;
-  const labelWidth = label.length * 5.1 * scale + 8 * scale;
   const labelHeight = 13.5 * scale;
-  const radius = markerRadius(zoom);
+  const radius = markerRadius(zoom) * NODE_TYPE_SIZE[node.type];
+  const hollow = HOLLOW_NODE_TYPES.has(node.type);
   // Measured out from the dot's edge, not from its centre. A fixed offset
   // from the centre leaves less and less clear air as the label grows,
   // and the name ends up crowding the dot it belongs to.
@@ -47,7 +47,11 @@ export function NodeMarker({
   // fraction of the radius keeps the ring visible at every zoom without it
   // ever swallowing the fill, down to a floor where it would vanish.
   const markerStroke = Math.max(0.3, radius * 0.3);
-  const boxStroke = Math.max(0.12, 0.75 * scale);
+  // Halo behind the text instead of a box behind it. AEMO writes names
+  // straight onto the map, and a box per label turns a junction into a wall
+  // of rectangles; a background-coloured outline keeps the text readable
+  // where it crosses a pipeline without adding another shape to look at.
+  const halo = 2.6 * scale;
 
   const position = node.labelPosition ?? "right";
   const diagonal = position.length > 6;
@@ -59,31 +63,30 @@ export function NodeMarker({
   const left = position.endsWith("left");
   const right = position.endsWith("right");
 
-  let rectX: number;
-  let rectY: number;
   let textX: number;
   let textAnchor: "start" | "end" | "middle" = "start";
   if (left) {
-    rectX = x - step - labelWidth;
-    textX = x - step - 4.5 * scale;
+    textX = x - step;
     textAnchor = "end";
   } else if (right) {
-    rectX = x + step;
-    textX = x + step + 4.5 * scale;
+    textX = x + step;
   } else {
-    rectX = x - labelWidth / 2;
     textX = x;
     textAnchor = "middle";
   }
+  // Vertical placement is worked out as though the name still sat in a box,
+  // so a label above or below the dot clears it by the same gap a label
+  // beside it does.
+  let boxTop: number;
   if (up) {
-    rectY = diagonal ? y - step - labelHeight / 2 : y - gap - labelHeight;
+    boxTop = diagonal ? y - step - labelHeight / 2 : y - gap - labelHeight;
   } else if (down) {
-    rectY = diagonal ? y + step - labelHeight / 2 : y + gap;
+    boxTop = diagonal ? y + step - labelHeight / 2 : y + gap;
   } else {
-    rectY = y - labelHeight / 2;
+    boxTop = y - labelHeight / 2;
   }
 
-  const textY = rectY + labelHeight / 2 + fontSize / 3;
+  const textY = boxTop + labelHeight / 2 + fontSize / 3;
 
   return (
     <g onClick={() => onClick(node.id)} style={{ cursor: "pointer" }}>
@@ -92,22 +95,16 @@ export function NodeMarker({
       )}
       {(showLabel || isSelected) && (
         <g opacity={isSelected ? 1 : labelOpacity}>
-          <rect
-            x={rectX}
-            y={rectY}
-            width={labelWidth}
-            height={labelHeight}
-            rx={3 * scale}
-            style={{ fill: "var(--color-panel)", stroke: color }}
-            strokeWidth={boxStroke}
-            opacity={0.9}
-          />
           <text
             x={textX}
             y={textY}
             fontSize={fontSize}
-            fontWeight={500}
+            fontWeight={600}
             textAnchor={textAnchor}
+            paintOrder="stroke"
+            stroke="var(--color-ink)"
+            strokeWidth={halo}
+            strokeLinejoin="round"
             style={{ fill: "var(--color-fg)" }}
           >
             {label}
@@ -119,8 +116,9 @@ export function NodeMarker({
         cx={x}
         cy={y}
         r={radius}
-        fill={color}
-        style={{ stroke: "var(--color-ink)" }}
+        fill={hollow ? "var(--color-ink)" : color}
+        stroke={hollow ? color : undefined}
+        style={hollow ? undefined : { stroke: "var(--color-ink)" }}
         strokeWidth={markerStroke}
       />
     </g>

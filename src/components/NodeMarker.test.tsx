@@ -1,6 +1,7 @@
 import { render, fireEvent, screen } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import { NodeMarker } from "./NodeMarker";
+import { NODE_TYPE_COLORS } from "../lib/colors";
 import type { PipelineNode } from "../types";
 
 const node: PipelineNode = {
@@ -22,7 +23,7 @@ describe("NodeMarker", () => {
       </svg>
     );
     const marker = screen.getByTestId("node-wallumbilla");
-    expect(marker).toHaveAttribute("fill", "#38bdf8");
+    expect(marker).toHaveAttribute("fill", NODE_TYPE_COLORS.hub);
   });
 
   it("calls onClick with the node id when clicked", () => {

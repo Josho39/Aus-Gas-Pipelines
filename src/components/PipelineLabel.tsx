@@ -42,8 +42,11 @@ export function PipelineLabel({
   }
   const { x, y, anchor } = placement;
   const fontSize = 9.5 * scale;
-  const labelWidth = pipeline.code.length * 5.6 * scale + 9 * scale;
-  const labelHeight = 13 * scale;
+  // AEMO writes each pipeline's name along the line in the line's own
+  // colour, with no box: the name belongs to the line and reads as part of
+  // it. A halo in the background colour keeps it legible where it crosses
+  // another pipeline.
+  const halo = 2.6 * scale;
 
   return (
     <g
@@ -66,22 +69,16 @@ export function PipelineLabel({
         opacity={0.6}
       />
       <circle cx={anchor.x} cy={anchor.y} r={Math.max(0.3, 2 * scale)} fill={color} />
-      <rect
-        x={x - labelWidth / 2}
-        y={y - labelHeight / 2}
-        width={labelWidth}
-        height={labelHeight}
-        rx={3 * scale}
-        style={{ fill: "var(--color-panel)", stroke: color }}
-        strokeWidth={Math.max(0.12, 0.75 * scale)}
-        opacity={0.95}
-      />
       <text
         x={x}
         y={y + fontSize / 3}
         fontSize={fontSize}
-        fontWeight={600}
-        style={{ fill: "var(--color-fg)" }}
+        fontWeight={700}
+        fill={color}
+        paintOrder="stroke"
+        stroke="var(--color-ink)"
+        strokeWidth={halo}
+        strokeLinejoin="round"
         textAnchor="middle"
       >
         {pipeline.code}

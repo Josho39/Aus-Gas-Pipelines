@@ -1,19 +1,22 @@
-import { PIPELINE_COLORS, NODE_TYPE_COLORS } from "../lib/colors";
+import { PIPELINE_COLORS, NODE_TYPE_COLORS, NODE_TYPE_SIZE, HOLLOW_NODE_TYPES } from "../lib/colors";
+import type { NodeType } from "../types";
 
+// Wording follows AEMO's own gas map legend where the categories line up,
+// so the two read as the same map.
 const NODE_TYPE_LABELS: Record<keyof typeof NODE_TYPE_COLORS, string> = {
-  hub: "Hub / trading point",
-  tradepoint: "Trade / receipt / delivery point",
-  plant: "Gas plant / field",
-  compressor: "Compressor station",
+  hub: "Key site / trading hub",
+  plant: "Gas processing facility",
+  lng: "Export LNG facility",
   sttm: "STTM (trading market)",
-  lng: "LNG export facility",
+  compressor: "Compressor station",
+  tradepoint: "Trade / receipt / delivery point",
   town: "Demand centre",
 };
 
 const PIPELINE_COLOR_LABELS: Record<keyof typeof PIPELINE_COLORS, string> = {
-  teal: "Pipeline",
-  purple: "LNG / interstate",
-  slate: "Lateral",
+  teal: "Major pipeline",
+  purple: "Produced-gas lateral / LNG",
+  slate: "Minor pipeline / lateral",
 };
 
 export function Legend() {
@@ -40,12 +43,27 @@ export function Legend() {
       <div>
         <p className="font-semibold text-fg mb-1">Facilities</p>
         <div className="space-y-1">
-          {Object.entries(NODE_TYPE_COLORS).map(([key, color]) => (
-            <div key={key} className="flex items-center gap-2">
-              <span className="inline-block w-3 h-3 rounded-full" style={{ backgroundColor: color }} />
-              <span>{NODE_TYPE_LABELS[key as keyof typeof NODE_TYPE_COLORS]}</span>
-            </div>
-          ))}
+          {(Object.keys(NODE_TYPE_LABELS) as NodeType[]).map((key) => {
+            const color = NODE_TYPE_COLORS[key];
+            const size = 6 + 6 * NODE_TYPE_SIZE[key];
+            const hollow = HOLLOW_NODE_TYPES.has(key);
+            return (
+              <div key={key} className="flex items-center gap-2">
+                <span className="inline-flex w-3 justify-center">
+                  <span
+                    className="inline-block rounded-full"
+                    style={{
+                      width: size,
+                      height: size,
+                      backgroundColor: hollow ? "transparent" : color,
+                      border: hollow ? `1.5px solid ${color}` : undefined,
+                    }}
+                  />
+                </span>
+                <span>{NODE_TYPE_LABELS[key]}</span>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

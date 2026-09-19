@@ -1,6 +1,7 @@
 import { render, fireEvent, screen } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import { PipelineLine } from "./PipelineLine";
+import { PIPELINE_COLORS } from "../lib/colors";
 import type { Pipeline } from "../types";
 
 const pipeline: Pipeline = {
@@ -21,7 +22,7 @@ describe("PipelineLine", () => {
       </svg>
     );
     const line = screen.getByTestId("pipeline-swqp");
-    expect(line).toHaveAttribute("stroke", "#2dd4bf");
+    expect(line).toHaveAttribute("stroke", PIPELINE_COLORS.teal);
   });
 
   it("calls onClick with the pipeline id when clicked", () => {

@@ -64,7 +64,6 @@ export function PipelineLine({
         strokeDasharray={dashed ? `${8 * widthScale} ${6 * widthScale}` : undefined}
         strokeLinecap="round"
         strokeLinejoin="round"
-        style={!dashed && !dimmed ? { filter: `drop-shadow(0 0 3px ${color}99)` } : undefined}
       />
     </g>
   );
