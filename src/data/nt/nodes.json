@@ -9,7 +9,8 @@
       "lng": 130.866
     },
     "description": "NT capital and gas demand hub, terminus of the Amadeus Gas Pipeline (AGP) from Central Australia.",
-    "shortLabel": "Darwin"
+    "shortLabel": "Darwin",
+    "labelPosition": "bottomleft"
   },
   {
     "id": "darwin-lng",

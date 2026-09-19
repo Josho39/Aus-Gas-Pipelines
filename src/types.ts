@@ -30,8 +30,18 @@ export interface PipelineNode {
   shortLabel?: string;
   /** Which side of the marker its label sits on. Defaults to "right". Used
    * to pull a label away from a neighbouring node or line it would
-   * otherwise sit on top of. */
-  labelPosition?: "right" | "left" | "top" | "bottom";
+   * otherwise sit on top of. The diagonals exist for junctions: at a hub
+   * where nine pipelines radiate out, the clear air is usually between two
+   * of them rather than square on an axis. */
+  labelPosition?:
+    | "right"
+    | "left"
+    | "top"
+    | "bottom"
+    | "topleft"
+    | "topright"
+    | "bottomleft"
+    | "bottomright";
   /** Hold this node's name back until the map is zoomed past this scale,
    * then fade it in. For points that really do sit on top of one another -
    * the Wallumbilla trade points and numbered runs are all within a few km

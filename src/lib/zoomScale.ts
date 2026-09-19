@@ -59,7 +59,7 @@ function zoomFactor(zoom: number, exponent: number, min: number): number {
  * 8px it stops being readable - so it gives up its size to the map rather
  * than shrinking in absolute terms as well. */
 export function labelScale(zoom: number): number {
-  return DETAIL_SCALE * zoomFactor(zoom, 1, 0.02);
+  return DETAIL_SCALE * zoomFactor(zoom, 1, 0.005);
 }
 
 /** Multiplier for pipeline stroke widths and dash lengths. Thins slightly
@@ -67,14 +67,14 @@ export function labelScale(zoom: number): number {
  * sooner than overlapping labels do, and a thinner line also places a route
  * more precisely once you're close enough to care where it actually runs. */
 export function lineScale(zoom: number): number {
-  return DETAIL_SCALE * zoomFactor(zoom, 1.12, 0.02);
+  return DETAIL_SCALE * zoomFactor(zoom, 1.12, 0.005);
 }
 
 /** Node dot radius in user units (a size, not a multiplier). The dots start
  * out proportionally much larger than the text, so they can afford to give
  * up a little more than it does. */
 export function markerRadius(zoom: number): number {
-  return 6.5 * DETAIL_SCALE * zoomFactor(zoom, 1.1, 0.02);
+  return 6.5 * DETAIL_SCALE * zoomFactor(zoom, 1.1, 0.005);
 }
 
 /** Multiplier for the coastline stroke. Held at a constant on-screen width
@@ -82,7 +82,7 @@ export function markerRadius(zoom: number): number {
  * a backdrop, and it should neither thicken into a band nor thin away to
  * nothing as the viewer moves through the zoom range. */
 export function outlineScale(zoom: number): number {
-  return zoomFactor(zoom, 1, 0.02);
+  return zoomFactor(zoom, 1, 0.005);
 }
 
 /** Fade-in for detail that stays hidden until the viewer zooms past

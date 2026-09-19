@@ -11,7 +11,7 @@ import {
 
 // GeoMap's TransformWrapper ceiling. The sizing curves have to still hold
 // up at the far end of whatever range the map allows.
-const MAX_ZOOM = 20;
+const MAX_ZOOM = 40;
 
 describe("quantizeZoom", () => {
   it("returns the same value for an unchanged scale, so setState can bail out", () => {

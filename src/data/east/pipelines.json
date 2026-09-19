@@ -108,7 +108,8 @@
         "lat": -28.122,
         "lng": 140.205
       }
-    ]
+    ],
+    "labelSide": "above"
   },
   {
     "id": "qgp",
@@ -843,7 +844,8 @@
     "style": {
       "color": "slate",
       "dashed": true
-    }
+    },
+    "labelSide": "above"
   },
   {
     "id": "fairview-lateral",
@@ -1463,7 +1465,8 @@
     "operator": "APA Group",
     "style": {
       "color": "teal"
-    }
+    },
+    "labelMinZoom": 4
   },
   {
     "id": "ddp",
@@ -1481,7 +1484,9 @@
     "operator": "Jemena",
     "style": {
       "color": "teal"
-    }
+    },
+    "labelSide": "above",
+    "labelMinZoom": 4
   },
   {
     "id": "rcwp",
@@ -1494,11 +1499,12 @@
     ],
     "description": "APA's bi-directional link between the Reedy Creek connection point and Wallumbilla. At the Reedy Creek end AEMO lists it receipting from the APLNG pipeline and the Senex Atlas gas pipeline; at Wallumbilla it runs both ways, appearing as RCWP on the LP receipt side and on the HP delivery side.",
     "minorLabel": true,
-    "labelSide": "above",
+    "labelSide": "below",
     "operator": "APA Group",
     "style": {
       "color": "teal"
-    }
+    },
+    "labelMinZoom": 4
   },
   {
     "id": "crwp",
@@ -1516,7 +1522,9 @@
     "capacity": "950 TJ/d forward haul, 175 TJ/d back haul",
     "style": {
       "color": "teal"
-    }
+    },
+    "labelSide": "above",
+    "labelMinZoom": 4
   },
   {
     "id": "braemar-lateral",
@@ -1547,7 +1555,8 @@
     "style": {
       "color": "slate",
       "dashed": true
-    }
+    },
+    "hideLabel": true
   },
   {
     "id": "young-wagga-wagga",

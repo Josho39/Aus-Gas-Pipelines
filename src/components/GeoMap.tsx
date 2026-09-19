@@ -185,11 +185,12 @@ export function GeoMap({
   return (
     <TransformWrapper
       minScale={0.5}
-      // Deep enough to pick apart a single junction (individual laterals
-      // off Wallumbilla, say). Nothing pins its own size in SVG user units
+      // Deep enough to pick apart a single junction: the Wallumbilla
+      // cluster alone holds a hub, two trade points and four metering runs
+      // within a few km of each other. Nothing pins its own size in SVG user units
       // any more, so raising the ceiling no longer makes labels and dots
       // balloon out at the far end of the range - see ../lib/zoomScale.
-      maxScale={20}
+      maxScale={40}
       initialScale={1}
       limitToBounds={false}
       // `smooth` (the library's default) multiplies `wheel.step` by the

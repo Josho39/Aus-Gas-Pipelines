@@ -50,31 +50,40 @@ export function NodeMarker({
   const boxStroke = Math.max(0.12, 0.75 * scale);
 
   const position = node.labelPosition ?? "right";
+  const diagonal = position.length > 6;
+  // A diagonal offset splits the gap between the two axes so the label sits
+  // the same distance from the dot as a square one would.
+  const step = diagonal ? gap / Math.SQRT2 : gap;
+  const up = position.startsWith("top");
+  const down = position.startsWith("bottom");
+  const left = position.endsWith("left");
+  const right = position.endsWith("right");
+
   let rectX: number;
   let rectY: number;
   let textX: number;
   let textAnchor: "start" | "end" | "middle" = "start";
-  if (position === "left") {
-    rectX = x - gap - labelWidth;
-    rectY = y - labelHeight / 2;
-    textX = x - gap - 4.5 * scale;
+  if (left) {
+    rectX = x - step - labelWidth;
+    textX = x - step - 4.5 * scale;
     textAnchor = "end";
-  } else if (position === "top") {
-    rectX = x - labelWidth / 2;
-    rectY = y - gap - labelHeight;
-    textX = x;
-    textAnchor = "middle";
-  } else if (position === "bottom") {
-    rectX = x - labelWidth / 2;
-    rectY = y + gap;
-    textX = x;
-    textAnchor = "middle";
+  } else if (right) {
+    rectX = x + step;
+    textX = x + step + 4.5 * scale;
   } else {
-    rectX = x + gap;
-    rectY = y - labelHeight / 2;
-    textX = x + gap + 4.5 * scale;
+    rectX = x - labelWidth / 2;
+    textX = x;
+    textAnchor = "middle";
   }
-  const textY = position === "top" || position === "bottom" ? rectY + labelHeight / 2 + fontSize / 3 : y + fontSize / 3;
+  if (up) {
+    rectY = diagonal ? y - step - labelHeight / 2 : y - gap - labelHeight;
+  } else if (down) {
+    rectY = diagonal ? y + step - labelHeight / 2 : y + gap;
+  } else {
+    rectY = y - labelHeight / 2;
+  }
+
+  const textY = rectY + labelHeight / 2 + fontSize / 3;
 
   return (
     <g onClick={() => onClick(node.id)} style={{ cursor: "pointer" }}>
