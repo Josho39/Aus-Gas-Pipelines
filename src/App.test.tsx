@@ -21,7 +21,7 @@ describe("App", () => {
   it("opens the detail panel when a node is clicked", () => {
     renderApp();
     fireEvent.click(screen.getByTestId("node-wallumbilla"));
-    expect(screen.getByText(/Major Queensland gas trading hub/)).toBeInTheDocument();
+    expect(screen.getByText(/Australia's main east coast gas trading hub/)).toBeInTheDocument();
   });
 
   it("shows operator chips and dims non-matching pipelines when one is spotlighted", () => {

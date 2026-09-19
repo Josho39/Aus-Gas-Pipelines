@@ -58,7 +58,8 @@
       "lat": -26.6,
       "lng": 149.9
     },
-    "description": "Junction point on the South West Queensland Pipeline corridor, connecting through to the Queensland Gas Pipeline (QGP) and the Wallumbilla hub."
+    "description": "Junction point on the South West Queensland Pipeline corridor, connecting through to the Queensland Gas Pipeline (QGP) and the Wallumbilla hub.",
+    "labelPosition": "bottom"
   },
   {
     "id": "rolleston",
@@ -100,10 +101,10 @@
       "y": 396
     },
     "geoPos": {
-      "lat": -25.05,
-      "lng": 150.28
+      "lat": -25.62,
+      "lng": 149.017
     },
-    "description": "Upstream coal seam gas field supplying into the Rolleston junction on the Queensland Gas Pipeline."
+    "description": "Santos GLNG's coal seam gas processing hub in the Fairview field north of Roma, around Injune. The northern end of the Comet Ridge to Wallumbilla Pipeline."
   },
   {
     "id": "banana",
@@ -194,8 +195,9 @@
       "lat": -26.57,
       "lng": 149.15
     },
-    "description": "Major Queensland gas trading hub, the umbrella Wallumbilla (WAL) location containing separate High Pressure and Low Pressure trading points, connected via on-site compression.",
-    "shortLabel": "WAL"
+    "description": "Australia's main east coast gas trading hub, near Roma. The interconnection point for nine pipelines: SWQP, RBP, QGP, BWP, RCWP, CRWP and the Darling Downs Pipeline (which carries both the Spring Gully and Darling Downs streams), plus the GLNG lean gas stream. The umbrella WAL location covers separate High and Low Pressure trading points, joined by APA's two on-site compression facilities, and the connections meet it on numbered runs - AEMO names Runs 6, 7 and 9 on the Darling Downs Pipeline alone.",
+    "shortLabel": "WAL",
+    "labelPosition": "left"
   },
   {
     "id": "aplng",
@@ -969,25 +971,193 @@
   {
     "id": "wallumbilla-hp",
     "name": "Wallumbilla HP",
-    "type": "hub",
+    "type": "tradepoint",
     "region": "east",
     "geoPos": {
       "lat": -26.545,
       "lng": 149.18
     },
-    "description": "High Pressure trading point at the Wallumbilla hub (up to 10.2 MPa). SWQP and QGP both deliver/receive gas here.",
-    "shortLabel": "WAL HP"
+    "description": "High Pressure trading point at the Wallumbilla hub (up to 10.2 MPa), and the compression delivery point on Wallumbilla Compression Facilities A and B. AEMO's service point register lists its physical delivery streams as BWP Exit, QGP Exit, RBP Exit, RCWP, and CRWP runs WCS2 and WCS3. Also a receipt point back onto the SWQP, and one of its two park service points.",
+    "shortLabel": "WAL HP",
+    "labelPosition": "top",
+    "labelMinZoom": 7
   },
   {
     "id": "wallumbilla-lp",
     "name": "Wallumbilla LP",
-    "type": "hub",
+    "type": "tradepoint",
     "region": "east",
     "geoPos": {
       "lat": -26.595,
       "lng": 149.12
     },
-    "description": "Low Pressure trading point at the Wallumbilla hub (max 9.6 MPa). RBP connects here; moving gas onward into the HP side requires compression.",
-    "shortLabel": "WAL LP"
+    "description": "Low Pressure trading point at the Wallumbilla hub (max 9.6 MPa), and the compression receipt point on Wallumbilla Compression Facilities A and B; moving gas onward into the HP side requires compression. AEMO's register lists its physical receipt streams as BWP, the Darling Downs Pipeline, QGP Entry, RBP Entry, Spring Gully, RCWP, and the GLNG lean gas stream.",
+    "shortLabel": "WAL LP",
+    "labelPosition": "bottom",
+    "labelMinZoom": 7
+  },
+  {
+    "id": "spring-gully",
+    "name": "Spring Gully Gas Plant",
+    "type": "plant",
+    "region": "east",
+    "geoPos": {
+      "lat": -25.9,
+      "lng": 149.1
+    },
+    "description": "Coal seam gas processing hub in the Bowen Basin, about 55 km east of Injune. The northern end of the Darling Downs Pipeline: AEMO's register lists the Spring Gully Manifold and Taloona as its receipt points, and folds the old Spring Gully Pipeline into the DDP.",
+    "shortLabel": "Spring Gully",
+    "labelPosition": "left"
+  },
+  {
+    "id": "reedy-creek",
+    "name": "Reedy Creek Gas Plant",
+    "type": "plant",
+    "region": "east",
+    "geoPos": {
+      "lat": -26.346,
+      "lng": 149.431
+    },
+    "description": "Australia Pacific LNG processing facility roughly 65 km south-west of Wandoan, and the far end of APA's Reedy Creek to Wallumbilla Pipeline. AEMO lists the RCWP receipting here from both the APLNG pipeline and the Senex Atlas gas pipeline.",
+    "shortLabel": "Reedy Creek"
+  },
+  {
+    "id": "darling-downs-ps",
+    "name": "Darling Downs Power Station",
+    "type": "town",
+    "region": "east",
+    "geoPos": {
+      "lat": -27.111,
+      "lng": 150.905
+    },
+    "description": "Gas-fired power station at Kogan, 40 km west of Dalby. The delivery end of the Darling Downs Pipeline, and the only service point on it AEMO does not publish.",
+    "shortLabel": "Darling Downs PS",
+    "labelPosition": "left"
+  },
+  {
+    "id": "wal-run-3",
+    "name": "Wallumbilla Run 3",
+    "type": "tradepoint",
+    "region": "east",
+    "geoPos": {
+      "lat": -26.545,
+      "lng": 149.212
+    },
+    "description": "Metering run at the Wallumbilla hub, on the high pressure side by the RBP interconnect trade point. Used as an RBP receipt point for forward haul out of Wallumbilla.",
+    "shortLabel": "Run 3",
+    "labelPosition": "right",
+    "labelMinZoom": 7
+  },
+  {
+    "id": "wal-run-6",
+    "name": "Wallumbilla Run 6",
+    "type": "tradepoint",
+    "region": "east",
+    "geoPos": {
+      "lat": -26.612,
+      "lng": 149.186
+    },
+    "description": "Metering run at the Wallumbilla hub. A Darling Downs Pipeline delivery point, sharing a delivery zone with Run 7 and the Wallumbilla Compressor Station.",
+    "shortLabel": "Run 6",
+    "labelPosition": "right",
+    "labelMinZoom": 7
+  },
+  {
+    "id": "wal-run-7",
+    "name": "Wallumbilla Run 7",
+    "type": "tradepoint",
+    "region": "east",
+    "geoPos": {
+      "lat": -26.64,
+      "lng": 149.15
+    },
+    "description": "Metering run at the Wallumbilla hub. A Darling Downs Pipeline delivery point, sharing a delivery zone with Run 6 and the Wallumbilla Compressor Station.",
+    "shortLabel": "Run 7",
+    "labelPosition": "bottom",
+    "labelMinZoom": 7
+  },
+  {
+    "id": "wal-run-9",
+    "name": "Wallumbilla Run 9",
+    "type": "tradepoint",
+    "region": "east",
+    "geoPos": {
+      "lat": -26.628,
+      "lng": 149.085
+    },
+    "description": "Metering run at the Wallumbilla hub. A Darling Downs Pipeline delivery point, and the only one AEMO puts in a delivery zone of its own.",
+    "shortLabel": "Run 9",
+    "labelPosition": "left",
+    "labelMinZoom": 7
+  },
+  {
+    "id": "moomba-lp",
+    "name": "Moomba LP Trade Point",
+    "type": "tradepoint",
+    "region": "east",
+    "geoPos": {
+      "lat": -28.118,
+      "lng": 140.182
+    },
+    "description": "Low pressure point at Moomba: gas enters here from the gas fields and plants. The SWQP receipt side, and the compression receipt point on the Moomba Compression Facility - moving gas from here to the HP side needs compression.",
+    "shortLabel": "MLP",
+    "labelPosition": "left",
+    "labelMinZoom": 5
+  },
+  {
+    "id": "moomba-hp",
+    "name": "Moomba HP Trade Point",
+    "type": "tradepoint",
+    "region": "east",
+    "geoPos": {
+      "lat": -28.082,
+      "lng": 140.218
+    },
+    "description": "High pressure point at Moomba: the outlet of the Moomba Compression Facility, and the receipt point on the SWQP. Gas is sent from here into the adjacent pipelines, and it is one of the SWQP's two park service points.",
+    "shortLabel": "MHP",
+    "labelPosition": "top",
+    "labelMinZoom": 5
+  },
+  {
+    "id": "wilton-tp",
+    "name": "Wilton Trade Point",
+    "type": "tradepoint",
+    "region": "east",
+    "geoPos": {
+      "lat": -34.256,
+      "lng": 150.634
+    },
+    "description": "Notional trade point at the Wilton end of the Moomba to Sydney Pipeline, used as the delivery point for forward haul down the MSP.",
+    "shortLabel": "Wilton TP",
+    "labelPosition": "left",
+    "labelMinZoom": 5
+  },
+  {
+    "id": "culcairn-tp",
+    "name": "Culcairn Trade Point",
+    "type": "tradepoint",
+    "region": "east",
+    "geoPos": {
+      "lat": -35.676,
+      "lng": 147.024
+    },
+    "description": "Notional trade point on the Moomba to Sydney Pipeline at Culcairn, the delivery point for forward haul from the MSP inlet.",
+    "shortLabel": "Culcairn TP",
+    "labelPosition": "left",
+    "labelMinZoom": 5
+  },
+  {
+    "id": "rbp-ipt",
+    "name": "RBP Trade Point (IPT)",
+    "type": "tradepoint",
+    "region": "east",
+    "geoPos": {
+      "lat": -27.098,
+      "lng": 150.912
+    },
+    "description": "Notional interconnect trade point on the Roma to Brisbane Pipeline, allocated to the Kogan receipt and delivery zone. Both a forward haul receipt and a delivery point, and the RBP side of trades into Condamine and the Brisbane STTM.",
+    "shortLabel": "RBP IPT",
+    "labelPosition": "bottom",
+    "labelMinZoom": 5
   }
 ]

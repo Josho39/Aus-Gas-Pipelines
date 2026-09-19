@@ -31,7 +31,16 @@ export function PipelineLabel({
 }: PipelineLabelProps) {
   const color = PIPELINE_COLORS[pipeline.style.color];
   const scale = labelScale(zoom);
-  const { x, y, anchor } = computeLabelPosition(points, 22 * scale * labelSide(pipeline.id));
+  // Which way "22 units perpendicular" actually points depends on which way
+  // the line runs, so an above/below override can't just pick a sign: place
+  // the label, see which side it landed on, and mirror it if it went the
+  // wrong way.
+  const offset = 22 * scale * labelSide(pipeline.id);
+  let placement = computeLabelPosition(points, offset);
+  if (pipeline.labelSide && placement.y > placement.anchor.y !== (pipeline.labelSide === "below")) {
+    placement = computeLabelPosition(points, -offset);
+  }
+  const { x, y, anchor } = placement;
   const fontSize = 9.5 * scale;
   const labelWidth = pipeline.code.length * 5.6 * scale + 9 * scale;
   const labelHeight = 13 * scale;

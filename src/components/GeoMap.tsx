@@ -243,7 +243,14 @@ export function GeoMap({
           {nodes.map((node) => {
             const pos = projected.get(node.id)!;
             const isSelected = selection?.kind === "node" && selection.id === node.id;
-            const isMajor = ALWAYS_LABELLED.has(node.type);
+            // Major types are named at any zoom and minor ones fade in at
+            // the threshold - unless the node names its own zoom to wait
+            // for (see PipelineNode.labelMinZoom).
+            const reveal = node.labelMinZoom
+              ? revealOpacity(zoom, node.labelMinZoom)
+              : ALWAYS_LABELLED.has(node.type)
+                ? 1
+                : minorReveal;
             return (
               <NodeMarker
                 key={node.id}
@@ -252,18 +259,24 @@ export function GeoMap({
                 y={pos.y}
                 onClick={onSelectNode}
                 isSelected={isSelected}
-                showLabel={!NEVER_AUTO_LABELLED.has(node.type) && (isMajor || showMinor)}
-                labelOpacity={isMajor ? 1 : minorReveal}
+                showLabel={!NEVER_AUTO_LABELLED.has(node.type) && reveal > 0}
+                labelOpacity={reveal}
                 zoom={zoom}
               />
             );
           })}
           {pipelines.map((pipeline) => {
-            // Trunk lines (solid) are always named; minor dashed laterals
-            // only get a name label once the viewer zooms in, same rule as
-            // minor facility labels, keeps the default view uncluttered.
-            const showLabel = !pipeline.hideLabel && (!pipeline.style.dashed || showMinor);
-            if (!showLabel) return null;
+            // Trunk lines (solid) are always named; minor dashed laterals,
+            // and any line that opts in with minorLabel, only get a name
+            // once the viewer zooms in, same rule as minor facility labels.
+            // Keeps the default view uncluttered.
+            const isMinor = Boolean(pipeline.style.dashed || pipeline.minorLabel);
+            const labelReveal = pipeline.labelMinZoom
+              ? revealOpacity(zoom, pipeline.labelMinZoom)
+              : isMinor
+                ? minorReveal
+                : 1;
+            if (pipeline.hideLabel || labelReveal === 0) return null;
             return (
               <PipelineLabel
                 key={`label-${pipeline.id}`}
@@ -271,7 +284,7 @@ export function GeoMap({
                 points={pipelinePoints.get(pipeline.id)!}
                 onClick={onSelectPipeline}
                 dimmed={operatorFilter !== null && pipeline.operator !== operatorFilter}
-                fade={pipeline.style.dashed ? minorReveal : 1}
+                fade={labelReveal}
                 zoom={zoom}
               />
             );

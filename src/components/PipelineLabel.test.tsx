@@ -34,6 +34,28 @@ describe("PipelineLabel", () => {
     expect(onClick).toHaveBeenCalledWith("swqp");
   });
 
+  it("pins the label to the side of the line the pipeline asks for", () => {
+    // Which way the perpendicular offset points depends on the line's own
+    // direction, so "below" has to be resolved against the placement rather
+    // than baked into the sign of the offset. The leader line runs from the
+    // anchor on the line (y1) out to the label (y2).
+    const drop = (labelSide?: "above" | "below") => {
+      const { container } = render(
+        <svg>
+          <PipelineLabel
+            pipeline={{ ...pipeline, labelSide }}
+            points={[{ x: 0, y: 0 }, { x: 100, y: 0 }]}
+            onClick={() => {}}
+          />
+        </svg>
+      );
+      const leader = container.querySelector("line")!;
+      return Number(leader.getAttribute("y2")) - Number(leader.getAttribute("y1"));
+    };
+    expect(drop("below")).toBeGreaterThan(0);
+    expect(drop("above")).toBeLessThan(0);
+  });
+
   it("fades when dimmed by an operator filter", () => {
     render(
       <svg>

@@ -20,8 +20,11 @@ describe("selectors", () => {
   it("getConnectedPipelines finds every pipeline touching a node", () => {
     const connected = getConnectedPipelines("wallumbilla", typedPipelines);
     const ids = connected.map((p) => p.id).sort();
+    // The pipelines that physically meet the hub itself. The three that
+    // connect to its trade points instead (SWQP and QGP at WAL HP, RBP at
+    // WAL LP) hang off those nodes, and CRWP off WAL HP.
     expect(ids).toEqual(
-      ["ppl134", "ppl90", "berwyndale-lateral", "talinga-lateral", "wallumbilla-hp-link", "wallumbilla-lp-link"].sort()
+      ["ppl134", "ppl90", "bwp", "ddp", "rcwp", "wallumbilla-hp-link", "wallumbilla-lp-link"].sort()
     );
   });
 

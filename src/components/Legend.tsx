@@ -2,6 +2,7 @@ import { PIPELINE_COLORS, NODE_TYPE_COLORS } from "../lib/colors";
 
 const NODE_TYPE_LABELS: Record<keyof typeof NODE_TYPE_COLORS, string> = {
   hub: "Hub / trading point",
+  tradepoint: "Trade / receipt / delivery point",
   plant: "Gas plant / field",
   compressor: "Compressor station",
   sttm: "STTM (trading market)",

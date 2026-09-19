@@ -203,6 +203,7 @@
       "bri-sttm"
     ],
     "description": "Delivers gas from the Wallumbilla hub east to Brisbane, passing through Dalby and Oakey, the primary supply route for South East Queensland.",
+    "labelSide": "above",
     "operator": "APA Group",
     "lengthKm": 440,
     "style": {
@@ -1448,36 +1449,74 @@
     ]
   },
   {
-    "id": "berwyndale-lateral",
-    "code": "Berwyndale Lat.",
-    "name": "Berwyndale Lateral",
+    "id": "bwp",
+    "code": "BWP",
+    "name": "Berwyndale to Wallumbilla Pipeline",
     "region": "east",
     "path": [
       "berwyndale",
       "wallumbilla"
     ],
-    "description": "Feeds Berwyndale field gas into the Wallumbilla hub area.",
+    "description": "APA's bi-directional line from the Berwyndale coal seam gas fields in the Surat Basin into Wallumbilla, with a second delivery point at Silver Springs. It is one of the physical streams behind both Wallumbilla trade points: BWP on the LP receipt side, BWP Exit on the HP delivery side.",
+    "minorLabel": true,
+    "labelSide": "above",
+    "operator": "APA Group",
     "style": {
-      "color": "slate",
-      "dashed": true
-    },
-    "hideLabel": true
+      "color": "teal"
+    }
   },
   {
-    "id": "talinga-lateral",
-    "code": "Talinga Lat.",
-    "name": "Talinga Lateral",
+    "id": "ddp",
+    "code": "DDP",
+    "name": "Darling Downs Pipeline",
     "region": "east",
     "path": [
+      "spring-gully",
+      "wallumbilla",
       "talinga",
+      "darling-downs-ps"
+    ],
+    "description": "Jemena's bi-directional Spring Gully - Wallumbilla - Darling Downs system, which absorbed the pipeline formerly known as the Spring Gully Pipeline. It meets the hub on three of Wallumbilla's numbered runs: AEMO's register puts Run 6, Run 7 and the Wallumbilla Compressor Station in one delivery zone and Run 9 in its own, and it feeds the Darling Downs stream into the WAL LP trade point. Onward from Wallumbilla it picks up the Atlas lateral and the Talinga plants before terminating at the Darling Downs Power Station.",
+    "minorLabel": true,
+    "operator": "Jemena",
+    "style": {
+      "color": "teal"
+    }
+  },
+  {
+    "id": "rcwp",
+    "code": "RCWP",
+    "name": "Reedy Creek to Wallumbilla Pipeline",
+    "region": "east",
+    "path": [
+      "reedy-creek",
       "wallumbilla"
     ],
-    "description": "Feeds Talinga field gas into the Wallumbilla hub area.",
+    "description": "APA's bi-directional link between the Reedy Creek connection point and Wallumbilla. At the Reedy Creek end AEMO lists it receipting from the APLNG pipeline and the Senex Atlas gas pipeline; at Wallumbilla it runs both ways, appearing as RCWP on the LP receipt side and on the HP delivery side.",
+    "minorLabel": true,
+    "labelSide": "above",
+    "operator": "APA Group",
     "style": {
-      "color": "slate",
-      "dashed": true
-    },
-    "hideLabel": true
+      "color": "teal"
+    }
+  },
+  {
+    "id": "crwp",
+    "code": "CRWP",
+    "name": "Comet Ridge to Wallumbilla Pipeline",
+    "region": "east",
+    "path": [
+      "fairview",
+      "wallumbilla-hp"
+    ],
+    "description": "127 km line between the Fairview gas plant at Comet Ridge and Wallumbilla, owned by the GLNG joint venture. Since GLNG's Gladstone plant started up it has generally flowed north into GLNG's transmission pipeline, and it can back-haul south from the Fairview, Arcadia and Comet Ridge fields to the domestic market and GLNG's Roma underground storage. AEMO lists its WCS2 and WCS3 runs off the WAL HP trade point.",
+    "minorLabel": true,
+    "operator": "GLNG (Santos / Petronas / Total / KOGAS)",
+    "lengthKm": 127,
+    "capacity": "950 TJ/d forward haul, 175 TJ/d back haul",
+    "style": {
+      "color": "teal"
+    }
   },
   {
     "id": "braemar-lateral",
@@ -1489,6 +1528,7 @@
       "windibri"
     ],
     "description": "Supplies the Braemar 1 and 2 power stations off the Windibri junction on the Roma Brisbane Pipeline.",
+    "labelSide": "below",
     "style": {
       "color": "slate",
       "dashed": true
@@ -7363,6 +7403,150 @@
       "wallumbilla-lp"
     ],
     "description": "Links the Wallumbilla umbrella location to its Low Pressure trading point; gas moving from here to the HP side requires compression.",
+    "style": {
+      "color": "slate",
+      "dashed": true
+    },
+    "hideLabel": true
+  },
+  {
+    "id": "wal-run-3-stub",
+    "code": "Run 3",
+    "name": "Wallumbilla Run 3 connection",
+    "region": "east",
+    "path": [
+      "wallumbilla-hp",
+      "wal-run-3"
+    ],
+    "description": "Connects Wallumbilla Run 3 to the high pressure side of the hub.",
+    "style": {
+      "color": "slate",
+      "dashed": true
+    },
+    "hideLabel": true
+  },
+  {
+    "id": "wal-run-6-stub",
+    "code": "Run 6",
+    "name": "Wallumbilla Run 6 connection",
+    "region": "east",
+    "path": [
+      "wallumbilla-lp",
+      "wal-run-6"
+    ],
+    "description": "Connects Wallumbilla Run 6 to the low pressure side of the hub.",
+    "style": {
+      "color": "slate",
+      "dashed": true
+    },
+    "hideLabel": true
+  },
+  {
+    "id": "wal-run-7-stub",
+    "code": "Run 7",
+    "name": "Wallumbilla Run 7 connection",
+    "region": "east",
+    "path": [
+      "wallumbilla-lp",
+      "wal-run-7"
+    ],
+    "description": "Connects Wallumbilla Run 7 to the low pressure side of the hub.",
+    "style": {
+      "color": "slate",
+      "dashed": true
+    },
+    "hideLabel": true
+  },
+  {
+    "id": "wal-run-9-stub",
+    "code": "Run 9",
+    "name": "Wallumbilla Run 9 connection",
+    "region": "east",
+    "path": [
+      "wallumbilla-lp",
+      "wal-run-9"
+    ],
+    "description": "Connects Wallumbilla Run 9 to the low pressure side of the hub.",
+    "style": {
+      "color": "slate",
+      "dashed": true
+    },
+    "hideLabel": true
+  },
+  {
+    "id": "moomba-lp-stub",
+    "code": "MLP",
+    "name": "Moomba LP Trade Point connection",
+    "region": "east",
+    "path": [
+      "moomba-hub",
+      "moomba-lp"
+    ],
+    "description": "Connects Moomba LP Trade Point to the facility it sits on.",
+    "style": {
+      "color": "slate",
+      "dashed": true
+    },
+    "hideLabel": true
+  },
+  {
+    "id": "moomba-hp-stub",
+    "code": "MHP",
+    "name": "Moomba HP Trade Point connection",
+    "region": "east",
+    "path": [
+      "moomba-hub",
+      "moomba-hp"
+    ],
+    "description": "Connects Moomba HP Trade Point to the facility it sits on.",
+    "style": {
+      "color": "slate",
+      "dashed": true
+    },
+    "hideLabel": true
+  },
+  {
+    "id": "wilton-tp-stub",
+    "code": "Wilton TP",
+    "name": "Wilton Trade Point connection",
+    "region": "east",
+    "path": [
+      "wilton",
+      "wilton-tp"
+    ],
+    "description": "Connects Wilton Trade Point to the facility it sits on.",
+    "style": {
+      "color": "slate",
+      "dashed": true
+    },
+    "hideLabel": true
+  },
+  {
+    "id": "culcairn-tp-stub",
+    "code": "Culcairn TP",
+    "name": "Culcairn Trade Point connection",
+    "region": "east",
+    "path": [
+      "culcairn",
+      "culcairn-tp"
+    ],
+    "description": "Connects Culcairn Trade Point to the facility it sits on.",
+    "style": {
+      "color": "slate",
+      "dashed": true
+    },
+    "hideLabel": true
+  },
+  {
+    "id": "rbp-ipt-stub",
+    "code": "RBP IPT",
+    "name": "RBP Trade Point (IPT) connection",
+    "region": "east",
+    "path": [
+      "kogan",
+      "rbp-ipt"
+    ],
+    "description": "Connects RBP Trade Point (IPT) to the facility it sits on.",
     "style": {
       "color": "slate",
       "dashed": true

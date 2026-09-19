@@ -38,8 +38,11 @@ export function NodeMarker({
   const fontSize = 9.5 * scale;
   const labelWidth = label.length * 5.1 * scale + 8 * scale;
   const labelHeight = 13.5 * scale;
-  const gap = 10 * scale;
   const radius = markerRadius(zoom);
+  // Measured out from the dot's edge, not from its centre. A fixed offset
+  // from the centre leaves less and less clear air as the label grows,
+  // and the name ends up crowding the dot it belongs to.
+  const gap = radius + 6 * scale;
   // One rule for the dot's outline rather than its own curve: a constant
   // fraction of the radius keeps the ring visible at every zoom without it
   // ever swallowing the fill, down to a floor where it would vanish.
