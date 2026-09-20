@@ -1,5 +1,5 @@
-import { useMemo, useState } from "react";
-import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+import { useCallback, useMemo, useRef, useState } from "react";
+import { TransformWrapper, TransformComponent, type ReactZoomPanPinchRef } from "react-zoom-pan-pinch";
 import { PipelineLine } from "./PipelineLine";
 import { PipelineLabel } from "./PipelineLabel";
 import { NodeMarker } from "./NodeMarker";
@@ -8,6 +8,7 @@ import { getConnectedNodes } from "../lib/selectors";
 import { projectGeo, computeGeoBounds } from "../lib/geoProject";
 import { AUSTRALIA_OUTLINE } from "../lib/australiaOutline";
 import { quantizeZoom, outlineScale, revealOpacity } from "../lib/zoomScale";
+import { scaleAfterWheel, BUTTON_ZOOM_STEP } from "../lib/wheelZoom";
 import type { PipelineNode, Pipeline, Selection, NodeType } from "../types";
 
 // Pixels per degree of lat/lng, a fixed scale, rather than forcing every
@@ -38,6 +39,17 @@ const NEVER_AUTO_LABELLED: ReadonlySet<NodeType> = new Set(["plant"]);
 // reveal fades in over a few clicks rather than popping.
 const LABEL_ZOOM_THRESHOLD = 1.8;
 
+// Scale 1 already fits the whole map in the viewport, so zooming out past
+// it only adds margin. There is enough room here to pull back and get your
+// bearings without the floor arriving after three clicks of the wheel.
+const MIN_SCALE = 0.35;
+// Deep enough to pick apart a single junction: the Wallumbilla cluster
+// alone holds a hub, two trade points and four metering runs within a few
+// km of each other. Nothing pins its own size in SVG user units any more,
+// so raising the ceiling no longer makes labels and dots balloon out at the
+// far end of the range - see ../lib/zoomScale.
+const MAX_SCALE = 40;
+
 interface GeoMapProps {
   nodes: PipelineNode[];
   pipelines: Pipeline[];
@@ -67,6 +79,30 @@ export function GeoMap({
   // change the zoom - all of a pan, and most frames of an inertial glide -
   // while a real zoom step still re-renders once, at the size it landed on.
   const [zoom, setZoom] = useState(1);
+
+  // Wheel zoom is handled here rather than by the library, which only zooms
+  // additively (see ../lib/wheelZoom). zoomToPoint keeps whatever is under
+  // the cursor under the cursor, which is what the library's own wheel
+  // handler does too.
+  const transform = useRef<ReactZoomPanPinchRef | null>(null);
+  const zoomTo = useCallback((next: number, clientX: number, clientY: number) => {
+    const ref = transform.current;
+    if (!ref) return;
+    const clamped = Math.min(MAX_SCALE, Math.max(MIN_SCALE, next));
+    // No animation: the map re-renders on every transform frame, which cuts
+    // an animated transform short and leaves the view part-way there.
+    ref.zoomToPoint(clamped, clientX, clientY, 0);
+  }, []);
+  const onWheel = useCallback((event: React.WheelEvent) => {
+    const ref = transform.current;
+    if (!ref) return;
+    zoomTo(scaleAfterWheel(ref.instance.state.scale, event.nativeEvent, MIN_SCALE, MAX_SCALE), event.clientX, event.clientY);
+  }, [zoomTo]);
+  const onDoubleClick = useCallback((event: React.MouseEvent) => {
+    const ref = transform.current;
+    if (!ref) return;
+    zoomTo(ref.instance.state.scale * BUTTON_ZOOM_STEP, event.clientX, event.clientY);
+  }, [zoomTo]);
 
   // Minor detail (dashed laterals, minor facility labels) fades in across
   // the threshold instead of the whole set appearing on one scroll click.
@@ -184,29 +220,22 @@ export function GeoMap({
 
   return (
     <TransformWrapper
-      minScale={0.5}
-      // Deep enough to pick apart a single junction: the Wallumbilla
-      // cluster alone holds a hub, two trade points and four metering runs
-      // within a few km of each other. Nothing pins its own size in SVG user units
-      // any more, so raising the ceiling no longer makes labels and dots
-      // balloon out at the far end of the range - see ../lib/zoomScale.
-      maxScale={40}
+      ref={transform}
+      minScale={MIN_SCALE}
+      maxScale={MAX_SCALE}
       initialScale={1}
       limitToBounds={false}
-      // `smooth` (the library's default) multiplies `wheel.step` by the
-      // wheel event's raw deltaY, and a standard mouse sends ~100-120 per
-      // single click, not ~1. That meant one scroll click was zooming by
-      // ~0.08 * 110 ≈ 8.8, an enormous jump disguised by a small-looking
-      // step value. Disabling it makes `step` a fixed amount per wheel
-      // event instead, which is what a "gentle zoom step" actually needs.
-      smooth={false}
-      wheel={{ step: 0.2 }}
-      doubleClick={{ step: 0.7, animationTime: 200 }}
+      wheel={{ disabled: true }}
+      doubleClick={{ disabled: true }}
       panning={{ velocityDisabled: false }}
       onTransform={(_ref, state) => setZoom(quantizeZoom(state.scale))}
     >
       <MapZoomControls />
-      <TransformComponent wrapperStyle={{ width: "100%", height: "100%" }} contentStyle={{ width: "100%", height: "100%" }}>
+      <TransformComponent
+        wrapperProps={{ onWheel, onDoubleClick }}
+        wrapperStyle={{ width: "100%", height: "100%" }}
+        contentStyle={{ width: "100%", height: "100%" }}
+      >
         <svg
           viewBox={`0 0 ${mapWidth} ${mapHeight}`}
           style={{ width: "100%", height: "100%" }}
